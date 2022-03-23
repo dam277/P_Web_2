@@ -7,7 +7,7 @@
 
 <hr>
 
-## the project
+## The project
 This project consist of creating a website as a project of the ETML from Switzerland
 
 There is an application which list some books in a database and display it.<br>
