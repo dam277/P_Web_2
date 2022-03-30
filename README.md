@@ -30,4 +30,4 @@ All the users connected into with an account can add a new book and an appreciat
 - [Damien Loup](https://github.com/dam277)
 - [Thomas Rey](https://github.com/ThomasRey1)
 - [Aurélien Dévaud](https://github.com/AureDeva)
-- [Noa Chouriberry] (he dead)
+- [Noa Chouriberry]
