@@ -1,4 +1,4 @@
-<?php /*
+<?php 
 $cleardb_url        = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server     = $cleardb_url["host"];
 $cleardb_username   = $cleardb_url["user"];
@@ -8,7 +8,7 @@ $cleardb_db         = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $querybuilder = TRUE;
 
-$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);*/
-var_dump($_ENV["DATABASE_URL"]);
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
 echo "test"
 ?>
