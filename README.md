@@ -25,6 +25,7 @@ All the users connected into with an account can add a new book and an appreciat
 
 ## Pipelines
 [lien vers le pipelines](https://app.circleci.com/pipelines/github/dam277/P_Web_2?invite=true)
+[Lien vers le serveur heroku](https://dashboard.heroku.com/apps/p-web-2)
 
 ## Contributors
 - [Damien Loup](https://github.com/dam277)
