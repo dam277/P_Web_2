@@ -1,3 +1,3 @@
 <?php
-echo "hello";
+header("Location: 02-CodeSource/Site/index.php");
 ?>
