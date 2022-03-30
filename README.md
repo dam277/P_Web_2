@@ -3,7 +3,8 @@
 ## Table of Contents
 1. [What's the project ?](#the-project)
 2. [Features](#features)
-5. [Contributors](#contributors)
+3. [Pipelines](#pipelines)
+4. [Contributors](#contributors)
 
 <hr>
 
@@ -21,6 +22,10 @@ All the users connected into with an account can add a new book and an appreciat
   - The list of the books by category
 3. Adding book page
 4. Adding appreciation page
+
+## Pipelines
+- [lien vers le pipelines](https://app.circleci.com/pipelines/github/dam277/P_Web_2?invite=true)
+- [Lien vers le serveur heroku](https://dashboard.heroku.com/apps/p-web-2)
 
 ## Contributors
 - [Damien Loup](https://github.com/dam277)
