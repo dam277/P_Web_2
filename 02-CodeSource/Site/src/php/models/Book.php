@@ -6,6 +6,9 @@
     Description :   Class alowing to manage and define books
 */
 
+/**
+ * Class alowing to manage and define books
+ */
 class Book{
 
     /**
@@ -104,5 +107,4 @@ class Book{
 
     }
 }
-
 ?>
