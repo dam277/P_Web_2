@@ -1,3 +1,13 @@
+<?php
+$bookList = array (
+    "book1" => "../../../resources/book1.jpg",
+    "book2" => "../../../resources/book2.jpg",
+    "book3" => "../../../resources/book3.jpg",
+    "book4" => "../../../resources/book4.jpg",
+    "book5" => "../../../resources/book5.jpg",
+)
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,7 +17,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body>
+<body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')">
     <header>
         <?php
             //include("../../include/header.php");
@@ -20,7 +30,7 @@
                 ACCUEIL
             </h1>
             <a href="https://www.google.ch/">
-                <input class="cursor-pointer bg-opacity-[35%] border-solid border-2 border-black bg-[#C4C4C4] hover:bg-opacity-100 text-black rounded-[30px] text-[20px] h-[40px] w-[200px] sm:text-[25px] sm:h-[50px] sm:w-[250px] md:text-[35px] md:h-[100px] md:w-[350px] lg:text-[50px] lg:h-[150px] lg:w-[500px]" type="button" value="VOIR LES OUVRAGES">
+                <input onclick="moveLeft()" class="cursor-pointer bg-opacity-[35%] border-solid border-2 border-black bg-[#C4C4C4] hover:bg-opacity-100 text-black rounded-[30px] text-[20px] h-[40px] w-[200px] sm:text-[25px] sm:h-[50px] sm:w-[250px] md:text-[35px] md:h-[100px] md:w-[350px] lg:text-[50px] lg:h-[150px] lg:w-[500px]" type="button" value="VOIR LES OUVRAGES">
             </a>
         </div>
         <!-- FIN ==================== TITRE ==================== -->
@@ -45,11 +55,11 @@
                 <!-- LIVRE 1-->
                 <div class="relative bg-[#C4C4C4] w-[33%]">
                     <!-- IMAGE DU LIVRE -->
-                    <img class="w-full h-full" src="../../../resources/book1.jpg" alt="">
+                    <img id="book1" class="max-h-[490px] w-full h-full" src="<?= $bookList['book1'] ?>" alt="livre 1">
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="absolute inset-0">
-                        <input type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black h-[25px] w-[25px] sm:h-[35px] sm:w-[35px] md:h-[55px] md:w-[55px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/left.jpg')" value="">
+                        <input onclick="moveLeft()" type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black h-[25px] w-[25px] sm:h-[35px] sm:w-[35px] md:h-[55px] md:w-[55px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/left.jpg')" value="">
                     </div>
                 </div>
                 <!-- LIVRE 1-->
@@ -57,7 +67,7 @@
                 <!-- DETAILS DU LIVRE 2-->
                 <div class="relative bg-[#C4C4C4] w-[33%]">
                     <!-- IMAGE DU LIVRE -->
-                    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('../../../resources/book2.jpg')"></div>
+                    <img id="book2" class="absolute max-h-[490px] h-full inset-0 bg-cover bg-center z-0" src="<?= $bookList['book2'] ?>"  alt="livre 2" >
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex flex-col justify-center items-center text-black font-semibold text-[11px] sm:text-[15px] md:text-[18px] lg:text-[25px]">
@@ -74,12 +84,12 @@
                 <!-- LIVRE 3-->
                 <div class="relative bg-[#C4C4C4] w-[33%] text-right">
                     <!-- IMAGE DU LIVRE -->
-                    <img class="w-full h-full" src="../../../resources/book3.jpg" alt="">
+                    <img id="book3" class="w-full max-h-[490px] h-full" src="<?= $bookList['book3'] ?>" alt="livre 3">
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="absolute inset-0">
                         <!-- BOUTON TOURNER A DROITE -->
-                        <input type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black ml-[-25px] h-[25px] w-[25px] sm:ml-[-35px] sm:h-[35px] sm:w-[35px] md:ml-[-55px] md:h-[55px] md:w-[55px] lg:ml-[-80px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/right.jpg')" value="">
+                        <input onclick="moveRight()" type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black ml-[-25px] h-[25px] w-[25px] sm:ml-[-35px] sm:h-[35px] sm:w-[35px] md:ml-[-55px] md:h-[55px] md:w-[55px] lg:ml-[-80px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/right.jpg')" value="">
                     </div>
                 </div>
                 <!-- LIVRE 3-->
@@ -132,4 +142,5 @@
     </footer>
 </body>
 </html>
-<!-- absolute text-black bg-blue-500 hover:bg-blue-700 w-[200px] h-[50px] -->
+
+<script src="../../js/imageScrolling.js"></script>
