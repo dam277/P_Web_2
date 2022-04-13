@@ -6,6 +6,8 @@
     Description :   Class representing a session of an user
 */
 
+require_once("Database.php");
+
 /**
  * Class representing a session of an user
  */
@@ -23,7 +25,7 @@ class Session{
      * Delete the session with the corresponding ID
      * @param $sessionId => id of the session
      */
-    public static function delete(int $sessionId){
+    public static function delete(int $sessionId) : void{
 
     }
 

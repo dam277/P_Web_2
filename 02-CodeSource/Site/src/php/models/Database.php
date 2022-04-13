@@ -19,8 +19,8 @@ class Database {
      */
     public static function getDatabase() : Database{
         if (Database::$instance == false){
-            $serverInfo = json_decode(file_get_contents("../config.json"),true, 2, JSON_OBJECT_AS_ARRAY);
-            $login = json_decode(file_get_contents("../secret.json"),true, 2, JSON_OBJECT_AS_ARRAY);
+            $serverInfo = json_decode(file_get_contents("secure/config.json"),true, 2, JSON_OBJECT_AS_ARRAY);
+            $login = json_decode(file_get_contents("secure/secret.json"),true, 2, JSON_OBJECT_AS_ARRAY);
             Database::$instance = new Database(
                 "mysql:host=".$serverInfo["host"].";dbname=".$serverInfo["databaseName"].";charset=".$serverInfo["charset"],
                 $login["username"],
@@ -55,7 +55,7 @@ class Database {
      * @param $query => query to execute
      * @return array result of the query, an associative array
      */
-    public function querySimpleExecute($query){
+    public function querySimpleExecute($query) : array{
 
         $req = $this->connector->query($query);
         return $this->formatData($req);
@@ -67,7 +67,7 @@ class Database {
      * @param $binds => binds of the query
      * @return array the result of the query as an assiosiative array
      */
-    public function queryPrepareExecute($query, $binds){
+    public function queryPrepareExecute($query, $binds) : array{
         $req = $this->connector->prepare($query);
         //bind
         foreach ($binds as $bind){
@@ -83,15 +83,16 @@ class Database {
      * @param $req => req to format
      * @return array the fetched array
      */
-    private function formatData($req){
+    private function formatData($req) : array{
 
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
      * Unset data
+     * @param $req => request to close
      */
-    public function unsetData($req){
+    public function unsetData($req) : void{
 
         $req->closeCursor();
     }

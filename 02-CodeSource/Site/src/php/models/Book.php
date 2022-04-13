@@ -6,6 +6,10 @@
     Description :   Class alowing to manage and define books
 */
 
+require_once("Database.php");
+require_once("Category.php");
+require_once("Appreciation.php");
+
 /**
  * Class alowing to manage and define books
  */
@@ -16,7 +20,7 @@ class Book{
      * @param $bookId => id of the book to search 
      * @return Book returns the book found
      */
-    static public function getBookByIs(int $bookId) : Book{
+    static public function getBookById(int $bookId) : Book{
 
     }
 
@@ -24,7 +28,7 @@ class Book{
      * Delete the book with the corresponding id from the database
      * @param $bookId => id of the book to delete
      */
-    static public function delete(int $bookId){
+    static public function delete(int $bookId) : void{
 
     }
 
@@ -88,7 +92,23 @@ class Book{
      * @return array returns an array of categories
      */
     public function getCategories() : array{
+        //select the categories
+        $assocCategories = Database::getDatabase()->queryPrepareExecute(
+            "SELECT * FROM `t_categorize` INNER JOIN t_category ON t_category.idCategory = t_categorize.idCategory WHERE t_categorize.idBook = :id", 
+            [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]]
+        );
 
+        //declare the array of categories
+        $categories = [];
+
+        //add the books to a list
+        foreach ($assocCategories as $category){
+            $categories[] = new Category(
+                $category["idCategory"], $category["catName"]
+            );
+        }
+
+        return $categories;
     }
 
     /**
@@ -96,7 +116,24 @@ class Book{
      * @return array returns the appreciations of the book
      */
     public function getAppreciations() : array{
+        //select the appreciations
+        $assocAppreciations = Database::getDatabase()->queryPrepareExecute(
+            "SELECT * FROM t_appreciation WHERE t_appreciation.idUser = :id", 
+            [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]]
+        );
 
+        //declare the array of appreciations
+        $appreciations = [];
+
+        //add the appreciations to a list
+        foreach ($assocAppreciations as $appreciation){
+            $appreciations[] = new Appreciation(
+                $appreciation["idAppreciation"], $appreciation["appEvaluation"], 
+                $appreciation["idUser"], $appreciation["idBook"]
+            );
+        }
+
+        return $appreciations;
     }
 
     /**

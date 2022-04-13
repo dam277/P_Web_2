@@ -6,6 +6,8 @@
     Description :   Defines an evaluation of a book by a user and alow it's management in the database
 */
 
+require_once("Database.php");
+
 /**
  * Defines an evaluation of a book by a user and alow it's management in the database
  */
@@ -16,15 +18,35 @@ class Appreciation{
      * @return Appreciation returns the appreciation with the corresponding ID
      */
     public static function getAppreciationById(int $appreciationId) : Appreciation{
+        //select the appreciations
+        $assocAppreciations = Database::getDatabase()->queryPrepareExecute(
+            "SELECT * FROM t_appreciation WHERE t_appreciation.idAppreciation = :id", 
+            [["param"=>"id", "value"=>$appreciationId, "type" => PDO::PARAM_INT]]
+        );
 
+        //declare the array of appreciations
+        $appreciations = [];
+
+        //add the appreciations to a list
+        foreach ($assocAppreciations as $appreciation){
+            $appreciations[] = new Appreciation(
+                $appreciation["idAppreciation"], $appreciation["appEvaluation"], 
+                $appreciation["idUser"], $appreciation["idBook"]
+            );
+        }
+
+        return $appreciations[0];
     }
 
     /**
      * Delete the appreciation with the corresponding ID
      * @param $appreciationId => id of the appreciation
      */
-    public static function delete(int $appreciationId){
-
+    public static function delete(int $appreciationId) : void{
+        Database::getDatabase()->queryPrepareExecute(
+            "DELETE FROM `t_appreciation` WHERE `t_appreciation`.`idAppreciation` = :id", 
+            [["param"=>"id", "value"=>$appreciationId, "type" => PDO::PARAM_INT]]
+        );
     }
 
     /**
@@ -47,7 +69,14 @@ class Appreciation{
      * @return bool returns true if the operation was successful
      */
     public function insert() : bool{
-
+        return (bool)Database::getDatabase()->queryPrepareExecute(
+            "INSERT INTO `t_appreciation` (`idAppreciation`, `appEvaluation`, `idUser`, `idBook`) VALUES (NULL, :eval, :userId, :bookId)", 
+            [
+                ["param"=>"eval", "value"=>$this->evaluation, "type" => PDO::PARAM_INT],
+                ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT],
+                ["param"=>"bookId", "value"=>$this->bookId, "type" => PDO::PARAM_INT]
+            ]
+        );
     }
 
     /**
