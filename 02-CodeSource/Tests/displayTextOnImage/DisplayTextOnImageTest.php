@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="w-64 h-64 bg-red-100 relative">
-        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3c/JumanjiTheNextLevelTeaserPoster.jpg')"></div>
+        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('book1.jpg')"></div>
         <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 justify-center items-center text-6xl text-white font-semibold">
             <input type="button" class="cursor-pointer hover:bg-opacity-[100%] rounded-full absolute z-30 bg-[#C4C4C4] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
         </div>
@@ -167,7 +167,87 @@
         </div>
         <!-- FIN ==================== DERNIERS OUVRAGES AJOUTES ==================== -->
 
+        <br>
+        <br>
+        <br>
 
+ <!-- DEBUT ==================== DERNIERS OUVRAGES AJOUTES ==================== -->
+        <?php
+
+        $bookList = array (
+            "book1" => "book1.jpg",
+            "book2" => "book2.jpg",
+            "book3" => "book3.jpg",
+            "book4" => "book4.jpg",
+            "book5" => "book5.jpg",
+        )
+
+        ?>
+
+        <div class="mt-[75px]">
+            <h2 class="font-bold text-[30px] sm:text-[40px] md:text-[50px] lg:text-[65px] text-center">
+                DERNIERS OUVRAGES AJOUTES
+            </h2>
+
+            <!-- LIGNE EN DESSOUS DU TITRE -->
+            <div class="flex mt-[50px] mb-[50px]">
+                <div class=" w-[35%]"></div>
+                <div class= "w-[29%] border-5 border-solid border-2 border-black"></div>
+                <div class=" w-[35%]"></div>
+            </div>
+            <br>
+
+            <!-- LISTE DES DERNIERS OUVRAGES AJOUTES -->
+            <div class="ml-[20%] mr-[20%] border-solid border-2 border-black flex justify-center">
+
+                <!-- LIVRE 1-->
+                <div class="relative bg-[#C4C4C4] w-[33%]">
+                    <!-- IMAGE DU LIVRE -->
+                    <img class="w-full h-full" src="<?= $bookList["book1"] ?>" alt="livre 1">
+                    
+                    <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
+                    <div class="absolute inset-0">
+                        <input onclick="MoveLeft(<?=$bookList?>)" type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black h-[25px] w-[25px] sm:h-[35px] sm:w-[35px] md:h-[55px] md:w-[55px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('left.jpg')" value="">
+                    </div>
+                </div>
+                <!-- LIVRE 1-->
+
+                <!-- DETAILS DU LIVRE 2-->
+                <div class="relative bg-[#C4C4C4] w-[33%]">
+                    <!-- IMAGE DU LIVRE -->
+                    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('book2.jpg')"></div>
+                    
+                    <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
+                    <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex flex-col justify-center items-center text-black font-semibold text-[11px] sm:text-[15px] md:text-[18px] lg:text-[25px]">
+                        <ul class="z-20">
+                            <li>Nom : $artName</li>
+                            <li>Auteur : $author</li>
+                        </ul>
+                        <div class="absolute h-full w-full bg-[#C4C4C4] opacity-70 z-10"></div>
+                        <input type="button" class="mt-[90%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
+                    </div>
+                </div>
+                <!-- DETAILS DU LIVRE 2-->
+                
+                <!-- LIVRE 3-->
+                <div class="relative bg-[#C4C4C4] w-[33%] text-right">
+                    <!-- IMAGE DU LIVRE -->
+                    <img class="w-full h-full" src="book3.jpg" alt="livre 3">
+                    
+                    <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
+                    <div class="absolute inset-0">
+                        <!-- BOUTON TOURNER A DROITE -->
+                        <input onclick="MoveRight(<?=$bookList?>)" type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black ml-[-25px] h-[25px] w-[25px] sm:ml-[-35px] sm:h-[35px] sm:w-[35px] md:ml-[-55px] md:h-[55px] md:w-[55px] lg:ml-[-80px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('right.jpg')" value="">
+                    </div>
+                </div>
+                <!-- LIVRE 3-->
+            </div>
+        </div>
+        <!-- FIN ==================== DERNIERS OUVRAGES AJOUTES ==================== -->
+
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <br>
@@ -177,3 +257,5 @@
         <br>
 </body>
 </html>
+
+<script src="changeImage.js"></script>

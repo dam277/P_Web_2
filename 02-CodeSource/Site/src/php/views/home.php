@@ -42,11 +42,16 @@
             <!-- LISTE DES DERNIERS OUVRAGES AJOUTES -->
             <div class="ml-[20%] mr-[20%] border-solid border-2 border-black flex justify-center">
 
-                <!-- BOUTON TOURNER A GAUCHE -->
-                <input type="button" value="">
-
                 <!-- LIVRE 1-->
-                <img class="w-[33%]" src="../../../resources/book1.jpg" alt="">
+                <div class="relative bg-[#C4C4C4] w-[33%]">
+                    <!-- IMAGE DU LIVRE -->
+                    <img class="w-full h-full" src="../../../resources/book1.jpg" alt="">
+                    
+                    <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
+                    <div class="absolute inset-0">
+                        <input type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black h-[25px] w-[25px] sm:h-[35px] sm:w-[35px] md:h-[55px] md:w-[55px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/left.jpg')" value="">
+                    </div>
+                </div>
                 <!-- LIVRE 1-->
 
                 <!-- DETAILS DU LIVRE 2-->
@@ -67,11 +72,17 @@
                 <!-- DETAILS DU LIVRE 2-->
                 
                 <!-- LIVRE 3-->
-                <img class="w-[33%]" src="../../../resources/book3.jpg" alt="">
+                <div class="relative bg-[#C4C4C4] w-[33%] text-right">
+                    <!-- IMAGE DU LIVRE -->
+                    <img class="w-full h-full" src="../../../resources/book3.jpg" alt="">
+                    
+                    <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
+                    <div class="absolute inset-0">
+                        <!-- BOUTON TOURNER A DROITE -->
+                        <input type="button" class="mt-[50%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute bg-[#656565] bg-opacity-[40%] border-solid border-2 border-black ml-[-25px] h-[25px] w-[25px] sm:ml-[-35px] sm:h-[35px] sm:w-[35px] md:ml-[-55px] md:h-[55px] md:w-[55px] lg:ml-[-80px] lg:h-[80px] lg:w-[80px] bg-cover" style="background-image: url('../../../resources/right.jpg')" value="">
+                    </div>
+                </div>
                 <!-- LIVRE 3-->
-
-                 <!-- BOUTON TOURNER A DROITE -->
-                <input type="button" value="">
             </div>
         </div>
         <!-- FIN ==================== DERNIERS OUVRAGES AJOUTES ==================== -->
