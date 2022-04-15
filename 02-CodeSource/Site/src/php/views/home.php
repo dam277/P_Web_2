@@ -67,7 +67,7 @@ $bookList = array (
                 <!-- DETAILS DU LIVRE 2-->
                 <div class="relative bg-[#C4C4C4] w-[33%]">
                     <!-- IMAGE DU LIVRE -->
-                    <img id="book2" class="absolute max-h-[490px] h-full inset-0 bg-cover bg-center z-0" src="<?= $bookList['book2'] ?>"  alt="livre 2" >
+                    <img id="book2" class="absolute max-h-[490px] w-full h-full inset-0 bg-cover bg-center z-0" src="<?= $bookList['book2'] ?>"  alt="livre 2" >
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex flex-col justify-center items-center text-black font-semibold text-[11px] sm:text-[15px] md:text-[18px] lg:text-[25px]">
@@ -76,7 +76,9 @@ $bookList = array (
                             <li>Auteur : $author</li>
                         </ul>
                         <div class="absolute h-full w-full bg-[#C4C4C4] opacity-70 z-10"></div>
-                        <input type="button" class="mt-[90%] cursor-pointer hover:bg-opacity-[100%] rounded-full absolute z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
+                        <a href="https://www.google.ch/">
+                            <input type="button" class="mt-[55%] cursor-pointer hover:bg-opacity-[100%] rounded-full relative z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
+                        </a>
                     </div>
                 </div>
                 <!-- DETAILS DU LIVRE 2-->
