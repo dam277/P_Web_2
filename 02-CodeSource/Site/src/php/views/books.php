@@ -125,8 +125,16 @@ $bookList = array (
 
                     <div class="w-[40%] grid place-items-center">
                         <P>Moyenne</P>
-                        <img src="" alt="Note">
-                        <input class="w-[60%] h-[75%] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" type="button" value="Details">
+                        <div class="flex">
+                            <img class="mt-[-50px] w-[30px] h-[30px]" src="../../../resources/rateStarChecked.jpg" alt="Note">
+                            <img class="mt-[-50px] w-[30px] h-[30px]" src="../../../resources/rateStarChecked.jpg" alt="Note">
+                            <img class="mt-[-50px] w-[30px] h-[30px]" src="../../../resources/rateStarChecked.jpg" alt="Note">
+                            <img class="mt-[-50px] w-[30px] h-[30px]" src="../../../resources/rateStarChecked.jpg" alt="Note">
+                            <img class="mt-[-50px] w-[30px] h-[30px]" src="../../../resources/rateStarNotChecked.jpg" alt="Note">
+                        </div>
+                        <a class="grid place-items-center w-[60%] h-[75%] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="">
+                            <input class="cursor-pointer"  type="button" value="Details">
+                        </a>
                         <aside>Posté par :</aside>
                     </div>
 
