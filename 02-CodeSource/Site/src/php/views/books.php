@@ -113,41 +113,41 @@ $bookList = array_values($bookList);
                 <input type="button" value="Moyenne [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note1" id="note1">
-                            1
+                            <label for="note1">1</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note1-5" id="note1-5">
-                            1.5
+                            <label for="note1-5">1.5</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note2" id="note2">
-                            2
+                            <label for="note2">2</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note2-5" id="note2-5">
-                            2.5
+                            <label for="note2-5">2.5</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note3" id="note3">
-                            3
+                            <label for="note3">3</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note3-5" id="note3-5">
-                            3.5
+                            <label for="note3-5">3.5</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note4" id="note4">
-                            4
+                            <label for="note4">4</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note4-5" id="note4-5">
-                            4.5
+                            <label for="note4-5">4.5</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note5" id="note5">
-                            5
+                            <label for="note5">5</label>
                         </li>
                     </ul>
                 </div>
@@ -156,21 +156,21 @@ $bookList = array_values($bookList);
                 <input type="button" value="Catégorie [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="manga" id="manga">
-                            Manga
+                            <label for="manga">Manga</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="BD" id="BD">
-                            Bande dessinée
+                            <label for="BD">Bande dessinée</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="roman" id="roman">
-                            Roman
+                            <label for="roman">Roman</label>
                         </li>
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="book" id="book">
-                            Livre
+                            <label for="book">Livre</label>
                         </li>
                     </ul>
                 </div>
@@ -178,17 +178,19 @@ $bookList = array_values($bookList);
                 <!-- PAGES -->
                 <input type="button" value="Pages [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
-                    <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-[1px] border-solid">
-                        Min<input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="0">
-                        Max<input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="maxPages" id="maxPages" value="9999">
+                    <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                        <label for="minPages">Min</label>
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="0">
+                        <label for="maxPages">Max</label>
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="maxPages" id="maxPages" value="9999">
                     </div>
                 </div>
 
                 <!-- EDITION -->
                 <input type="button" value="Edition [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="mb-[10px] bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
-                    <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] cursor-pointer relative z-0 text-[18px] border-black border-[1px] border-solid">
-                        <p class="underline">Année d'édition</p>
+                    <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                        <label for="edition" class="underline">Année d'édition</label>
                         <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="edition" id="edition" value="1900">
                     </div>
                 </div>
@@ -197,10 +199,10 @@ $bookList = array_values($bookList);
             <!-- RECHERCHE DE LIVRES -->
             <div class="w-[100%] border-2 md:w-[80%] lg:w-[80%] xl:w-[80%] md:border-l-2 lg:border-l-2 xl:border-l-2 border-solid border-black">
                 <div class="grid place-items-center">
-                    <p>Rechercher par nom d'ouvrage, éditeur ou auteur</p>
+                    <label for="searchBar">Rechercher par nom d'ouvrage, éditeur ou auteur</label>
                     <!-- BARRE DE RECHERCHE -->
                     <div class="relative w-[80%] h-[35px]">
-                        <input class="absolute h-full w-full border-solid border-2 border-black" type="text" name="searchBar" id="search">
+                        <input class="absolute h-full w-full border-solid border-2 border-black" type="text" name="searchBar" id="searchBar">
                         <input class="absolute ml-[100%] w-[35px] h-[35px] border-solid border-2 border-black bg-cover bg-center cursor-pointer hover:bg-[#cdcdcd]" style="background-image: url('../../../resources/search.jpg');" id="submit" type="submit" value="">
                     </div>
                     <p>Resultat de la recherche :</p>
