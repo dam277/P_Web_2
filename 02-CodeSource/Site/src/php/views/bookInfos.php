@@ -94,8 +94,8 @@ $author = explode(" ", $book["author"]);
             }
 
             
-            ?>
-        </div>
+            ?> 
+            </div>
 
         <div class="flex">
                 <aside class="bg-[#D3E0E3] w-[50%]">
