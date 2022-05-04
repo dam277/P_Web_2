@@ -2,14 +2,19 @@
 $page;  //Page actuelle 
 
 //Regarde quelle page on est
-if ($_GET["page"]) {
+if ($_GET["page"]) 
+{
     $page = $_GET["page"];
-} else {
+} 
+else 
+{
     header("location: books.php?page=1");
 }
 
-$bookList = array(
-    "book1" => array(
+$bookList = array
+(
+    "book1" => array
+    (
         "image" => "../../../resources/book1.jpg",
         "name" => "livre1",
         "category" => "manga",
@@ -19,7 +24,8 @@ $bookList = array(
         "edition" => "2012",
         "average" => 4
     ),
-    "book2" => array(
+    "book2" => array
+    (
         "image" => "../../../resources/book2.jpg",
         "name" => "livre2",
         "category" => "roman",
@@ -29,7 +35,8 @@ $bookList = array(
         "edition" => "2017",
         "average" => 4.3
     ),
-    "book3" => array(
+    "book3" => array
+    (
         "image" => "../../../resources/book3.jpg",
         "name" => "livre3",
         "category" => "manga",
@@ -39,7 +46,8 @@ $bookList = array(
         "edition" => "2013",
         "average" => 4.8
     ),
-    "book4" => array(
+    "book4" => array
+    (
         "image" => "../../../resources/book4.jpg",
         "name" => "livre4",
         "category" => "manga",
@@ -49,7 +57,8 @@ $bookList = array(
         "edition" => "2012",
         "average" => 2.6
     ),
-    "book5" => array(
+    "book5" => array
+    (
         "image" => "../../../resources/book5.jpg",
         "name" => "livre5",
         "category" => "roman",
@@ -59,7 +68,8 @@ $bookList = array(
         "edition" => "1999",
         "average" => 1.2
     ),
-    "book6" => array(
+    "book6" => array
+    (
         "image" => "../../../resources/book6.jpg",
         "name" => "livre6",
         "category" => "livre",
@@ -70,11 +80,6 @@ $bookList = array(
         "average" => 2.8
     )
 );
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $bookList = array_values($bookList);
 
 ?>
