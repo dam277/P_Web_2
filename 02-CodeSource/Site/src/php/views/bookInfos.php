@@ -55,6 +55,31 @@ $author = explode(" ", $book["author"]);
             </div>
             <p class="mt-[75px] mb-[30px]">Posté par : Personne</p>
         </div>
+
+        <div class="flex">
+                <aside class="bg-[#D3E0E3] w-[50%]">
+                    <p>
+                        Texte
+                    </p>
+                </aside>
+                <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
+            </div>
+            <div class="flex">
+                <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
+                <aside class="w-[50%] bg-[#D3E0E3]">
+                    <p>
+                        Texte
+                    </p>
+                </aside>
+            </div>
+            <div class="flex">
+                <aside class="w-[50%] bg-[#D3E0E3]">
+                    <p>
+                        Texte
+                    </p>
+                </aside>
+                <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
+            </div>
     </main>
     <footer>
         <?php
