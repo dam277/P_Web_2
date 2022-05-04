@@ -54,6 +54,47 @@ $author = explode(" ", $book["author"]);
                 </ul>
             </div>
             <p class="mt-[75px] mb-[30px]">Posté par : Personne</p>
+            <?php
+            //Defini le nombre d'étoiles à afficher
+            if ($book["average"] < 1.25) 
+            {
+                $goldStars = 1;
+            } 
+            elseif ($book["average"] < 1.75) 
+            {
+                $goldStars = 1.5;
+            } 
+            elseif ($book["average"] < 2.25) 
+            {
+                $goldStars = 2;
+            } 
+            elseif ($book["average"] < 2.75) 
+            {
+                $goldStars = 2.5;
+            } 
+            elseif ($book["average"] < 3.25) 
+            {
+                $goldStars = 3;
+            } 
+            elseif ($book["average"] < 3.75) 
+            {
+                $goldStars = 3.5;
+            } 
+            elseif ($book["average"] < 4.25) 
+            {
+                $goldStars = 4;
+            } 
+            elseif ($book["average"] < 4.75) 
+            {
+                $goldStars = 4.5;
+            } 
+            else 
+            {
+                $goldStars = 5;
+            }
+
+            
+            ?>
         </div>
 
         <div class="flex">
