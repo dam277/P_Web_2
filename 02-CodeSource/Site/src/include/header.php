@@ -23,28 +23,28 @@
 
 
 
-<nav class="z-[12] mb-[40px] text-[25.6px] w-full fixed bg-white bg-opacity-[0.95] h-[50px] text-black text-center border-b-2 border-black">
+<nav class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700 z-[12] mb-[40px] text-[25.6px] w-full fixed bg-white bg-opacity-[0.95] h-[50px] text-black text-center border-b-2 border-black">
     <div class="block absolute left-[20px] h-4 w-[300px] m-auto">
-        <input class="block absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox" name="" id="" checked>
-        <div class="block h-[4px] w-[35px] absolute z-[2] top-[17px] rounded-[10px] bg-black origin-[0%_0%] duration-[0.4s] peer-checked:rotate-[35deg]"></div>
-        <div class="block h-[4px] w-[35px] absolute z-[2] top-[26.5px] rounded-[10px] bg-black duration-[0.2s] peer-checked:scale-y-0"></div>
-        <div class="block h-[4px] w-[35px] absolute z-[2] top-[36px] rounded-[10px] bg-black origin-[0%_100%] duration-[0.4s] peer-checked:rotate-[-35deg]"></div>
-        <ul class="pt-[100px] bg-white h-[100vh] w-[300px] right-[300px] translate-x-[-150%] ml-[0px] pl-[50px] duration-[0.5s] shadow-2xl peer-checked:translate-x-[-55px]">
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Accueil</a></li>
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#about">Ouvrages</a>
+        <input class="block absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox">
+        <div class="block h-[4px] w-[35px] absolute z-[2] top-[17px] rounded-[10px] bg-black origin-[0%_0%] duration-[0.4s] peer-checked:rotate-[35deg] dark:bg-gray-400"></div>
+        <div class="block h-[4px] w-[35px] absolute z-[2] top-[26.5px] rounded-[10px] bg-black duration-[0.2s] peer-checked:scale-y-0 dark:bg-gray-400"></div>
+        <div class="block h-[4px] w-[35px] absolute z-[2] top-[36px] rounded-[10px] bg-black origin-[0%_100%] duration-[0.4s] peer-checked:rotate-[-35deg] dark:bg-gray-400"></div>
+        <ul class="pt-[100px] bg-white h-[100vh] w-[300px] right-[300px] translate-x-[-150%] ml-[0px] pl-[50px] duration-[0.5s] shadow-2xl peer-checked:translate-x-[-55px] dark:bg-gray-700">
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Accueil</a></li>
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#about">Ouvrages</a>
                 <ul>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Ajouter un ouvrage</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Tous les ouvrages</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Ajouter un ouvrage</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Tous les ouvrages</a></li>
                 </ul>
             </li>
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#food">Nous contacter</a></li>
-            <hr>
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#food-menu">Compte</a>
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#food">Nous contacter</a></li>
+            <hr class="dark:bg-gray-400">
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#food-menu">Compte</a>
                 <ul>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Se connecter</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">S'inscrire</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Se déconnecter</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="text-gray-400 font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Voir mon compte</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Se connecter</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">S'inscrire</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Se déconnecter</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="#home">Voir mon compte</a></li>
                 </ul>
             </li>
         </ul>
@@ -60,10 +60,9 @@
     </button>
     Passion lecture
     <div class="absolute right-[5%] h-4 w-[300px] top-[0%]">
-        <input class="absolute h-[35px] w-[35px] top-[10px] z-[5] opacsity-0 peer" type="checkbox" name="" id="" checked>
-        <!-- 
-        <img src="../../resources/user.png" alt="Icon user">-->
-        <ul class="rounded-b-xl relative left-[20px] top-[-5px] bg-white duration-[0.5s] shadow-2xl opacity-0 peer-checked:translate-y-[50px] peer-checked:opacity-100">
+        <input class="absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox">
+        <img src="../../resources/user.png" alt="Icon user" class="absolute">
+        <ul class="rounded-b-xl relative left-[20px] top-[-5px] bg-white duration-[0.5s] invisible shadow-2xl opacity-0 peer-checked:visible peer-checked:translate-y-[50px] peer-checked:opacity-100 dark:text-gray-400 dark:bg-gray-700">
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Se connecter</button></a></li>
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">S'inscrire</button></a></li>
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Se déconnecter</button></a></li>
