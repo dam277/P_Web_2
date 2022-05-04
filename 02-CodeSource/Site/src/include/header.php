@@ -61,7 +61,7 @@
     Passion lecture
     <div class="absolute right-[5%] h-4 w-[300px] top-[0%]">
         <input class="absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox">
-        <img src="../../resources/user.png" alt="Icon user" class="absolute">
+        <img src="../../../resources/user.png" alt="Icon user" class="absolute top-[10px] h-[35px] w-[35px] left-[150px]">
         <ul class="rounded-b-xl relative left-[20px] top-[-5px] bg-white duration-[0.5s] invisible shadow-2xl opacity-0 peer-checked:visible peer-checked:translate-y-[50px] peer-checked:opacity-100 dark:text-gray-400 dark:bg-gray-700">
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Se connecter</button></a></li>
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">S'inscrire</button></a></li>
