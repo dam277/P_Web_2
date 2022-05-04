@@ -113,38 +113,47 @@ $bookList = array_values($bookList);
                 <input type="button" value="Moyenne [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
+                        <!-- NOTE 1 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note1" id="note1">
                             <label for="note1">1</label>
                         </li>
+                        <!-- NOTE 1.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note1-5" id="note1-5">
                             <label for="note1-5">1.5</label>
                         </li>
+                        <!-- NOTE 2 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note2" id="note2">
                             <label for="note2">2</label>
                         </li>
+                        <!-- NOTE 2.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note2-5" id="note2-5">
                             <label for="note2-5">2.5</label>
                         </li>
+                        <!-- NOTE 3 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note3" id="note3">
                             <label for="note3">3</label>
                         </li>
+                        <!-- NOTE 3.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note3-5" id="note3-5">
                             <label for="note3-5">3.5</label>
                         </li>
+                        <!-- NOTE 4 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note4" id="note4">
                             <label for="note4">4</label>
                         </li>
+                        <!-- NOTE 4.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note4-5" id="note4-5">
                             <label for="note4-5">4.5</label>
                         </li>
+                        <!-- NOTE 5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="note5" id="note5">
                             <label for="note5">5</label>
@@ -156,18 +165,22 @@ $bookList = array_values($bookList);
                 <input type="button" value="Catégorie [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
+                        <!-- MANGA -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="manga" id="manga">
                             <label for="manga">Manga</label>
                         </li>
+                        <!-- BANDE DESSINEE -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="BD" id="BD">
                             <label for="BD">Bande dessinée</label>
                         </li>
+                        <!-- ROMAN -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
                             <input class="ml-[10px]" type="checkbox" name="roman" id="roman">
                             <label for="roman">Roman</label>
                         </li>
+                        <!-- LIVRE -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
                             <input class="ml-[10px]" type="checkbox" name="book" id="book">
                             <label for="book">Livre</label>
@@ -179,10 +192,12 @@ $bookList = array_values($bookList);
                 <input type="button" value="Pages [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                        <!-- MIN -->
                         <label for="minPages">Min</label>
-                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="0">
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="">
+                        <!-- MAX -->
                         <label for="maxPages">Max</label>
-                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="maxPages" id="maxPages" value="9999">
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="maxPages" id="maxPages" value="">
                     </div>
                 </div>
 
@@ -190,8 +205,9 @@ $bookList = array_values($bookList);
                 <input type="button" value="Edition [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
                 <div class="mb-[10px] bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                        <!-- ANNEE D'EDITION -->
                         <label for="edition" class="underline">Année d'édition</label>
-                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="edition" id="edition" value="1900">
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="edition" id="edition" value="">
                     </div>
                 </div>
             </aside>
@@ -222,7 +238,7 @@ $bookList = array_values($bookList);
                 {
                     if (!isset($bookList[$i])) 
                     {
-
+                        # Arret de l'affichage
                     } 
                     else 
                     {
@@ -340,10 +356,28 @@ $bookList = array_values($bookList);
                 <div class="grid place-items-center">
                     <!-- NAVIGATION DES PAGES -->
                     <nav class="flex mt-[30px] mb-[30px]">
-                        <!-- Bouton de retour => ALler une page en arrière -->
-                        <a href="books.php?page=<?= $_GET["page"] - 1 ?>">
-                            <input style="background-image: url('../../../resources/left.jpg');" class="mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Retour">
-                        </a>
+                        <?php
+                        //Defini si c'est la première page trouvable 
+                        //Si oui, affiche un bouton non cliquable
+                        if($_GET["page"] == 1)
+                        {
+                        ?>
+                            <!-- Bouton de retour => ALler une page en arrière non actif -->
+                            <input style="background-image: url('../../../resources/left.jpg');" class="mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] opacity-50 cursor-not-allowed" type="button" value="Retour">
+                        <?php
+                        }
+                        //Sinon, affiche un bouton cliquable
+                        else
+                        {
+                        ?>
+                            <!-- Bouton de retour => ALler une page en arrière actif -->
+                            <a href="books.php?page=<?= $_GET["page"] - 1 ?>">
+                                <input style="background-image: url('../../../resources/left.jpg');" class="mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Retour">
+                            </a>
+                        <?php
+                        }
+                        ?>
+                        
 
                         <?php
                         //Defini si le "deuxième" bouton [1] devrait s'afficher
