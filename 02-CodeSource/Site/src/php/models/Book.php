@@ -21,7 +21,25 @@ class Book{
      * @return Book returns the book found
      */
     static public function getBookById(int $bookId) : Book{
+        //select the book
+        $assocBooks = Database::getDatabase()->queryPrepareExecute(
+            "SELECT * FROM t_book WHERE t_book.idBook = :id", 
+            [["param"=>"id", "value"=>$bookId, "type" => PDO::PARAM_INT]]
+        );
 
+        //declare the array of books
+        $books = [];
+
+        //add the books to a list
+        foreach ($assocBooks as $book){
+            $books[] = new Book(
+                $book["idBook"], $book["booTitle"], $book["booPageNumber"], 
+                $book["booSummary"], $book["booAuthorName"], $book["booEditorName"], 
+                $book["booEditionYear"], $book["booExtract"], $book["idUser"]
+            );
+        }
+
+        return $books[0];
     }
 
     /**
@@ -29,7 +47,10 @@ class Book{
      * @param $bookId => id of the book to delete
      */
     static public function delete(int $bookId) : void{
-
+        Database::getDatabase()->queryPrepareExecute(
+            "DELETE FROM `t_book` WHERE `t_book`.`idBook` = :id", 
+            [["param"=>"id", "value"=>$bookId, "type" => PDO::PARAM_INT]]
+        );
     }
 
     /**
@@ -37,7 +58,24 @@ class Book{
      * @return array returns an array of books
      */
     static public function getAllBooks() : array{
+        //select the books
+        $assocBooks = Database::getDatabase()->querySimpleExecute(
+            "SELECT * FROM t_category"
+        );
 
+        //declare the array of books
+        $books = [];
+
+        //add the books to a list
+        foreach ($assocBooks as $book){
+            $books[] = new Book(
+                $book["idBook"], $book["booTitle"], $book["booPageNumber"], 
+                $book["booSummary"], $book["booAuthorName"], $book["booEditorName"], 
+                $book["booEditionYear"], $book["booExtract"], $book["idUser"]
+            );
+        }
+
+        return $books;
     }
 
     /**
@@ -49,6 +87,7 @@ class Book{
      * @param $authorName => name of the author of the book
      * @param $editorName => name of the editor of the book
      * @param $editorYear => year of edition of the book
+     * @param $extract => extract of the book
      * @param $userId => id of the user who added the book
      */
     public function __construct(
@@ -58,7 +97,8 @@ class Book{
         public string $summary, 
         public string $authorName, 
         public string $editorName, 
-        public int $editorYear, 
+        public int $editorYear,
+        public string $extract,
         public int $userId){
 
     }
@@ -76,7 +116,24 @@ class Book{
      * @return bool returns true if the operation was successful
      */
     public function insert() : bool{
+        $toReturn = (bool)Database::getDatabase()->queryPrepareExecute(
+            "INSERT INTO `t_book` (`idBook`, `booTitle`, `booPageNumber`, `booSummary`, `booAuthorName`, `booEditorName`, `booEditionYear`, `booExtract`, `idUser`) 
+            VALUES (NULL, :title, :pageNumber, :summary, :authorName, :editorName, :editorYear, :extract, :userId)",
+            [
+                ["param"=>"title", "value"=>$this->title, "type" => PDO::PARAM_STR],
+                ["param"=>"pageNumber", "value"=>$this->pageNumber, "type" => PDO::PARAM_INT],
+                ["param"=>"summary", "value"=>$this->summary, "type" => PDO::PARAM_STR],
+                ["param"=>"authorName", "value"=>$this->authorName, "type" => PDO::PARAM_STR],
+                ["param"=>"editorName", "value"=>$this->editorName, "type" => PDO::PARAM_STR],
+                ["param"=>"editorYear", "value"=>$this->editorYear, "type" => PDO::PARAM_INT],
+                ["param"=>"extract", "value"=>$this->extract, "type" => PDO::PARAM_STR],
+                ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT]
+            ]
+        );
 
+        $this->id = (int)(Database::getDatabase()->querySimpleExecute("SELECT idBook FROM t_book ORDER BY idBook DESC LIMIT 1")[0]["idBook"]);
+
+        return $toReturn;
     }
 
     /**
@@ -84,7 +141,25 @@ class Book{
      * @return bool returns true if the operation was successful
      */
     public function update() : bool{
-
+        return (bool)Database::getDatabase()->queryPrepareExecute(
+            "UPDATE `t_book` SET 
+            `booTitle` = :title, `booPageNumber` = :pageNumber, 
+            `booSummary` = :summary, `booAuthorName` = :authorName, 
+            `booEditorName` = :editorName, `booEditionYear` = :editorYear, 
+            `booExtract` = :extract, `idUser` = :userId
+            WHERE `t_book`.`idBook` = :id",
+            [
+                ["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT],
+                ["param"=>"title", "value"=>$this->title, "type" => PDO::PARAM_STR],
+                ["param"=>"pageNumber", "value"=>$this->pageNumber, "type" => PDO::PARAM_INT],
+                ["param"=>"summary", "value"=>$this->summary, "type" => PDO::PARAM_STR],
+                ["param"=>"authorName", "value"=>$this->authorName, "type" => PDO::PARAM_STR],
+                ["param"=>"editorName", "value"=>$this->editorName, "type" => PDO::PARAM_STR],
+                ["param"=>"editorYear", "value"=>$this->editorYear, "type" => PDO::PARAM_INT],
+                ["param"=>"extract", "value"=>$this->extract, "type" => PDO::PARAM_STR],
+                ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT]
+            ]
+        );
     }
 
     /**
@@ -140,8 +215,10 @@ class Book{
      * Get the average evaluation of the book
      * @param double returns the average evaluation of the book
      */
-    public function getAverageEvaluation() : double{
-
+    public function getAverageEvaluation() : float{
+        return (float)(Database::getDatabase()->queryPrepareExecute(
+            "SELECT AVG(appEvaluation) AS 'Average' FROM `t_appreciation` WHERE idBook = :id",
+            [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]])[0]["idBook"]);
     }
 }
 ?>

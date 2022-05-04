@@ -69,14 +69,18 @@ class Appreciation{
      * @return bool returns true if the operation was successful
      */
     public function insert() : bool{
-        return (bool)Database::getDatabase()->queryPrepareExecute(
-            "INSERT INTO `t_appreciation` (`idAppreciation`, `appEvaluation`, `idUser`, `idBook`) VALUES (NULL, :eval, :userId, :bookId)", 
+        $toReturn = (bool)Database::getDatabase()->queryPrepareExecute(
+            "INSERT INTO `t_appreciation` (`idAppreciation`, `appEvaluation`, `idUser`, `idBook`) VALUES (NULL, :eval, :userId, :bookId)",
             [
                 ["param"=>"eval", "value"=>$this->evaluation, "type" => PDO::PARAM_INT],
                 ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT],
                 ["param"=>"bookId", "value"=>$this->bookId, "type" => PDO::PARAM_INT]
             ]
         );
+
+        $this->id = (int)(Database::getDatabase()->querySimpleExecute("SELECT idAppreciation FROM t_appreciation ORDER BY idAppreciation DESC LIMIT 1")[0]["idAppreciation"]);
+
+        return $toReturn;
     }
 
     /**
@@ -84,7 +88,16 @@ class Appreciation{
      * @return bool returns true if the operation was successful
      */
     public function update() : bool{
-
+        
+        return (bool)Database::getDatabase()->queryPrepareExecute(
+            "UPDATE `t_appreciation` SET `appEvaluation` = :eval, `idUser` = :userId, `idBook` = :bookId WHERE `t_appreciation`.`idAppreciation` = :id",
+            [
+                ["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT],
+                ["param"=>"eval", "value"=>$this->evaluation, "type" => PDO::PARAM_INT],
+                ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT],
+                ["param"=>"bookId", "value"=>$this->bookId, "type" => PDO::PARAM_INT]
+            ]
+        );
     }
 }
 ?>
