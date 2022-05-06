@@ -29,7 +29,7 @@ All the users connected into with an account can add a new book and an appreciat
 - [Lien vers le serveur heroku](https://dashboard.heroku.com/apps/p-web-2)
 
 ## Elements to do
-1. [ ] Obligatory
+1. [ ] Obligatory :
   - [ ] Main page :
     - [ ] Explanations of the utility of the site
     - [ ] Display the 5 last added books
