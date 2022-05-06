@@ -30,7 +30,7 @@ All the users connected into with an account can add a new book and an appreciat
 
 ## Elements to do
 1. Obligatory
-  -[ ] Main page :
+  - [ ] Main page :
     - Explanations of the utility of the site
     - Display the 5 last added books
   - List of books
