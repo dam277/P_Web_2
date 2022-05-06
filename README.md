@@ -8,9 +8,6 @@
 4. [Contributors](#contributors)
 
 <hr>
-<span style="color:green;font-weight:700;font-size:20px">
-    markdown color font styles
-</span>
 
 ## The project
 This project consist of creating a website as a project of the ETML from Switzerland
@@ -33,7 +30,7 @@ All the users connected into with an account can add a new book and an appreciat
 
 ## Elements to do
 1. Obligatory
-  - Main page :
+  -[] Main page :
     - Explanations of the utility of the site
     - Display the 5 last added books
   - List of books
