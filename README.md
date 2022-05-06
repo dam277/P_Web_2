@@ -33,6 +33,8 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] Main page :
     - [ ] Explanations of the utility of the site
     - [ ] Display the 5 last added books
+    - [ ] Back-end
+    - [x] Front-end
   - [ ] List of books
     - [x] To see
       - [x] Title
@@ -49,6 +51,8 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] Footer
     - [ ] Mention the creator of the app
     - [ ] Contact creator
+    - [ ] Back-end
+    - [ ] Front-end
   - [ ] User
     - [ ] Nickname
     - [ ] Entry date
