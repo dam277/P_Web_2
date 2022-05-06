@@ -33,27 +33,27 @@ All the users connected into with an account can add a new book and an appreciat
 
 ## Elements to do
 1. Obligatory
-  1.1. Main page :
+  - Main page :
     - Explanations of the utility of the site
     - Display the 5 last added books
-  1.2. List of books
+  - List of books
     - To see
       - Title
       - Author
       - Nickname of person who posted
     - Per category
     - Button "details"
-  1.3. Add book
-  1.4. Add appreciation
-  1.5. Footer
+  - Add book
+  - Add appreciation
+  - Footer
     - Mention the creator of the app
     - Contact creator
-  1.6. User
+  - User
     - Nickname
     - Entry date
     - Number of book posted
     - Number of appreciations did
-  1.7. Book details
+  - Book details
     - informations
     - Number of apreciations got
     - Average
