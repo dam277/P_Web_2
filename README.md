@@ -4,6 +4,7 @@
 1. [What's the project ?](#the-project)
 2. [Features](#features)
 3. [Pipelines](#pipelines)
+3. [Elements to add](#elements-to-add)
 4. [Contributors](#contributors)
 
 <hr>
