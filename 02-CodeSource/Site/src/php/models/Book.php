@@ -108,7 +108,54 @@ class Book{
      * @return array returns the errors in an associative array
      */
     public function checkForErrors() : array{
+        //array of errors
+        $errors = [];
 
+        //test the title
+        if (!$this->title){
+            $errors[] = ["title" => "Le titre du livre est obligatoire !"];
+        }
+
+        //test the page number
+        if (!$this->pageNumber){
+            $errors[] = ["pageNumber" => "Le nombre de pages du livre est obligatoire !"];
+        } else if ($this->pageNumber < 1){
+            $errors[] = ["pageNumber" => "Le nombre de pages doit être en dessus de 0 !"];
+        }
+
+        //test the summary
+        if (!$this->summary){
+            $errors[] = ["summary" => "Le résumé du livre est obligatoire !"];
+        }
+
+        //test the author's name
+        if (!$this->authorName){
+            $errors[] = ["authorName" => "Le nom de l'auteur du livre est obligatoire !"];
+        } else if (!preg_match("/^[A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ][a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]*([\s'-]([a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]')?([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ])[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]*)+$/", $this->authorName)){
+            $errors[] = ["authorName" => "Le nom de l'auteur du livre est invalide !"];
+        }
+
+        //test the editor's name
+        if (!$this->editorName){
+            $errors[] = ["editorName" => "Le nom de l'éditeur du livre est obligatoire !"];
+        }
+
+        //test the year of edition
+        if (!$this->editorYear){
+            $errors[] = ["editorYear" => "L'année d'édition du livre est obligatoire !"];
+        }
+
+        //test the extract
+        if (!$this->extract){
+            $errors[] = ["extract" => "L'extrait du livre est obligatoire !"];
+        }
+
+        //test for the user id's validity
+        if ($this->userId != $_SESSION["userId"]){
+            $errors[] = ["userId" => "L'id de l'utilisateur ajoutant le livre ne correspond pas à celui de l'utilisateur !"];
+        }
+
+        return $errors;
     }
 
     /**
