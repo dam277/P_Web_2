@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 $book = array(
     "image" => "../../../resources/bookTitle.jpg",
     "name" => "Titre du livre",
@@ -29,6 +32,10 @@ $author = explode(" ", $book["author"]);
                     backgroundImage: {
                         'checked': "url('../../../resources/rateStarChecked.jpg')",
                         'notChecked': "url('../../../resources/rateStarNotChecked.jpg')",
+                        'notCheckedLeft': "url('../../../resources/rateStarNotCheckedLeft.jpg')",
+                        'notCheckedRight': "url('../../../resources/rateStarNotCheckedRight.jpg')",
+                        'checkedLeft': "url('../../../resources/rateStarCheckedLeft.jpg')",
+                        'checkedRight': "url('../../../resources/rateStarCheckedRight.jpg')",
                     }
                 }
             }
@@ -145,16 +152,30 @@ $author = explode(" ", $book["author"]);
 
         <div class="grid place-items-center mt-[20px]">
             <p class="font-bold text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">Donnez une note à cet ouvrage</p>
-            <form class="flex rotate-180" action="/action_page.php">
-                <?php
-                $test = 10;
-                for ($i = 5; $i > 0; $i--) {
-                ?>
-                    <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
-                    <label onclick="" class="rotate-[35deg] bg-notChecked peer-checked:bg-checked w-[50px] h-[50px] cursor-pointer ml-[<?=$test*$i?>]" for="star<?=$i?>"></label>
-                <?php
-                }
-                ?>
+            <form action="/action_page.php">
+                <div class="flex rotate-180">
+                    <?php
+                    $test = 10;
+                    for ($i = 5; $i > 0; $i -= 0.5) 
+                    {
+                        if(!strpos($i, "."))
+                        {
+                        ?>
+                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
+                            <label onclick="" class="mr-[-13px] bg-notCheckedLeft peer-checked:bg-checkedLeft hover:bg-checkedLeft w-[25px] h-[50px] cursor-pointer ml-[<?=$test*$i?>]" for="star<?=$i?>"></label>
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
+                            <label onclick="" class="bg-notCheckedRight peer-checked:bg-checkedRight hover:bg-checkedRight w-[25px] h-[50px] cursor-pointer ml-[<?=$test*$i?>]" for="star<?=$i?>"></label>
+                        <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <input class="w-[200px] h-[50px] bg-[#3B4568] text-[30px] cursor rounded-[10px]" type="submit" value="Valider">
             </form>
         </div>
     </main>
