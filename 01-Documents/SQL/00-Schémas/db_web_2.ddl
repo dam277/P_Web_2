@@ -12,19 +12,19 @@
 -- Database Section
 -- ________________ 
 
-create database mld;
-use mld;
+create database db_web_2;
+use db_web_2;
 
 
 -- Tables Section
 -- _____________ 
 
 create table t_appreciation (
-     idAppreciation -- Compound attribute -- not null,
+     idAppreciation bigint not null auto_increment,
      appEvaluation int not null,
      idUser bigint not null,
      idBook bigint not null,
-     constraint ID_t_appreciation_ID primary key (idAppreciation -- Compound attribute --));
+     constraint ID_t_appreciation_ID primary key (idAppreciation));
 
 create table t_book (
      idBook bigint not null auto_increment,
@@ -95,7 +95,7 @@ alter table t_session add constraint FKt_isPartOf_FK
 -- _____________ 
 
 create unique index ID_t_appreciation_IND
-     on t_appreciation (idAppreciation -- Compound attribute --);
+     on t_appreciation (idAppreciation);
 
 create index FKt_rate_IND
      on t_appreciation (idUser);
