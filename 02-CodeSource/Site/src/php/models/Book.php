@@ -60,7 +60,32 @@ class Book{
     static public function getAllBooks() : array{
         //select the books
         $assocBooks = Database::getDatabase()->querySimpleExecute(
-            "SELECT * FROM t_category"
+            "SELECT * FROM t_book"
+        );
+
+        //declare the array of books
+        $books = [];
+
+        //add the books to a list
+        foreach ($assocBooks as $book){
+            $books[] = new Book(
+                $book["idBook"], $book["booTitle"], $book["booPageNumber"], 
+                $book["booSummary"], $book["booAuthorName"], $book["booEditorName"], 
+                $book["booEditionYear"], $book["booExtract"], $book["idUser"]
+            );
+        }
+
+        return $books;
+    }
+
+    /**
+     * Get the five last the books added in the database
+     * @return array returns an array of books
+     */
+    static public function getFiveLastBooks() : array{
+        //select the books
+        $assocBooks = Database::getDatabase()->querySimpleExecute(
+            "SELECT * FROM t_book ORDER BY idBook DESC LIMIT 5"
         );
 
         //declare the array of books
