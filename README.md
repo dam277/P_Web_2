@@ -29,38 +29,46 @@ All the users connected into with an account can add a new book and an appreciat
 - [Lien vers le serveur heroku](https://dashboard.heroku.com/apps/p-web-2)
 
 ## Elements to do
-1. Obligatory
+1. [ ] Obligatory
   - [ ] Main page :
-    - Explanations of the utility of the site
-    - Display the 5 last added books
-  - List of books
-    - To see
-      - Title
-      - Author
-      - Nickname of person who posted
-    - Per category
-    - Button "details"
-  - Add book
-  - Add appreciation
-  - Footer
-    - Mention the creator of the app
-    - Contact creator
-  - User
-    - Nickname
-    - Entry date
-    - Number of book posted
-    - Number of appreciations did
-  - Book details
-    - informations
-    - Number of apreciations got
-    - Average
-2. Facultative :
-  - Search to get a book (Implemented)
-  - Modification of book
-  - delete a book
-  - Add a person
-  - Add comment + apreciation for a book
-  - Smartphone view
+    - [ ] Explanations of the utility of the site
+    - [ ] Display the 5 last added books
+  - [ ] List of books
+    - [x] To see
+      - [x] Title
+      - [x] Author
+      - [x] Nickname of person who posted
+    - [ ] Per category
+    - [x] Button "details"
+  - [ ] Add book
+    - [ ] Back-end
+    - [x] Front-end
+  - [ ] Add appreciation
+    - [ ] Back-end
+    - [x] Front-end
+  - [ ] Footer
+    - [ ] Mention the creator of the app
+    - [ ] Contact creator
+  - [ ] User
+    - [ ] Nickname
+    - [ ] Entry date
+    - [ ] Number of book posted
+    - [ ] Number of appreciations did
+    - [ ] Back-end
+    - [x] Front-end
+  - [ ] Book details
+    - [ ] informations
+    - [ ] Number of apreciations got
+    - [ ] Average
+    - [ ] Back-end
+    - [x] Front-end
+2. [ ] Facultative :
+  - [ ] Search to get a book (Implemented in front-end)
+  - [ ] Modification of book
+  - [ ] delete a book
+  - [ ] Add a person
+  - [ ] Add comment + apreciation for a book
+  - [ ] Smartphone view
 
 ## Contributors
 - [Damien Loup](https://github.com/dam277)
