@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body class="duration-[0.5s] dark:bg-gray-700 dark:text-gray-400 bg-[url('../../../resources/background.png')]">
+<body class="duration-[0.5s] dark:bg-gray-700 dark:text-gray-400 bg-[url('../../../resources/background.png')] dark:bg-[url('../../../resources/backgroundDark.png')]">
     <header>
         <?php
         include("../../include/header.php");

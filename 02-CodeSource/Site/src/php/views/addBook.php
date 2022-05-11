@@ -13,7 +13,7 @@
         include("../../include/header.php");
         ?>
     </header>
-    <main class="bg-center bg-cover" style="background-image: url('../../../resources/background.png');">
+    <main class="bg-center duration-[0.5s] bg-cover dark:bg-[url('../../../resources/backgroundDark.png')] bg-[url('../../../resources/background.png')]">
         <h1 class="text-8xl text-white text-center bg-[#0A183C] w-full py-[200px]">AJOUTER UN OUVRAGE</h1>
 
         <!-- Div prenant toute la place de la page sauf le titre -->
