@@ -71,6 +71,7 @@ $author = explode(" ", $book["author"]);
                     <li class="mt-[100px] font-bold">Catégories</li>
                     <li><?= $book["category"] . ", " . $book["category"] ?></li>
                     <li class="font-bold">Appréciations</li>
+                    <li>Cet ouvrage à reçu X appréciations</li>
                 </ul>
                 <!-- Editeur -->
                 <ul class="w-[33%]">
@@ -80,7 +81,7 @@ $author = explode(" ", $book["author"]);
                 </ul>
             </div>
             <!-- Personne qui poste l'article -->
-            <p class="mt-[75px]">Posté par : Personne</p>
+            <p class="mt-[25px]">Posté par : Personne</p>
             <?php
             //Defini le nombre d'étoiles à afficher
             if ($book["average"] < 1.25) {
