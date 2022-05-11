@@ -1,0 +1,22 @@
+Boutons :
+- Sur une image
+	#C4C4C4
+	opacity : 35% 
+	corner radius : 30%
+
+- Normal 
+	#3B4568
+	border : 3 black
+	corner radius : 30%
+
+- Bas de page 
+	#- (vide)
+	border : 3 white
+
+- Changement de page dans la liste des ouvrages
+	- Page non séléctionnée
+		#4B5987
+	- Page séléctionnée
+		#677ABA
+
+	
