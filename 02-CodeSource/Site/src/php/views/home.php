@@ -20,7 +20,7 @@ $bookList = array (
 <body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')">
     <header>
         <?php
-            //include("../../include/header.php");
+            include("../../include/header.php");
         ?>
     </header>
     <main>
