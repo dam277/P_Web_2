@@ -28,19 +28,19 @@ $nbAppreciation = 0;
         include("../../include/header.php");
         ?>
     </header>
+    <!-- TITRE -->
     <h1 class="text-4xl md:text-6xl lg:text-8xl xl:text-8xl text-white text-center bg-[#0A183C] w-full py-[200px]">INFORMATIONS DU COMPTE</h1>
-    <div class="">
-        <div class="flex w-full mt-[50px] text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
-            <ul class="grid w-[33%] mt-[15%] text-center">
-                <li class="font-bold">Détails : <?= $user["useNickName"] ?></li>
-                <li class="">Rôle : <?= $user["usePermLevel"] == 1 ? "Admin" : "Membre" ?></li>
-            </ul>
-            <img src="../../../resources/userLogo.png" class="w-[33%]">
-            <ul class="grid w-[33%] text-center mt-[15%]">
-                <li class="">Date d'inscription : <?= $user["useEntryDate"] ?></li>
-                <li class="">Nombre d'ouvrage<?= $nbBook <= 1 ? "" : "s"?> posté<?= $nbBook <= 1 ? "" : "s"?> : <?= $nbBook ?></li>
-            </ul>
-        </div>
+    <!-- INFORMATION -->
+    <div class="flex w-full mt-[50px] text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
+        <ul class="grid w-[33%] mt-[15%] text-center">
+            <li class="font-bold">Détails : <?= $user["useNickName"] ?></li>
+            <li class="">Rôle : <?= $user["usePermLevel"] == 1 ? "Admin" : "Membre" ?></li>
+        </ul>
+        <img src="../../../resources/userLogo.png" class="w-[33%]">
+        <ul class="grid w-[33%] text-center mt-[15%]">
+            <li class="">Date d'inscription : <?= $user["useEntryDate"] ?></li>
+            <li class="">Nombre d'ouvrage<?= $nbBook <= 1 ? "" : "s" ?> posté<?= $nbBook <= 1 ? "" : "s" ?> : <?= $nbBook ?></li>
+        </ul>
     </div>
     <footer>
         <?php
