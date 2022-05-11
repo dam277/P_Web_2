@@ -27,7 +27,7 @@
             <form action="" method="POST" class="">
                 <div class="mt-[100px] flex">
                     <div class="sm:w-[15%] md:w-[20%] lg:w-[25%]"></div>
-                    <img src="../../../resources/user.png" alt="icon user" class="border-b-[1px] border-black">
+                    <img src="../../../resources/userimg.png" alt="icon user" class="border-b-[1px] border-black">
                     <label for="useNickname" class="border-b-[1px] border-black">Nom :<input type="text" name="useNickname" class="bg-[transparent] ml-[10px]"></label>
                 </div>
                 <div class="mt-[100px] flex">
