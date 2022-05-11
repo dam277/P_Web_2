@@ -12,7 +12,7 @@
 <body class="duration-[0.5s] dark:bg-gray-700 dark:text-gray-400">
     <header>
         <?php
-        //include("../../include/header.php");
+        include("../../include/header.php");
         ?>
     </header>
     <main class="grid place-items-center">
@@ -41,9 +41,9 @@
                 <input type="text" id="subject" placeholder="Entrez le sujet de votre message" class="border-2 border-black w-[65%] bg-gray-300 rounded w-[100%] rounded-xl h-[40px] p-[10px]">
                 <label for="message" class="text-2xl mt-[20px]">Message</label><br>
                 <textarea type="text" id="message" placeholder="Entrez votre message" class="border-2 border-black w-[65%] bg-gray-300 rounded w-[100%] rounded-xl h-[200px] p-[10px]"></textarea>
-                <div class="grid place-items-center mt-[50px]">
-                    <input class="mt-[-30px] text-white bg-[#3B4568] rounded-[20px] border-solid border-2 border-black px-[35px] py-[13px] md:px-[55px] md:py-[15px] md:text-2xl lg:px-[60px] lg:py-[20px] lg:text-4xl xl:px-[60px] xl:py-[20px] xl:text-4xl cursor-pointer hover:bg-[#262C42]" type="submit" value="Valider">
-                </div>
+            </div>
+            <div class="grid place-items-center mt-[50px]">
+                <input class="mt-[-30px] text-white bg-[#3B4568] rounded-[20px] border-solid border-2 border-black px-[35px] py-[13px] md:px-[55px] md:py-[15px] md:text-2xl lg:px-[60px] lg:py-[20px] lg:text-4xl xl:px-[60px] xl:py-[20px] xl:text-4xl cursor-pointer hover:bg-[#262C42]" type="submit" value="Valider">
             </div>
         </form>
     </main>
