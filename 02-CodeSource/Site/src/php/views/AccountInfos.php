@@ -36,9 +36,8 @@ $nbAppreciation = 0;
                 <li class="">Rôle : <?= $user["usePermLevel"] == 1 ? "Admin" : "Membre" ?></li>
             </ul>
             <img src="../../../resources/userLogo.png" class="w-[33%]">
-            <ul class="grid w-[33%] text-center mt-[5%]">
+            <ul class="grid w-[33%] text-center mt-[15%]">
                 <li class="">Date d'inscription : <?= $user["useEntryDate"] ?></li>
-                <li class="">Nombre d'appreciation<?= $nbAppreciation <= 1 ? "" : "s"?> : <?= $nbAppreciation ?></li>
                 <li class="">Nombre d'ouvrage<?= $nbBook <= 1 ? "" : "s"?> posté<?= $nbBook <= 1 ? "" : "s"?> : <?= $nbBook ?></li>
             </ul>
         </div>
