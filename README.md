@@ -59,7 +59,6 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Nickname
     - [ ] Entry date
     - [ ] Number of book posted
-    - [ ] Number of appreciations did
     - [ ] Back-end
     - [x] Front-end
   - [ ] Book details
