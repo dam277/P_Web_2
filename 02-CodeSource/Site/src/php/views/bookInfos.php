@@ -41,10 +41,10 @@ $author = explode(" ", $book["author"]);
     </script>
 </head>
 
-<body>
+<body class="duration-[0.5s] dark:bg-gray-700 dark:text-gray-400">
     <header>
         <?php
-        //include("../../include/header.php");
+        include("../../include/header.php");
         ?>
     </header>
     <main>
@@ -156,7 +156,7 @@ $author = explode(" ", $book["author"]);
         <!-- RESUME -->
         <div class="flex mt-[30px]">
             <!-- Texte -->
-            <aside class="bg-[#D3E0E3] w-[50%]">
+            <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Résumé</h2>
                 <p class="text-[12px] md:text-[20px]">
                     Texte
@@ -170,7 +170,7 @@ $author = explode(" ", $book["author"]);
             <!-- Image de livre -->
             <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
             <!-- Texte -->
-            <aside class="w-[50%] bg-[#D3E0E3]">
+            <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Extrait</h2>
                 <p>
                     Texte
@@ -197,7 +197,7 @@ $author = explode(" ", $book["author"]);
                         {
                         ?>
                             <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
-                            <label onclick="" class="mr-[-13px] bg-notChecked peer-checked:bg-checked hover:bg-checked w-[50px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
+                            <label onclick="" class="mr-[-13px] bg-[url('../../../resources/rateStarNotChecked.jpg')] peer-checked:bg-[url('../../../resources/rateStarChecked.jpg')] hover:bg-[url('../../../resources/rateStarChecked.jpg')] w-[50px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
                         //Si Ce n'est pas un nombre à virgule la demi étoile gauche s'affiche
@@ -205,7 +205,7 @@ $author = explode(" ", $book["author"]);
                         {
                         ?>
                             <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
-                            <label onclick="" class="mr-[-13px] bg-notCheckedLeft peer-checked:bg-checkedLeft hover:bg-checkedLeft w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
+                            <label onclick="" class="mr-[-13px] bg-[url('../../../resources/rateStarNotCheckedLeft.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedLeft.jpg')] hover:bg-[url('../../../resources/rateStarCheckedLeft.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
                         //Sinon la demi étoile droite s'affiche
@@ -213,7 +213,7 @@ $author = explode(" ", $book["author"]);
                         {
                         ?>
                             <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
-                            <label onclick="" class="bg-notCheckedRight peer-checked:bg-checkedRight hover:bg-checkedRight w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
+                            <label onclick="" class="bg-[url('../../../resources/rateStarNotCheckedRight.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedRight.jpg')] hover:bg-[url('../../../resources/rateStarCheckedRight.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
                     }
@@ -228,7 +228,7 @@ $author = explode(" ", $book["author"]);
     </main>
     <footer>
         <?php
-        //include("../../include/footer.php");
+        include("../../include/footer.php");
         ?>
     </footer>
 </body>

@@ -33,7 +33,7 @@
                 <div class="w-[25%] sm:w-[33%]"></div>
             </div>
             <label for="nickname" class="text-2xl">Pseudo</label><br>
-            <input type="text" id="nickname" placeholder="userNickname" class="border-2 border-black w-[65%] bg-gray-300 rounded px-[10px]">
+            <input type="text" id="nickname" placeholder="Entrez votre pseudo" class="border-2 border-black w-[65%] bg-gray-300 rounded px-[10px]">
             <div class="text-left border-2 border-black mt-[10px] p-[15px]">
                 <label for="email" class="text-2xl">Email</label><br>
                 <input type="text" id="email" placeholder="Entrez votre email pour vous envoyer une réponse" class="border-2 border-black w-[65%] bg-gray-300 rounded w-[100%] rounded-xl h-[40px] p-[10px]">
@@ -49,7 +49,7 @@
     </main>
     <footer>
         <?php
-        //include("../../include/footer.php");
+        include("../../include/footer.php");
         ?>
     </footer>
 </body>

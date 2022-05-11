@@ -45,7 +45,7 @@ $nbAppreciation = 0;
     </div>
     <footer>
         <?php
-        //include("../../include/footer.php");
+        include("../../include/footer.php");
         ?>
     </footer>
 </body>

@@ -12,12 +12,12 @@
 <body class="duration-[0.5s] dark:bg-gray-700 dark:text-gray-400 bg-[url('../../../resources/background.png')]">
     <header>
         <?php
-        //include("../../include/header.php");
+        include("../../include/header.php");
         ?>
     </header>
     <main class="grid place-items-center">
         <h1 class="text-4xl md:text-6xl lg:text-8xl xl:text-8xl text-white text-center bg-[#0A183C] w-full py-[200px]">CONNEXION</h1>
-        <div class="sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px] h-[550px] mt-[100px] bg-gradient-to-b from-[#05687E] to-[#C1E0E7] rounded-[25px] text-center">
+        <div class="sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px] h-[550px] mt-[100px] bg-gradient-to-b from-[#05687E] to-[#C1E0E7] rounded-[25px] text-center text-black">
             <p class="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Se connecter</p>
             <div class="flex mt-[10px]">
                 <div class="w-[25%] sm:w-[33%]"></div>
@@ -43,7 +43,7 @@
     </main>
     <footer>
         <?php
-        //include("../../include/footer.php");
+        include("../../include/footer.php");
         ?>
     </footer>
 </body>

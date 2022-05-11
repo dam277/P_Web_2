@@ -15,6 +15,7 @@ $bookList = array
 (
     "book1" => array
     (
+        "id" => "1",
         "image" => "../../../resources/book1.jpg",
         "name" => "livre1",
         "category" => "manga",
@@ -26,6 +27,7 @@ $bookList = array
     ),
     "book2" => array
     (
+        "id" => "2",
         "image" => "../../../resources/book2.jpg",
         "name" => "livre2",
         "category" => "roman",
@@ -37,6 +39,7 @@ $bookList = array
     ),
     "book3" => array
     (
+        "id" => "3",
         "image" => "../../../resources/book3.jpg",
         "name" => "livre3",
         "category" => "manga",
@@ -48,6 +51,7 @@ $bookList = array
     ),
     "book4" => array
     (
+        "id" => "4",
         "image" => "../../../resources/book4.jpg",
         "name" => "livre4",
         "category" => "manga",
@@ -59,6 +63,7 @@ $bookList = array
     ),
     "book5" => array
     (
+        "id" => "5",
         "image" => "../../../resources/book5.jpg",
         "name" => "livre5",
         "category" => "roman",
@@ -70,6 +75,7 @@ $bookList = array
     ),
     "book6" => array
     (
+        "id" => "6",
         "image" => "../../../resources/book6.jpg",
         "name" => "livre6",
         "category" => "livre",
@@ -96,10 +102,10 @@ $bookList = array_values($bookList);
     <title>Ouvrages</title>
 </head>
 
-<body>
+<body class="dark:bg-gray-700 dark:text-gray-400 duration-[0.5s]">
     <header>
         <?php
-        //include("../../include/header.php");
+        include("../../include/header.php");
         ?>
     </header>
     <main>
@@ -111,55 +117,55 @@ $bookList = array_values($bookList);
             <aside class="w-[100%] md:w-[20%] lg:w-[20%] xl:w-[20%]">
                 <div class="grid place-items-center">
                     <h2 class="text-[40px]">FILTRES</h2>
-                    <div class="w-[25%] border-black border-2 border-solid"></div>
+                    <div class="w-[25%] dark:border-gray-400 border-black border-2 border-solid"></div>
                 </div>
 
                 <!-- MOYENNE -->
-                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
-                <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
+                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] duration-[0.5s] dark:bg-slate-600 dark:text-gray-400">
+                <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px ">
                     <ul>
                         <!-- NOTE 1 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note1" id="note1">
                             <label for="note1">1</label>
                         </li>
                         <!-- NOTE 1.5 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note1-5" id="note1-5">
                             <label for="note1-5">1.5</label>
                         </li>
                         <!-- NOTE 2 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note2" id="note2">
                             <label for="note2">2</label>
                         </li>
                         <!-- NOTE 2.5 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note2-5" id="note2-5">
                             <label for="note2-5">2.5</label>
                         </li>
                         <!-- NOTE 3 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note3" id="note3">
                             <label for="note3">3</label>
                         </li>
                         <!-- NOTE 3.5 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note3-5" id="note3-5">
                             <label for="note3-5">3.5</label>
                         </li>
                         <!-- NOTE 4 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note4" id="note4">
                             <label for="note4">4</label>
                         </li>
                         <!-- NOTE 4.5 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note4-5" id="note4-5">
                             <label for="note4-5">4.5</label>
                         </li>
                         <!-- NOTE 5 -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="note5" id="note5">
                             <label for="note5">5</label>
                         </li>
@@ -167,26 +173,26 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- CATEGORIES -->
-                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
+                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
                         <!-- MANGA -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="manga" id="manga">
                             <label for="manga">Manga</label>
                         </li>
                         <!-- BANDE DESSINEE -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="BD" id="BD">
                             <label for="BD">Bande dessinée</label>
                         </li>
                         <!-- ROMAN -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px]  border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="roman" id="roman">
                             <label for="roman">Roman</label>
                         </li>
                         <!-- LIVRE -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid">
+                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                             <input class="ml-[10px]" type="checkbox" name="book" id="book">
                             <label for="book">Livre</label>
                         </li>
@@ -194,9 +200,9 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- PAGES -->
-                <input type="button" value="Pages [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
+                <input type="button" value="Pages [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
-                    <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                    <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- MIN -->
                         <label for="minPages">Min</label>
                         <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="">
@@ -207,9 +213,9 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- EDITION -->
-                <input type="button" value="Edition [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s]">
+                <input type="button" value="Edition [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="mb-[10px] bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
-                    <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid">
+                    <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- ANNEE D'EDITION -->
                         <label for="edition" class="underline">Année d'édition</label>
                         <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="edition" id="edition" value="">
@@ -218,13 +224,13 @@ $bookList = array_values($bookList);
             </aside>
 
             <!-- RECHERCHE DE LIVRES -->
-            <div class="w-[100%] border-2 md:w-[80%] lg:w-[80%] xl:w-[80%] md:border-l-2 lg:border-l-2 xl:border-l-2 border-solid border-black">
+            <div class="w-[100%] border-2 md:w-[80%] lg:w-[80%] xl:w-[80%] md:border-l-2 lg:border-l-2 xl:border-l-2 border-solid border-black border-t-0 dark:border-gray-400">
                 <div class="grid place-items-center">
                     <label for="searchBar">Rechercher par nom d'ouvrage, éditeur ou auteur</label>
                     <!-- BARRE DE RECHERCHE -->
                     <div class="relative w-[80%] h-[35px]">
                         <input class="absolute h-full w-full border-solid border-2 border-black" type="text" name="searchBar" id="searchBar">
-                        <input class="absolute ml-[100%] w-[35px] h-[35px] border-solid border-2 border-black bg-cover bg-center cursor-pointer hover:bg-[#cdcdcd]" style="background-image: url('../../../resources/search.jpg');" id="submit" type="submit" value="">
+                        <input class="absolute ml-[100%] w-[35px] h-[35px] border-solid border-2 border-l-0 border-black bg-cover bg-center cursor-pointer hover:bg-[#cdcdcd]" style="background-image: url('../../../resources/search.jpg');" id="submit" type="submit" value="">
                     </div>
                     <p>Resultat de la recherche :</p>
                     <p><?= count($bookList) ?> ouvrages trouvés</p>
@@ -251,7 +257,7 @@ $bookList = array_values($bookList);
                         <!-- 1 LIVRE -->
                         <div class="outline outline-[2px] outline-offset-[0px] flex ">
                             <!-- IMAGE DE COUVERTURE -->
-                            <div class="w-[40%] md:w-[30%] lg:w-[30%] xl:w-[30%] mx-[20px] py-[10px] pr-[10px] border-r-2 border-black border-solid xl:w-[15%] min-h-[300px]">
+                            <div class="w-[40%] md:w-[30%] lg:w-[30%] xl:w-[30%] mx-[20px] py-[10px] pr-[10px] dark:border-gray-400 border-r-2 border-black border-solid xl:w-[15%] min-h-[300px]">
                                 <p class="grid place-items-center block md:hidden lg:hidden xl:hidden">
                                     <?= $bookList[$i]["name"] ?>
                                     <br>
@@ -264,7 +270,7 @@ $bookList = array_values($bookList);
                             <!-- INFORMATIONS SUR L'OUVRAGE -->
                             <div class="w-[30%] hidden md:block lg:block xl:block">
                                 <p class="grid place-items-center"><?= $bookList[$i]["name"] ?></p>
-                                <ul class="grid place-items-left bg-[#D3E0E3] border-solid border-2 border-black h-[82%] mr-[20px]">
+                                <ul class="grid place-items-left bg-slate-300 dark:bg-slate-600 border-solid border-2 border-black h-[82%] mr-[20px] duration-[0.5s]">
                                     <li class="ml-[10px]">Auteur : <?= $bookList[$i]["author"] ?></li>
                                     <li class="ml-[10px]">Catégorie : <?= $bookList[$i]["category"] ?></li>
                                     <li class="ml-[10px]">Pages : <?= $bookList[$i]["pages"] ?></li>
@@ -348,7 +354,7 @@ $bookList = array_values($bookList);
 
                                     ?>
                                 </div>
-                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="">
+                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="bookinfos.php?idbook=<?= $bookList[$i]['id']?>">
                                     <input class="cursor-pointer" type="button" value="Details">
                                 </a>
                                 <aside>Posté par :</aside>
@@ -481,7 +487,7 @@ $bookList = array_values($bookList);
     </main>
     <footer>
         <?php
-        //include("../../include/footer.php");
+        include("../../include/footer.php");
         ?>
     </footer>
 </body>

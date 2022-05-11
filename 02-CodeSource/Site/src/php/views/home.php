@@ -17,19 +17,19 @@ $bookList = array (
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')">
+<body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
     <header>
         <?php
-            //include("../../include/header.php");
+            include("../../include/header.php");
         ?>
     </header>
     <main>
         <!-- DEBUT ==================== TITRE ==================== -->
-        <div class="py-[369px] sm:py-[357px] md:py-[313px] lg:py-[269px] bg-[url('../../../resources/HomeTitle.jpg')] text-center">
+        <div class="py-[369px] sm:py-[357px] md:py-[313px] lg:py-[269px] bg-[url('../../../resources/HomeTitle.png')] text-center object-fill">
             <h1 class="text-[40px] sm:text-[50px] md:text-[75px] lg:text-[100px] text-black font-semibold">
                 ACCUEIL
             </h1>
-            <a href="https://www.google.ch/">
+            <a href="books.php">
                 <input onclick="moveLeft()" class="cursor-pointer bg-opacity-[35%] border-solid border-2 border-black bg-[#C4C4C4] hover:bg-opacity-100 text-black rounded-[30px] text-[20px] h-[40px] w-[200px] sm:text-[25px] sm:h-[50px] sm:w-[250px] md:text-[35px] md:h-[100px] md:w-[350px] lg:text-[50px] lg:h-[150px] lg:w-[500px]" type="button" value="VOIR LES OUVRAGES">
             </a>
         </div>
@@ -76,7 +76,7 @@ $bookList = array (
                             <li>Auteur : $author</li>
                         </ul>
                         <div class="absolute h-full w-full bg-[#C4C4C4] opacity-70 z-10"></div>
-                        <a href="https://www.google.ch/">
+                        <a href="">
                             <input type="button" class="mt-[55%] cursor-pointer hover:bg-opacity-[100%] rounded-full relative z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
                         </a>
                     </div>
@@ -110,7 +110,7 @@ $bookList = array (
                 <div class=" w-[47%]"></div>
             </div>
             <div class="flex">
-                <aside class="bg-[#D3E0E3] w-[50%]">
+                <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                     <p>
                         Texte
                     </p>
@@ -119,14 +119,14 @@ $bookList = array (
             </div>
             <div class="flex">
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
-                <aside class="w-[50%] bg-[#D3E0E3]">
+                <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
                         Texte
                     </p>
                 </aside>
             </div>
             <div class="flex">
-                <aside class="w-[50%] bg-[#D3E0E3]">
+                <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
                         Texte
                     </p>
@@ -139,7 +139,7 @@ $bookList = array (
     </main>
     <footer>
         <?php
-            //include("../../include/footer.php");
+            include("../../include/footer.php");
         ?>
     </footer>
 </body>
