@@ -171,6 +171,7 @@ $author = explode(" ", $book["author"]);
             <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
             <!-- Texte -->
             <aside class="w-[50%] bg-[#D3E0E3]">
+                <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Extrait</h2>
                 <p>
                     Texte
                 </p>
