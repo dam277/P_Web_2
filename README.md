@@ -41,6 +41,8 @@ All the users connected into with an account can add a new book and an appreciat
       - [x] Author
       - [x] Nickname of person who posted
     - [ ] Per category
+    - [ ] Back-end
+    - [x] Front-end
     - [x] Button "details"
   - [ ] Add book
     - [ ] Back-end
