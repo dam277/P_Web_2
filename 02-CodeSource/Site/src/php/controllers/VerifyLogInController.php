@@ -3,15 +3,15 @@
     ETML
     Auteur :        Aurélien Devaud
     Date :          06.05.2022
-    Description :   Controls the verification process of the user connection
+    Description :   Controls the verification process of the user log in
 */
 
 require_once("../models/User.php");
 
 /**
- * Controls the verification process of the user connection
+ * Controls the verification process of the user log in
  */
-class VerifyConnectionController{
+class VerifyLogInController{
 
     //declare variables
     public User $user;

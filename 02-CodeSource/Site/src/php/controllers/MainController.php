@@ -7,7 +7,8 @@
 */
 
 require_once("../models/User.php");
-require_once("./VerifyConnectionController.php");
+require_once("./VerifyLogInController.php");
+require_once("./LogInController.php");
 require_once("./HomeController.php");
 
 /**
@@ -44,8 +45,8 @@ class MainController{
 
         //find what action to do
         switch($this->action){
-            case "verifyConnection":
-                $controller = new VerifyConnectionController($_POST["nickname"], $_POST["password"]);
+            case "verifyLogIn":
+                $controller = new VerifyLogInController($_POST["nickname"], $_POST["password"]);
                 if ($controller->valid){
                     $this->createNewSession($controller->user->id);
                 }
@@ -54,6 +55,22 @@ class MainController{
 
             case "goHome":
                 $controller = new HomeController();
+                $controller->show();
+                break;
+
+            case "logOut":
+                $this->logOut();
+                $controller = new HomeController();
+                $controller->show();
+                break;
+
+            case "logIn":
+                $controller = new LogInController();
+                $controller->show();
+                break;
+
+            case "bookDetail":
+                $controller = new BookDetailController($_GET["bookId"]);
                 $controller->show();
                 break;
         }
@@ -71,13 +88,26 @@ class MainController{
 
     /**
      * Create a new session
-     * @param $userId => id of the user 
+     * @param $userId => id of the user
      */
     private function createNewSession(int $userId){
         $session = new Session(null, $userId);
         $session->insert();
         setcookie("sessionId", $session->id, time()+60*60*24*30);
         $this->connectWithSessionId($session->id);
+    }
+
+    /**
+     * Log out the user
+     */
+    private function logOut(){
+        //delete user
+        unset($_SESSION["user"]);
+        unset($_SESSION["userId"]);
+        $_SESSION["isConnected"] = false;
+
+        //delete cookie
+        setcookie("sessionId", 0, 0);
     }
 }
 
