@@ -29,7 +29,7 @@ All the users connected into with an account can add a new book and an appreciat
 - [Lien vers le serveur heroku](https://dashboard.heroku.com/apps/p-web-2)
 
 ## Elements to do
-1. [ ] Obligatory :
+### [ ] Obligatory :
   - [ ] Main page :
     - [ ] Explanations of the utility of the site
     - [ ] Display the 5 last added books
@@ -68,7 +68,7 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Average
     - [ ] Back-end
     - [x] Front-end
-2. [ ] Facultative :
+### [ ] Facultative :
   - [ ] Search to get a book (Implemented in front-end)
   - [ ] Modification of book
   - [ ] delete a book
