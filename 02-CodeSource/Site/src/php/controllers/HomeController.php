@@ -27,7 +27,8 @@ class HomeController{
      * Show the home page
      */
     public function show(){
-
+        $_POST["books"] = $this->books;
+        header("Location: ./02-CodeSource/Site/src/php/views/home.php");
     }
 }
 ?>

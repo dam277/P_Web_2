@@ -1,11 +1,6 @@
 <?php
-$bookList = array (
-    "book1" => "../../../resources/book1.jpg",
-    "book2" => "../../../resources/book2.jpg",
-    "book3" => "../../../resources/book3.jpg",
-    "book4" => "../../../resources/book4.jpg",
-    "book5" => "../../../resources/book5.jpg",
-)
+$bookList = $_POST;
+var_dump($bookList);
 ?>
 
 <!DOCTYPE html>

@@ -19,8 +19,8 @@ class Database {
      */
     public static function getDatabase() : Database{
         if (Database::$instance == false){
-            $serverInfo = json_decode(file_get_contents("secure/config.json"),true, 2, JSON_OBJECT_AS_ARRAY);
-            $login = json_decode(file_get_contents("secure/secret.json"),true, 2, JSON_OBJECT_AS_ARRAY);
+            $serverInfo = json_decode(file_get_contents(__DIR__ . "/secure/config.json"),true, 2, JSON_OBJECT_AS_ARRAY);
+            $login = json_decode(file_get_contents(__DIR__ . "/secure/secret.json"),true, 2, JSON_OBJECT_AS_ARRAY);
             Database::$instance = new Database(
                 "mysql:host=".$serverInfo["host"].";dbname=".$serverInfo["databaseName"].";charset=".$serverInfo["charset"],
                 $login["username"],
