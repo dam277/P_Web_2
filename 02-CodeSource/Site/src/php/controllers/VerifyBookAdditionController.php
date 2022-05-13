@@ -6,8 +6,8 @@
     Description :   Controls the Verification of the addition of a book
 */
 
-require_once("../models/Book.php");
-require_once("../models/User.php");
+require_once(__DIR__ . "/../models/Book.php");
+require_once(__DIR__ . "/../models/User.php");
 
 /**
  * Controls the Verification of the addition of a book

@@ -6,7 +6,7 @@
     Description :   Controls the verification process of the user log in
 */
 
-require_once("../models/User.php");
+require_once(__DIR__ . "/../models/User.php");
 
 /**
  * Controls the verification process of the user log in

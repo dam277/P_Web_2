@@ -354,7 +354,7 @@ $bookList = array_values($bookList);
 
                                     ?>
                                 </div>
-                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="bookinfos.php?idbook=<?= $bookList[$i]['id']?>">
+                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="../controllers/MainController.php?action=bookDetail?bookId=<?= $bookList[$i]['id']?>">
                                     <input class="cursor-pointer" type="button" value="Details">
                                 </a>
                                 <aside>Posté par :</aside>

@@ -1,4 +1,6 @@
 <?php
+$bookToShow = $GLOBALS["bookToShow"];
+
 
 $book = array(
     "id" => "../../../resources/bookTitle.jpg",
@@ -9,8 +11,9 @@ $book = array(
     "editorName" => "jean-marc dupont",
     "editionYear" => "2012",
     "userId" => "user",
-    "" => "",
-    "average" => 4.3
+    "categories" => ["Manga", "Romance"],
+    "average" => 4.3,
+    "nbAverage" => ["2", "1"]
 );
 
 $author = explode(" ", $book["authorName"]);
@@ -71,15 +74,15 @@ $author = explode(" ", $book["authorName"]);
                 <ul class="grid place-items-center w-[33%] ml-[10px]">
                     <li>Pages : <?= $book["pageNumber"] ?></li>
                     <li class="mt-[100px] font-bold">Catégories</li>
-                    <li><?= $book["category"] . ", " . $book["category"] ?></li>
+                    <li><?= $book["categories"][0] . ", " . $book["categories"][1] ?></li>
                     <li class="font-bold">Appréciations</li>
-                    <li>Cet ouvrage à reçu X appréciations</li>
+                    <li>Cet ouvrage à reçu <?= count($book["nbAverage"]) ?> appréciations</li>
                 </ul>
                 <!-- Editeur -->
                 <ul class="w-[33%]">
                     <li class="font-bold">Edition</li>
-                    <li>Editeur : <?= $book["editor"] ?></li>
-                    <li>Année d'édition : <?= $book["edition"] ?></li>
+                    <li>Editeur : <?= $book["editorName"] ?></li>
+                    <li>Année d'édition : <?= $book["editionYear"] ?></li>
                 </ul>
             </div>
             <!-- Personne qui poste l'article -->
