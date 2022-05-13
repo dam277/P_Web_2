@@ -6,15 +6,15 @@
     Description :   Controls the application
 */
 
-require_once("../models/User.php");
-require_once("./VerifyLogInController.php");
-require_once("./LogInController.php");
-require_once("./HomeController.php");
-require_once("./BookDetailController.php");
-require_once("./AddBookController.php");
-require_once("./UserDetailController.php");
-require_once("./VerifyAppreciationAdditionController.php");
-require_once("./VerifyBookAdditionController.php");
+require_once(__DIR__ . "/../models/User.php");
+require_once(__DIR__ . "/LogInController.php");
+require_once(__DIR__ . "/HomeController.php");
+require_once(__DIR__ . "/AddBookController.php");
+require_once(__DIR__ . "/BookDetailController.php");
+require_once(__DIR__ . "/UserDetailController.php");
+require_once(__DIR__ . "/VerifyAppreciationAdditionController.php");
+require_once(__DIR__ . "/VerifyBookAdditionController.php");
+require_once(__DIR__ . "/VerifyLogInController.php");
 
 /**
  * Controls the application
@@ -86,7 +86,7 @@ class MainController{
             case "bookDetail":
                 if (isset($_GET["bookId"])){
                     $controller = new BookDetailController($_GET["bookId"]);
-                    $controller->show();
+                    $controller->show($_GET["bookId"]);
                 }
                 else{
                     /////////////////////send to error page///////////////////////////

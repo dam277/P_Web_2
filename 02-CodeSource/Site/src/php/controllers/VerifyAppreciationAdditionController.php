@@ -6,8 +6,8 @@
     Description :   Verify the addition of an appreciation
 */
 
-require_once("../models/Book.php");
-require_once("../models/Appreciation.php");
+require_once(__DIR__ . "/../models/Book.php");
+require_once(__DIR__ . "/../models/Appreciation.php");
 
 /**
  * Verify the addition of a new appreciation

@@ -6,7 +6,7 @@
     Description :   Controls the display of the user's detail
 */
 
-require_once("../models/User.php");
+require_once(__DIR__ . "/../models/User.php");
 
 /**
  * Controls the display of the user's detail

@@ -6,9 +6,9 @@
     Description :   Show the details of a book
 */
 
-require_once("../models/Book.php");
-require_once("../models/User.php");
-require_once("../models/Appreciation.php");
+require_once(__DIR__ . "/../models/Book.php");
+require_once(__DIR__ . "/../models/User.php");
+require_once(__DIR__ . "/../models/Appreciation.php");
 
 /**
  * Show the details of a book
