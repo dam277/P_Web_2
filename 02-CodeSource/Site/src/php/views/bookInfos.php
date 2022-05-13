@@ -1,17 +1,19 @@
 <?php
 
 $book = array(
-    "image" => "../../../resources/bookTitle.jpg",
-    "name" => "Titre du livre",
-    "category" => "manga",
-    "author" => "jean-marc dupont",
-    "editor" => "oui",
-    "pages" => "678",
-    "edition" => "2012",
+    "id" => "../../../resources/bookTitle.jpg",
+    "title" => "Titre du livre",
+    "pageNumber" => "678",
+    "summary" => "résumé",
+    "authorName" => "truc bidule",
+    "editorName" => "jean-marc dupont",
+    "editionYear" => "2012",
+    "userId" => "user",
+    "" => "",
     "average" => 4.3
 );
 
-$author = explode(" ", $book["author"]);
+$author = explode(" ", $book["authorName"]);
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +55,9 @@ $author = explode(" ", $book["author"]);
 
         <!-- Details du livre -->
         <div class="grid place-items-center">
-            <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $book["name"] ?></h2>
+            <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $book["title"] ?></h2>
             <!-- Image du livre -->
-            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="<?= $book["image"] ?>" alt="">
+            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="<?= $book["id"] ?>" alt="">
 
             <!-- informations -->
             <div class="flex w-full text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
@@ -67,7 +69,7 @@ $author = explode(" ", $book["author"]);
                 </ul>
                 <!-- Pages + Catégories + Appréciations -->
                 <ul class="grid place-items-center w-[33%] ml-[10px]">
-                    <li>Pages : <?= $book["pages"] ?></li>
+                    <li>Pages : <?= $book["pageNumber"] ?></li>
                     <li class="mt-[100px] font-bold">Catégories</li>
                     <li><?= $book["category"] . ", " . $book["category"] ?></li>
                     <li class="font-bold">Appréciations</li>
