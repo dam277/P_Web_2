@@ -16,6 +16,7 @@ require_once(__DIR__ . "/VerifyAppreciationAdditionController.php");
 require_once(__DIR__ . "/VerifyBookAdditionController.php");
 require_once(__DIR__ . "/VerifyLogInController.php");
 
+
 /**
  * Controls the application
  */

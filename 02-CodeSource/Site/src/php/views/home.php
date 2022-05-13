@@ -1,6 +1,6 @@
 <?php
 $bookList = $_POST;
-var_dump($bookList);
+//var_dump($bookList);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,8 @@ var_dump($bookList);
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
+<!-- A ajouter dans la balise <body> : onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')"-->
+<body class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
     <header>
         <?php
             include("../../include/header.php");
