@@ -60,7 +60,7 @@ class Book{
     static public function getAllBooks() : array{
         //select the books
         $assocBooks = Database::getDatabase()->querySimpleExecute(
-            "SELECT * FROM t_book"
+            "SELECT * FROM t_category"
         );
 
         //declare the array of books
