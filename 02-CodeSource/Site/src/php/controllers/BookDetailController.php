@@ -1,0 +1,57 @@
+<?php
+/*
+    ETML
+    Auteur :        Aurélien Devaud
+    Date :          11.05.2022
+    Description :   Show the details of a book
+*/
+
+require_once("../models/Book.php");
+require_once("../models/User.php");
+require_once("../models/Appreciation.php");
+
+/**
+ * Show the details of a book
+ */
+class BookDetailController{
+    
+    //declare variables
+    public Book $bookToShow;
+    public ?float $yourEval;
+    public int $nbEval;
+
+    /**
+     * Contruct the instance of the class
+     * @param $bookToShowId => id of the book to show the detail of
+     */
+    public function __construct(int $bookToShowId)
+    {
+        //verify if authorized
+        if ($_SESSION["permLevel"] > 0){
+            $this->bookToShow = Book::getBookById($bookToShowId);
+            $appreciations = $_SESSION["user"]->getAppreciations();
+    
+            $yourEval = null;
+            foreach ($appreciations as $appreciation){
+                if ($appreciation->bookId == $bookToShowId){
+                    $this->yourEval = $appreciation;
+                    break;
+                }
+            }
+    
+            $this->nbEval = count($this->bookToShow->getAppreciations());
+        }
+    }
+
+    /**
+     * Show the book's details
+     */
+    public function show() : void{
+        //verify if authorized
+        if ($_SESSION["permLevel"] > 0){
+
+        }
+    }
+}
+
+?>
