@@ -6,7 +6,7 @@
 -->
 
 <!-- Footer du site web -->
-<footer class="selection:bg-neutral-200 selection:text-gray-600 bottom-0 left-0 lg:mt-10 md:mt-96 h-5/6 bg-zinc-800 text-center text-white">
+<footer class="selection:bg-neutral-200 selection:text-gray-600 bottom-0 left-0  h-5/6 bg-zinc-800 text-center text-white">
   <!-- Conteneur des éléments du footer -->
   <div class="container p-4 mx-auto">
     <!-- Nombre de colonnes dans le footer et marge en hauteur -->
@@ -55,15 +55,15 @@
         <ul class="list-none mt-3 space-y-2">
           <!-- Page d'accueil -->
           <li>
-            <a href="index.php" class="hover:text-gray-300 select-none">Accueil</a>
+            <a href="home.php" class="hover:text-gray-300 select-none">Accueil</a>
           </li>
           <!-- Page des ouvrages -->
           <li>
-            <a href="" class="hover:text-gray-300 select-none">Ouvrages</a>
+            <a href="books.php" class="hover:text-gray-300 select-none">Ouvrages</a>
           </li>
           <!-- Page pour ajouter un livre -->
           <li>
-            <a href="addbook.php" class="hover:text-gray-300 select-none">Ajouter un livre</a>
+            <a href="addBook.php" class="hover:text-gray-300 select-none">Ajouter un livre</a>
           </li>
         </ul>
       </div>
@@ -96,7 +96,7 @@
         <ul class="list-none mt-3 space-y-2">
           <li>
             <!-- Bouton "Accéder à la page" -->
-            <a href="contact.php"><button class="mt-6 bg-transparent text-gray-300 hover:text-gray-200 py-2 px-5 border-2 border-gray-400 hover:border-white rounded">Accéder à la page</button></a>
+            <a href="contactUs.php"><button class="mt-6 bg-transparent text-gray-300 hover:text-gray-200 py-2 px-5 border-2 border-gray-400 hover:border-white rounded">Accéder à la page</button></a>
           </li>
         </ul>
       </div>
