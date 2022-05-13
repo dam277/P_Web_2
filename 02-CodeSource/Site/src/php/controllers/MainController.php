@@ -10,6 +10,11 @@ require_once("../models/User.php");
 require_once("./VerifyLogInController.php");
 require_once("./LogInController.php");
 require_once("./HomeController.php");
+require_once("./BookDetailController.php");
+require_once("./AddBookController.php");
+require_once("./UserDetailController.php");
+require_once("./VerifyAppreciationAdditionController.php");
+require_once("./VerifyBookAdditionController.php");
 
 /**
  * Controls the application
@@ -26,6 +31,9 @@ class MainController{
         //test if an action is found
         if (isset($_GET["action"])){
             $action = $_GET["action"];
+        }
+        else{
+            $action = "goHome";
         }
     }
 
@@ -46,11 +54,17 @@ class MainController{
         //find what action to do
         switch($this->action){
             case "verifyLogIn":
-                $controller = new VerifyLogInController($_POST["nickname"], $_POST["password"]);
-                if ($controller->valid){
-                    $this->createNewSession($controller->user->id);
+                if (isset($_POST["nickname"]) && isset($_POST["password"])){
+
+                    $controller = new VerifyLogInController($_POST["nickname"], $_POST["password"]);
+                    if ($controller->valid){
+                        $this->createNewSession($controller->user->id);
+                    }
+                    $controller->show();
                 }
-                $controller->show();
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
                 break;
 
             case "goHome":
@@ -70,7 +84,57 @@ class MainController{
                 break;
 
             case "bookDetail":
-                $controller = new BookDetailController($_GET["bookId"]);
+                if (isset($_GET["bookId"])){
+                    $controller = new BookDetailController($_GET["bookId"]);
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            case "userDetail":
+                if (isset($_GET["bookId"])){
+                    $controller = new UserDetailController($_GET["userId"]);
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            case "addBook":
+                $controller = new AddBookController();
+                $controller->show();
+                break;
+
+            case "verifyBook":
+                if (isset($_GET["title"]) && isset($_GET["pageNumber"]) && isset($_GET["summary"])
+                && isset($_GET["authorName"]) && isset($_GET["editorName"]) && isset($_GET["editorYear"])
+                && isset($_GET["extract"]) && isset($_GET["userId"])){
+                    $controller = new VerifyBookAdditionController(
+                        new Book(null, $_GET["title"], $_GET["pageNumber"],
+                        $_GET["summary"],$_GET["authorName"],$_GET["editorName"],
+                        $_GET["editorYear"],$_GET["extract"],$_GET["userId"]));
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            case "verifyAppreciation":
+                if (isset($_GET["evaluation"]) && isset($_GET["bookId"])){
+                    $controller = new VerifyAppreciationAdditionController($_GET["bookId"], $_GET["evaluation"]);
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            default:
+                $controller = new HomeController();
                 $controller->show();
                 break;
         }

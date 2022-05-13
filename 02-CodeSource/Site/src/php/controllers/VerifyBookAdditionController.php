@@ -28,11 +28,10 @@ class VerifyBookAdditionController{
             //check for errors
             $this->errors = $bookToAdd->checkForErrors();
 
-            
-        //test if the book can be added
-        if (count($this->errors) > 0){
-            $bookToAdd->insert();
-        }
+            //test if the book can be added
+            if (count($this->errors) > 0){
+                $bookToAdd->insert();
+            }
         }
     }
 

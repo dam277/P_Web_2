@@ -11,6 +11,9 @@
  */
 class ModifyBookController{
 
+    //declare variables
+    public Book $bookToModify;
+
     /**
      * Construct the instance of the class
      * @param $bookIdToModify
