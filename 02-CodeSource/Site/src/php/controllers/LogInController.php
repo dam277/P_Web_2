@@ -23,7 +23,7 @@ class LogInController{
      * Show the log in page
      */
     public function show() : void{
-
+        header("Location: ./02-CodeSource/Site/src/php/views/connexion.php");
     }
 }
 ?>

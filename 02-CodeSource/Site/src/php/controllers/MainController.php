@@ -8,6 +8,8 @@
 
 require_once(__DIR__ . "/../models/User.php");
 require_once(__DIR__ . "/LogInController.php");
+require_once(__DIR__ . "/SignUpController.php");
+require_once(__DIR__ . "/ContactUsController.php");
 require_once(__DIR__ . "/HomeController.php");
 require_once(__DIR__ . "/AddBookController.php");
 require_once(__DIR__ . "/BookDetailController.php");
@@ -87,6 +89,16 @@ class MainController{
 
             case "logIn":
                 $controller = new LogInController();
+                $controller->show();
+                break;
+
+            case "signUp":
+                $controller = new SignUpController();
+                $controller->show();
+                break;
+
+            case "contactUs":
+                $controller = new ContactUsController();
                 $controller->show();
                 break;
 

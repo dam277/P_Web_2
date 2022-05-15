@@ -21,8 +21,6 @@
     }
 </script>
 
-
-
 <nav class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700 z-[12] mb-[40px] text-[25.6px] w-full fixed bg-white bg-opacity-[0.95] h-[50px] text-black text-center border-b-2 border-black">
     <div class="block absolute left-[20px] h-4 w-[300px] m-auto">
         <input class="block absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox">
@@ -30,21 +28,21 @@
         <div class="block h-[4px] w-[35px] absolute z-[2] top-[26.5px] rounded-[10px] bg-black duration-[0.2s] peer-checked:scale-y-0 dark:bg-gray-400"></div>
         <div class="block h-[4px] w-[35px] absolute z-[2] top-[36px] rounded-[10px] bg-black origin-[0%_100%] duration-[0.4s] peer-checked:rotate-[-35deg] dark:bg-gray-400"></div>
         <ul class="pt-[100px] bg-white h-[100vh] w-[300px] right-[300px] translate-x-[-150%] ml-[0px] pl-[50px] duration-[0.5s] shadow-2xl peer-checked:translate-x-[-55px] dark:bg-gray-700">
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="home.php">Accueil</a></li>
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=goHome">Accueil</a></li>
             <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans">Ouvrages</a>
                 <ul>
                     <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=addBook">Ajouter un ouvrage</a></li>
                     <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=bookList">Tous les ouvrages</a></li>
                 </ul>
             </li>
-            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="contactUs.php">Nous contacter</a></li>
+            <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=contactUs">Nous contacter</a></li>
             <hr class="border-gray-400">
             <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans">Compte</a>
                 <ul>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="connexion.php">Se connecter</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="inscription.php">S'inscrire</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="">Se déconnecter</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="AccountInfos.php">Voir mon compte</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=logIn">Se connecter</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=signUp">S'inscrire</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=logOut">Se déconnecter</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=userDetail">Voir mon compte</a></li>
                 </ul>
             </li>
         </ul>
@@ -63,10 +61,10 @@
         <input class="absolute h-[35px] w-[35px] top-[10px] z-[5] opacity-0 peer" type="checkbox">
         <img src="../../../resources/user.png" alt="Icon user" class="absolute top-[10px] h-[35px] w-[35px] left-[150px]">
         <ul class="rounded-b-xl relative left-[20px] top-[-5px] bg-white duration-[0.5s] invisible shadow-2xl opacity-0 peer-checked:visible peer-checked:translate-y-[50px] peer-checked:opacity-100 dark:text-gray-400 dark:bg-gray-700">
-            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Se connecter</button></a></li>
-            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">S'inscrire</button></a></li>
-            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Se déconnecter</button></a></li>
-            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = 'home.php';">Voir mon compte</button></a></li>
+            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=logIn';">Se connecter</button></a></li>
+            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=signUp';">S'inscrire</button></a></li>
+            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=logOut';">Se déconnecter</button></a></li>
+            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=userDetail';">Voir mon compte</button></a></li>
         </ul>
     </div>
     <h1 class="order-1 text-[36.8px] mb-[8px] mr-[20px] float-right">RS</h1>
