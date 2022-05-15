@@ -24,8 +24,14 @@ class AddBookController{
      */
     public function show(){
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
-    
+        if ($_SESSION["permLevel"] > 0)
+        {
+            header("location: /02-CodeSource/Site/src/php/views/addBook.php");
+        }
+        else
+        {
+            /////////////////////send to error page///////////////////////////
+            header("location: /02-CodeSource/Site/src/php/views/errors/error403.php");
         }
     }
 }

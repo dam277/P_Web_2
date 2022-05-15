@@ -1,93 +1,19 @@
 <?php
-$page;  //Page actuelle 
+session_start();
+require_once(__DIR__."/../models/Book.php");
+$page;  //Page actuelle
 
 //Regarde quelle page on est
-if ($_GET["page"]) 
+if ($_GET["page"])
 {
     $page = $_GET["page"];
-} 
-else 
+}
+else
 {
     header("location: books.php?page=1");
 }
 
-$bookList = array
-(
-    "book1" => array
-    (
-        "id" => "1",
-        "image" => "../../../resources/book1.jpg",
-        "name" => "livre1",
-        "category" => "manga",
-        "author" => "jean-marc",
-        "editor" => "oui",
-        "pages" => "678",
-        "edition" => "2012",
-        "average" => 4
-    ),
-    "book2" => array
-    (
-        "id" => "2",
-        "image" => "../../../resources/book2.jpg",
-        "name" => "livre2",
-        "category" => "roman",
-        "author" => "Romain",
-        "editor" => "oui",
-        "pages" => "1987",
-        "edition" => "2017",
-        "average" => 4.3
-    ),
-    "book3" => array
-    (
-        "id" => "3",
-        "image" => "../../../resources/book3.jpg",
-        "name" => "livre3",
-        "category" => "manga",
-        "author" => "Marie",
-        "editor" => "non",
-        "pages" => "611",
-        "edition" => "2013",
-        "average" => 4.8
-    ),
-    "book4" => array
-    (
-        "id" => "4",
-        "image" => "../../../resources/book4.jpg",
-        "name" => "livre4",
-        "category" => "manga",
-        "author" => "jean-marc dutron",
-        "editor" => "peut-être",
-        "pages" => "678",
-        "edition" => "2012",
-        "average" => 2.6
-    ),
-    "book5" => array
-    (
-        "id" => "5",
-        "image" => "../../../resources/book5.jpg",
-        "name" => "livre5",
-        "category" => "roman",
-        "author" => "patrick",
-        "editor" => "sûrement",
-        "pages" => "1000",
-        "edition" => "1999",
-        "average" => 1.2
-    ),
-    "book6" => array
-    (
-        "id" => "6",
-        "image" => "../../../resources/book6.jpg",
-        "name" => "livre6",
-        "category" => "livre",
-        "author" => "jean-marc",
-        "editor" => "oui",
-        "pages" => "10",
-        "edition" => "2012",
-        "average" => 2.8
-    )
-);
-$bookList = array_values($bookList);
-
+$books = $_SESSION["books"];
 ?>
 
 
@@ -112,7 +38,8 @@ $bookList = array_values($bookList);
         <h1 class="text-8xl text-white text-center bg-[#0A183C] w-full py-[200px]">OUVRAGES</h1>
 
         <!-- FORMULAIRE COMPRENANT TOUTE LA PAGE -->
-        <form method="POST" action="test.php" class=" md:flex lg:flex xl:flex">
+        <form method="POST" action="category.php" class=" md:flex lg:flex xl:flex">
+<!-- #region Filtres -->
             <!-- FILTRES -->
             <aside class="w-[100%] md:w-[20%] lg:w-[20%] xl:w-[20%]">
                 <div class="grid place-items-center">
@@ -121,7 +48,7 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- MOYENNE -->
-                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] duration-[0.5s] dark:bg-slate-600 dark:text-gray-400">
+                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] duration-[0.5s] dark:bg-slate-600 dark:text-gray-400">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px ">
                     <ul>
                         <!-- NOTE 1 -->
@@ -173,7 +100,7 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- CATEGORIES -->
-                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
                         <!-- MANGA -->
@@ -200,7 +127,7 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- PAGES -->
-                <input type="button" value="Pages [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Pages [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- MIN -->
@@ -213,7 +140,7 @@ $bookList = array_values($bookList);
                 </div>
 
                 <!-- EDITION -->
-                <input type="button" value="Edition [+]" class="text-center mt-[10px] test bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Edition [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="mb-[10px] bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- ANNEE D'EDITION -->
@@ -222,7 +149,7 @@ $bookList = array_values($bookList);
                     </div>
                 </div>
             </aside>
-
+<!-- #endregion -->
             <!-- RECHERCHE DE LIVRES -->
             <div class="w-[100%] border-2 md:w-[80%] lg:w-[80%] xl:w-[80%] md:border-l-2 lg:border-l-2 xl:border-l-2 border-solid border-black border-t-0 dark:border-gray-400">
                 <div class="grid place-items-center">
@@ -233,7 +160,7 @@ $bookList = array_values($bookList);
                         <input class="absolute ml-[100%] w-[35px] h-[35px] border-solid border-2 border-l-0 border-black bg-cover bg-center cursor-pointer hover:bg-[#cdcdcd]" style="background-image: url('../../../resources/search.jpg');" id="submit" type="submit" value="">
                     </div>
                     <p>Resultat de la recherche :</p>
-                    <p><?= count($bookList) ?> ouvrages trouvés</p>
+                    <p><?= count($books) ?> ouvrages trouvés</p>
                     <p>Filtres :</p>
                 </div>
 
@@ -245,40 +172,66 @@ $bookList = array_values($bookList);
                 $endI = $page * 5;
 
                 //Affiche les ouvrages
-                for ($i = $startI; $i < $endI; $i++) 
+                for ($i = $startI; $i < $endI; $i++)
                 {
-                    if (!isset($bookList[$i])) 
+                    if (!isset($books[$i]))
                     {
                         # Arret de l'affichage
-                    } 
-                    else 
+                    }
+                    else
                     {
                 ?>
                         <!-- 1 LIVRE -->
                         <div class="outline outline-[2px] outline-offset-[0px] flex ">
+<!-- #region Image -->
                             <!-- IMAGE DE COUVERTURE -->
                             <div class="w-[40%] md:w-[30%] lg:w-[30%] xl:w-[30%] mx-[20px] py-[10px] pr-[10px] dark:border-gray-400 border-r-2 border-black border-solid xl:w-[15%] min-h-[300px]">
                                 <p class="grid place-items-center block md:hidden lg:hidden xl:hidden">
-                                    <?= $bookList[$i]["name"] ?>
+                                    <?= $books[$i]["title"] ?>
                                     <br>
-                                    Auteur : <?= $bookList[$i]["author"] ?>
+                                    Auteur : <?= $books[$i]["authorName"] ?>
                                     <hr class="mb-[5px] block md:hidden lg:hidden xl:hidden">
                                 </p>
-                                <img src="<?= $bookList[$i]["image"] ?>" alt="">
+                                <!-- <img src="<?= $books[$i]["image"] ?>" alt=""> -->
+                                Ajouter l'image !! 
                             </div>
+<!-- #endregion -->
 
+<!-- #region Infos -->
                             <!-- INFORMATIONS SUR L'OUVRAGE -->
                             <div class="w-[30%] hidden md:block lg:block xl:block">
-                                <p class="grid place-items-center"><?= $bookList[$i]["name"] ?></p>
+                                <p class="grid place-items-center"><?= $books[$i]["title"] ?></p>
                                 <ul class="grid place-items-left bg-slate-300 dark:bg-slate-600 border-solid border-2 border-black h-[82%] mr-[20px] duration-[0.5s]">
-                                    <li class="ml-[10px]">Auteur : <?= $bookList[$i]["author"] ?></li>
-                                    <li class="ml-[10px]">Catégorie : <?= $bookList[$i]["category"] ?></li>
-                                    <li class="ml-[10px]">Pages : <?= $bookList[$i]["pages"] ?></li>
-                                    <li class="ml-[10px]">Editeur : <?= $bookList[$i]["editor"] ?></li>
-                                    <li class="ml-[10px]">Date d'édition : <?= $bookList[$i]["edition"] ?></li>
+                                    <li class="ml-[10px]">Auteur : <?= $books[$i]["authorName"] ?></li>
+                                    <li class="ml-[10px]">
+                                        <?php
+                                        if(count($books[$i]["bookCategory"]) == 1)
+                                        {
+                                            echo "Catégorie : "; 
+                                            echo $books[$i]["bookCategory"][0];
+                                        }
+                                        else
+                                        {
+                                            echo "Catégories : "; 
+                                            foreach ($books[$i]["bookCategory"] as $category) 
+                                            {
+                                                echo $category;
+                                                if($category != $books[$i]["bookCategory"][count($books[$i]["bookCategory"]) - 1])
+                                                {
+                                                    echo ", ";
+                                                }
+                                            }
+                                        } 
+                                        ?>
+                                    </li>
+                                    <li class="ml-[10px]">Pages : <?= $books[$i]["pageNumber"] ?></li>
+                                    <li class="ml-[10px]">Editeur : <?= $books[$i]["editorName"] ?></li>
+                                    <li class="ml-[10px]">Date d'édition : <?= $books[$i]["editorYear"] ?></li>
                                 </ul>
                             </div>
+<!-- #endregion -->
 
+<!-- #region Moyenne + Post + Details -->
                             <!-- MOYENNE + DETAILS + POST -->
                             <div class="w-[50%] grid place-items-center">
                                 <P>Moyenne</P>
@@ -286,55 +239,55 @@ $bookList = array_values($bookList);
                                     <?php
 
                                     //Defini le nombre d'étoiles à afficher
-                                    if ($bookList[$i]["average"] < 1.25) 
+                                    if ($books[$i]["averageEvalutation"] < 1.25)
                                     {
                                         $goldStars = 1;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 1.75) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 1.75)
                                     {
                                         $goldStars = 1.5;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 2.25) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 2.25)
                                     {
                                         $goldStars = 2;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 2.75) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 2.75)
                                     {
                                         $goldStars = 2.5;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 3.25) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 3.25)
                                     {
                                         $goldStars = 3;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 3.75) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 3.75)
                                     {
                                         $goldStars = 3.5;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 4.25) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 4.25)
                                     {
                                         $goldStars = 4;
-                                    } 
-                                    elseif ($bookList[$i]["average"] < 4.75) 
+                                    }
+                                    elseif ($books[$i]["averageEvalutation"] < 4.75)
                                     {
                                         $goldStars = 4.5;
-                                    } 
-                                    else 
+                                    }
+                                    else
                                     {
                                         $goldStars = 5;
                                     }
 
                                     //Affichage des étoiles
-                                    for ($y = 0; $y < 5; $y++) 
+                                    for ($y = 0; $y < 5; $y++)
                                     {
-                                        if ($y < $goldStars) 
+                                        if ($y < $goldStars)
                                         {
-                                            if ($y + 0.5 == $goldStars) 
+                                            if ($y + 0.5 == $goldStars)
                                             {
                                     ?>
                                                 <img class="mt-[-40px] w-[30px] h-[30px]" src="../../../resources/rateStarSemiChecked.jpg" alt="Note">
                                             <?php
-                                            } 
-                                            else 
+                                            }
+                                            else
                                             {
                                             ?>
                                                 <img class="mt-[-40px] w-[30px] h-[30px]" src="../../../resources/rateStarChecked.jpg" alt="Note">
@@ -343,8 +296,8 @@ $bookList = array_values($bookList);
                                             ?>
 
                                         <?php
-                                        } 
-                                        else 
+                                        }
+                                        else
                                         {
                                         ?>
                                             <img class="mt-[-40px] w-[30px] h-[30px]" src="../../../resources/rateStarNotChecked.jpg" alt="Note">
@@ -354,21 +307,23 @@ $bookList = array_values($bookList);
 
                                     ?>
                                 </div>
-                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="../controllers/MainController.php?action=bookDetail?bookId=<?= $bookList[$i]['id']?>">
+
+                                <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="../../../../../index.php?action=bookDetail&bookId=<?= $books[$i]['id']?>">
                                     <input class="cursor-pointer" type="button" value="Details">
                                 </a>
-                                <aside>Posté par :</aside>
+                                <aside>Posté par : <?= $books[$i]["user"][1] ?></aside>
                             </div>
+<!-- #endregion -->
                         </div>
                 <?php
                     }
                 }
                 ?>
+                <!-- NAVIGATION DES PAGES -->
                 <div class="grid place-items-center">
-                    <!-- NAVIGATION DES PAGES -->
                     <nav class="flex mt-[30px] mb-[30px]">
                         <?php
-                        //Defini si c'est la première page trouvable 
+                        //Defini si c'est la première page trouvable
                         //Si oui, affiche un bouton non cliquable
                         if($_GET["page"] == 1)
                         {
@@ -388,15 +343,15 @@ $bookList = array_values($bookList);
                         <?php
                         }
                         ?>
-                        
+
 
                         <?php
                         //Defini si le "deuxième" bouton [1] devrait s'afficher
-                        if ($_GET["page"] < 4) 
+                        if ($_GET["page"] < 4)
                         {
 
-                        } 
-                        else 
+                        }
+                        else
                         {
                         ?>
                             <!-- Bouton de page détérminée -->
@@ -407,24 +362,24 @@ $bookList = array_values($bookList);
                         }
 
                         $x = 0;                      //Début de la boucle
-                        $lastPage = ceil(count($bookList) /*100*/ / 5);    //Dernière page en fonction de la liste de livres
-                        //Boucle permettant d'afficher le nombre de boutons adéquat 
-                        while ($x < count($bookList) /*100*/ / 5 && $x < $_GET["page"] + 2) 
+                        $lastPage = ceil(count($books) /*100*/ / 5);    //Dernière page en fonction de la liste de livres
+                        //Boucle permettant d'afficher le nombre de boutons adéquat
+                        while ($x < count($books) /*100*/ / 5 && $x < $_GET["page"] + 2)
                         {
-                            //Test pour savoir si x est plus petit que le numéro de page - 3
+                            //category pour savoir si x est plus petit que le numéro de page - 3
                             //Si oui, augmente juste le nombre, afin de n'afficher que 2 nombres en dessus et en dessous de la page actuelle
                             if ($x < $_GET["page"] - 3)
                             {
                                 $x++;
                             }
                             //Sinon, affiche les boutons autour de la page actuelle
-                            else 
+                            else
                             {
                                 $x++;   //Augmentation de x
 
                                 //Defini si x est egal au numéro de page
                                 //Si oui, affiche le même bouton, mais avec une couleur plus claire
-                                if ($x != $_GET["page"]) 
+                                if ($x != $_GET["page"])
                                 {
                             ?>
                                     <!-- Bouton de page détérminée -->
@@ -434,7 +389,7 @@ $bookList = array_values($bookList);
                                 <?php
                                 }
                                 //Sinon affiche un bouton avec une couleur plus foncée
-                                else 
+                                else
                                 {
                                 ?>
                                     <!-- Bouton de page active -->
@@ -447,11 +402,11 @@ $bookList = array_values($bookList);
                         }
 
                         //Defini si le "deuxième" bouton ["dernière page"] devrait s'afficher
-                        if ($x > $lastPage - 1) 
+                        if ($x > $lastPage - 1)
                         {
 
-                        } 
-                        else 
+                        }
+                        else
                         {
                             ?>
                             <!-- Bouton de dernière page détérminée -->
@@ -460,9 +415,9 @@ $bookList = array_values($bookList);
                             </a>
                         <?php
                         }
-                        //Defini si c'est la dernière page trouvable 
+                        //Defini si c'est la dernière page trouvable
                         //Si non, affiche un bouton cliquable
-                        if ($_GET["page"] < $x) 
+                        if ($_GET["page"] < $x)
                         {
                         ?>
                             <!-- Bouton de page suivante => ALler une page en avant actif-->
@@ -472,7 +427,7 @@ $bookList = array_values($bookList);
                         <?php
                         }
                         //Sinon, affiche un bouton non cliquable
-                        else 
+                        else
                         {
                         ?>
                             <!-- Bouton de page suivante => ALler une page en avant non actif -->

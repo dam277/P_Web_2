@@ -55,15 +55,15 @@
         <ul class="list-none mt-3 space-y-2">
           <!-- Page d'accueil -->
           <li>
-            <a href="home.php" class="hover:text-gray-300 select-none">Accueil</a>
+            <a href="../../../../../index.php?action=goHome" class="hover:text-gray-300 select-none">Accueil</a>
           </li>
           <!-- Page des ouvrages -->
           <li>
-            <a href="books.php" class="hover:text-gray-300 select-none">Ouvrages</a>
+            <a href="../../../../../index.php?action=bookList" class="hover:text-gray-300 select-none">Ouvrages</a>
           </li>
           <!-- Page pour ajouter un livre -->
           <li>
-            <a href="addBook.php" class="hover:text-gray-300 select-none">Ajouter un livre</a>
+            <a href="../../../../../index.php?action=addBook" class="hover:text-gray-300 select-none">Ajouter un livre</a>
           </li>
         </ul>
       </div>
@@ -96,7 +96,7 @@
         <ul class="list-none mt-3 space-y-2">
           <li>
             <!-- Bouton "Accéder à la page" -->
-            <a href="contactUs.php"><button class="mt-6 bg-transparent text-gray-300 hover:text-gray-200 py-2 px-5 border-2 border-gray-400 hover:border-white rounded">Accéder à la page</button></a>
+            <a href="../../../../../index.php?action=contactUs"><button class="mt-6 bg-transparent text-gray-300 hover:text-gray-200 py-2 px-5 border-2 border-gray-400 hover:border-white rounded">Accéder à la page</button></a>
           </li>
         </ul>
       </div>
@@ -105,7 +105,7 @@
   <!-- Bas du footer (année, école, projet et initiales des contributeurs) -->
   <div class="text-center p-4 -mt-2 mt-2hover:cursor-default text-xl">
     <!-- Texte -->
-    <p class="text-gray-400 -mt-4 hover:cursor-default mb-4 select-none">__________________________________________________________________________________________________________________________________________________________________</p>
+    <hr class="text-gray-400 -mt-4 mb-4">
     © 2022 ETML - P_Web_2 - DL TR AD NC
   </div>
 </footer>

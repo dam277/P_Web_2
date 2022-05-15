@@ -290,7 +290,7 @@ class Book{
     public function getAverageEvaluation() : float{
         return (float)(Database::getDatabase()->queryPrepareExecute(
             "SELECT AVG(appEvaluation) AS 'Average' FROM `t_appreciation` WHERE idBook = :id",
-            [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]])[0]["idBook"]);
+            [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]])[0]["Average"]);
     }
 }
 ?>

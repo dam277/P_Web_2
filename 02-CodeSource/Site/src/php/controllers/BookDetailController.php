@@ -49,7 +49,12 @@ class BookDetailController{
     public function show() : void{
         //verify if authorized
         if ($_SESSION["permLevel"] > 0){
-
+            header("location: /02-CodeSource/Site/src/php/views/bookInfos.php?bookId=".$_GET["bookId"]);
+        }
+        else
+        {
+            /////////////////////send to error page///////////////////////////
+            header("location: /02-CodeSource/Site/src/php/views/errors/error403.php");
         }
     }
 }

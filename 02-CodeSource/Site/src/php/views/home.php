@@ -12,7 +12,8 @@ var_dump($bookList);
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
+<!-- A ajouter dans la balise <body> : onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')"-->
+<body class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
     <header>
         <?php
             include("../../include/header.php");
@@ -24,8 +25,8 @@ var_dump($bookList);
             <h1 class="text-[40px] sm:text-[50px] md:text-[75px] lg:text-[100px] text-black font-semibold">
                 ACCUEIL
             </h1>
-            <a href="books.php">
-                <input onclick="moveLeft()" class="cursor-pointer bg-opacity-[35%] border-solid border-2 border-black bg-[#C4C4C4] hover:bg-opacity-100 text-black rounded-[30px] text-[20px] h-[40px] w-[200px] sm:text-[25px] sm:h-[50px] sm:w-[250px] md:text-[35px] md:h-[100px] md:w-[350px] lg:text-[50px] lg:h-[150px] lg:w-[500px]" type="button" value="VOIR LES OUVRAGES">
+            <a href="../../../../../index.php?action=bookList">
+                <input class="cursor-pointer bg-opacity-[35%] border-solid border-2 border-black bg-[#C4C4C4] hover:bg-opacity-100 text-black rounded-[30px] text-[20px] h-[40px] w-[200px] sm:text-[25px] sm:h-[50px] sm:w-[250px] md:text-[35px] md:h-[100px] md:w-[350px] lg:text-[50px] lg:h-[150px] lg:w-[500px]" type="button" value="VOIR LES OUVRAGES">
             </a>
         </div>
         <!-- FIN ==================== TITRE ==================== -->
