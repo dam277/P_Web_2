@@ -105,7 +105,7 @@
   <!-- Bas du footer (année, école, projet et initiales des contributeurs) -->
   <div class="text-center p-4 -mt-2 mt-2hover:cursor-default text-xl">
     <!-- Texte -->
-    <p class="text-gray-400 -mt-4 hover:cursor-default mb-4 select-none">__________________________________________________________________________________________________________________________________________________________________</p>
+    <hr class="text-gray-400 -mt-4 mb-4">
     © 2022 ETML - P_Web_2 - DL TR AD NC
   </div>
 </footer>

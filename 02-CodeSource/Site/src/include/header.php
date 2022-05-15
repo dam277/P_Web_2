@@ -33,8 +33,8 @@
             <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="home.php">Accueil</a></li>
             <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans">Ouvrages</a>
                 <ul>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="addBook.php">Ajouter un ouvrage</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="books.php">Tous les ouvrages</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=addBook">Ajouter un ouvrage</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=bookList">Tous les ouvrages</a></li>
                 </ul>
             </li>
             <li class="mb-[1.5rem] text-[1.3rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="contactUs.php">Nous contacter</a></li>

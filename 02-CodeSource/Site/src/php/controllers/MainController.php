@@ -15,6 +15,7 @@ require_once(__DIR__ . "/UserDetailController.php");
 require_once(__DIR__ . "/VerifyAppreciationAdditionController.php");
 require_once(__DIR__ . "/VerifyBookAdditionController.php");
 require_once(__DIR__ . "/VerifyLogInController.php");
+require_once(__DIR__ . "/BookListController.php");
 
 
 /**
@@ -30,11 +31,11 @@ class MainController{
      */
     public function __construct(){
         //test if an action is found
-        if (isset($_GET["action"])){
-            $action = $_GET["action"];
+        if (isset($_GET["action"])){    
+           $this->action = $_GET["action"];
         }
         else{
-            $action = "goHome";
+           $this->action = "goHome";
         }
     }
 
@@ -45,6 +46,11 @@ class MainController{
         //preset the variables if not exist
         if (!isset($_SESSION["isConnected"])){
             $_SESSION["isConnected"] = false;
+        }
+
+        //preset the variable of permLevel if not exists
+        if (!isset($_SESSION["permLevel"])) {
+            $_SESSION["permLevel"] = 0;
         }
 
         //test if the user is connected in the cookies
@@ -91,7 +97,19 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
+                break;
+            
+            case "bookList":
+                if (isset($_GET["categoryIds"])) {
+                    $controller = new BookListController($_GET["categoryIds"]);
+                }
+                else
+                {
+                    $controller = new BookListController(null);
+                }
+                $controller->show();
                 break;
 
             case "userDetail":
@@ -101,6 +119,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -121,6 +140,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -131,6 +151,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -149,6 +170,7 @@ class MainController{
         $_SESSION["user"] = User::getUserById(Session::getSessionById($sessionId)->id);
         $_SESSION["isConnected"] = true;
         $_SESSION["userId"] = $_SESSION["user"]->id;
+        $_SESSION["permLevel"] = $_SESSION["user"]->permLevel;
     }
 
     /**
