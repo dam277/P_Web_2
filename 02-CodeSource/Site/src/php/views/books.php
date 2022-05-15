@@ -16,6 +16,9 @@ else
 $books = $_SESSION["books"];
 ?>
 
+<!-- <pre>
+    <?=var_dump($_SESSION["allCategories"])?>
+</pre> -->
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,10 +38,11 @@ $books = $_SESSION["books"];
         ?>
     </header>
     <main>
+<!-- #region Titre + Formulaire -->
         <h1 class="text-8xl text-white text-center bg-[#0A183C] w-full py-[200px]">OUVRAGES</h1>
 
         <!-- FORMULAIRE COMPRENANT TOUTE LA PAGE -->
-        <form method="POST" action="category.php" class=" md:flex lg:flex xl:flex">
+        <form method="POST" action="../../../../../index.php?action=bookList" class=" md:flex lg:flex xl:flex">
 <!-- #region Filtres -->
             <!-- FILTRES -->
             <aside class="w-[100%] md:w-[20%] lg:w-[20%] xl:w-[20%]">
@@ -103,26 +107,17 @@ $books = $_SESSION["books"];
                 <input type="button" value="Catégorie [+]" class="text-center mt-[10px] filter bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
-                        <!-- MANGA -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="manga" id="manga">
-                            <label for="manga">Manga</label>
+                        <?php
+                        foreach ($_SESSION["allCategories"] as $actualCategory) {
+                        ?>
+                            <!-- CATEGORIE -->
+                            <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                            <input class="ml-[10px]" type="radio" value="<?=$actualCategory["idCategory"]?>" name="category[]" id="<?=$actualCategory["catName"]?>">
+                            <label for="<?=$actualCategory["catName"]?>"><?=$actualCategory["catName"]?></label>
                         </li>
-                        <!-- BANDE DESSINEE -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="BD" id="BD">
-                            <label for="BD">Bande dessinée</label>
-                        </li>
-                        <!-- ROMAN -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="roman" id="roman">
-                            <label for="roman">Roman</label>
-                        </li>
-                        <!-- LIVRE -->
-                        <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="book" id="book">
-                            <label for="book">Livre</label>
-                        </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
 
@@ -132,10 +127,10 @@ $books = $_SESSION["books"];
                     <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- MIN -->
                         <label for="minPages">Min</label>
-                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="minPages" id="minPages" value="">
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="pages[]" id="minPages" value="">
                         <!-- MAX -->
                         <label for="maxPages">Max</label>
-                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="maxPages" id="maxPages" value="">
+                        <input class="mt-[10px] w-[70px] border-2 border-solid border-black rounded-[5px]" type="number" name="pages[]" id="maxPages" value="">
                     </div>
                 </div>
 
@@ -149,7 +144,7 @@ $books = $_SESSION["books"];
                     </div>
                 </div>
             </aside>
-<!-- #endregion -->
+<!-- #region Recherche -->
             <!-- RECHERCHE DE LIVRES -->
             <div class="w-[100%] border-2 md:w-[80%] lg:w-[80%] xl:w-[80%] md:border-l-2 lg:border-l-2 xl:border-l-2 border-solid border-black border-t-0 dark:border-gray-400">
                 <div class="grid place-items-center">
@@ -195,8 +190,6 @@ $books = $_SESSION["books"];
                                 <!-- <img src="<?= $books[$i]["image"] ?>" alt=""> -->
                                 Ajouter l'image !! 
                             </div>
-<!-- #endregion -->
-
 <!-- #region Infos -->
                             <!-- INFORMATIONS SUR L'OUVRAGE -->
                             <div class="w-[30%] hidden md:block lg:block xl:block">
@@ -229,8 +222,6 @@ $books = $_SESSION["books"];
                                     <li class="ml-[10px]">Date d'édition : <?= $books[$i]["editorYear"] ?></li>
                                 </ul>
                             </div>
-<!-- #endregion -->
-
 <!-- #region Moyenne + Post + Details -->
                             <!-- MOYENNE + DETAILS + POST -->
                             <div class="w-[50%] grid place-items-center">
@@ -313,7 +304,7 @@ $books = $_SESSION["books"];
                                 </a>
                                 <aside>Posté par : <?= $books[$i]["user"][1] ?></aside>
                             </div>
-<!-- #endregion -->
+<!-- #region Pages -->
                         </div>
                 <?php
                     }
@@ -446,7 +437,6 @@ $books = $_SESSION["books"];
         ?>
     </footer>
 </body>
-
 </html>
 
 <script>
