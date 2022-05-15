@@ -40,6 +40,8 @@ All the users connected into with an account can add a new book and an appreciat
       - [x] Title
       - [x] Author
       - [x] Nickname of person who posted
+    - [x] Display books
+    - [ ] Search books
     - [ ] Per category
     - [ ] Back-end
     - [x] Front-end
@@ -50,11 +52,10 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] Add appreciation
     - [ ] Back-end
     - [x] Front-end
-  - [ ] Footer
-    - [ ] Mention the creator of the app
-    - [ ] Contact creator
-    - [ ] Back-end
-    - [ ] Front-end
+  - [x] Footer
+    - [x] Mention the creator of the app
+    - [x] Contact creator
+    - [x] Front-end
   - [ ] User
     - [ ] Nickname
     - [ ] Entry date
