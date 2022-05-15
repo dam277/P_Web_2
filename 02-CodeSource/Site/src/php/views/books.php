@@ -48,7 +48,7 @@ $books = $_SESSION["books"];
                 </div>
 
                 <!-- MOYENNE -->
-                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] duration-[0.5s] dark:bg-slate-600 dark:text-gray-400">
+                <input type="button" value="Moyenne [+]" class="text-center mt-[10px] filter bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] duration-[0.5s] dark:bg-slate-600 dark:text-gray-400">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px ">
                     <ul>
                         <!-- NOTE 1 -->
@@ -100,7 +100,7 @@ $books = $_SESSION["books"];
                 </div>
 
                 <!-- CATEGORIES -->
-                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Catégorie [+]" class="text-center mt-[10px] filter bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <ul>
                         <!-- MANGA -->
@@ -127,7 +127,7 @@ $books = $_SESSION["books"];
                 </div>
 
                 <!-- PAGES -->
-                <input type="button" value="Pages [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Pages [+]" class="text-center mt-[10px] filter bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- MIN -->
@@ -140,7 +140,7 @@ $books = $_SESSION["books"];
                 </div>
 
                 <!-- EDITION -->
-                <input type="button" value="Edition [+]" class="text-center mt-[10px] category bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
+                <input type="button" value="Edition [+]" class="text-center mt-[10px] filter bg-[#eee] text-[#444] cursor-pointer p-[18px] w-[100%] text-left text-[15px] transition-[0.4s] dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                 <div class="mb-[10px] bg-black max-h-0 overflow-hidden transition-[0.2s] h-600px">
                     <div class="grid place-items-center  text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
                         <!-- ANNEE D'EDITION -->
@@ -449,4 +449,30 @@ $books = $_SESSION["books"];
 
 </html>
 
-<script src="../../js/filterMenus.js"></script>
+<script>
+// Get the filter buttons
+let acc = document.getElementsByClassName("filter");
+
+// Set them an EventListenenr on click
+for (let i = 0; i < acc.length; i++) 
+{
+    acc[i].addEventListener("click", function() 
+    {
+        let panel = this.nextElementSibling;    
+        let value = this.value;                 //Value = Text on the filter button
+
+        // Change style (height) : OPEN / CLOSE
+        if (panel.style.maxHeight) 
+        {
+            value = value.replace("-", "+");
+            panel.style.maxHeight = null;
+        } 
+        else 
+        {
+            value = value.replace("+", "-");
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+        this.value = value;
+    });
+}
+</script>
