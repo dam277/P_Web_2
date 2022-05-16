@@ -69,6 +69,32 @@ class User{
     }
 
     /**
+     *  Insert a new user by creating in the inscription page
+     *  @param $useNickname => nickname entered by the user
+     *  @param $usePasswordHash => password entered by the user 2 times and hashed
+     */
+    public static function CreateUser($useNickname, $usePasswordHash)
+    {
+        //Set base variables
+        $usePermLevel = 1;              //Base perm level
+        //Set Date time
+        $date = new DateTime(); 
+        $useEntryDate = $date->format('Y-m-d H:i:s');
+
+        //Insert the new user
+        Database::getDatabase()->queryPrepareExecute(
+            "INSERT INTO `t_user` (`idUser`, `useNickname`, `useEntryDate`, `usePermLevel`, `usePasswordHash`) 
+            VALUES (NULL, :nickname, :entryDate, :permLevel, :passwordHash)",
+            [
+                ["param"=>"nickname", "value"=>$useNickname, "type" => PDO::PARAM_STR],
+                ["param"=>"entryDate", "value"=>$useEntryDate, "type" => PDO::PARAM_STR],
+                ["param"=>"permLevel", "value"=>$usePermLevel, "type" => PDO::PARAM_INT],
+                ["param"=>"passwordHash", "value"=>$usePasswordHash, "type" => PDO::PARAM_STR]
+            ]
+        );
+    }
+
+    /**
      * Construct the user object
      * @param $id => id of the user
      * @param $nickname => nickname of the user

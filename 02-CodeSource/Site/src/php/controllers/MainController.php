@@ -17,6 +17,7 @@ require_once(__DIR__ . "/UserDetailController.php");
 require_once(__DIR__ . "/VerifyAppreciationAdditionController.php");
 require_once(__DIR__ . "/VerifyBookAdditionController.php");
 require_once(__DIR__ . "/VerifyLogInController.php");
+require_once(__DIR__ . "/VerifySignUpController.php");
 require_once(__DIR__ . "/BookListController.php");
 
 
@@ -82,13 +83,27 @@ class MainController{
             case "verifyLogIn":
                 if (isset($_POST["useNickname"]) && isset($_POST["usePassword"])){
 
+                    //Send the informations to the controller
                     $controller = new VerifyLogInController($_POST["useNickname"], $_POST["usePassword"]);
                     if ($controller->valid){
                         $this->createNewSession($controller->user["idUser"]);
                     }
-                    echo "<pre>";
-                    
-                    echo "</pre>";
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            case "verifySignUp":
+                var_dump($_POST);
+                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"]) && isset($_POST["usePasswordCheck"])){
+
+                    //Send the informations to the controller
+                    $controller = new VerifySignUpController($_POST["useNickname"], $_POST["usePassword"], $_POST["usePasswordCheck"]);
+                    if ($controller->valid){
+                        $this->createNewSession($controller->user["idUser"]);
+                    }
                     $controller->show();
                 }
                 else{
