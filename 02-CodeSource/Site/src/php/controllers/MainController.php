@@ -17,6 +17,7 @@ require_once(__DIR__ . "/UserDetailController.php");
 require_once(__DIR__ . "/VerifyAppreciationAdditionController.php");
 require_once(__DIR__ . "/VerifyBookAdditionController.php");
 require_once(__DIR__ . "/VerifyLogInController.php");
+require_once(__DIR__ . "/VerifySignUpController.php");
 require_once(__DIR__ . "/BookListController.php");
 
 
@@ -60,14 +61,48 @@ class MainController{
             $this->connectWithSessionId($_COOKIE["sessionId"]);
         }
 
+        //test if the session contains the list of books and if the redirection will not need them
+        if (isset($_SESSION["books"]) && ($this->action == "verifyLogIn" || $this->action == "goHome" || $this->action == "logOut" 
+        || $this->action == "logIn" || $this->action == "signUp" || $this->action == "contactUs" || $this->action == "userDetail" 
+        || $this->action == "addBook" || $this->action == "verifyBook" || $this->action == "verifyAppreciation")) {
+            $_SESSION["books"] = null;
+        }
+
+        //test if the session contains the list of userInfos and if the redirection will not need them
+        if (isset($_SESSION["userInfos"]) && $this->action != "userDetail") {
+            $_SESSION["userInfos"] = null;
+        }
+
+        //test if the session contains the list of books and if the redirection will not need them
+        if (isset($_SESSION["allCategories"]) && ($this->action != "bookList" || $this->action != "addBook")) {
+            $_SESSION["allCategories"] = null;
+        }
+
         //find what action to do
         switch($this->action){
             case "verifyLogIn":
-                if (isset($_POST["nickname"]) && isset($_POST["password"])){
+                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"])){
 
-                    $controller = new VerifyLogInController($_POST["nickname"], $_POST["password"]);
+                    //Send the informations to the controller
+                    $controller = new VerifyLogInController($_POST["useNickname"], $_POST["usePassword"]);
                     if ($controller->valid){
-                        $this->createNewSession($controller->user->id);
+                        $this->createNewSession($controller->user["idUser"]);
+                    }
+                    $controller->show();
+                }
+                else{
+                    /////////////////////send to error page///////////////////////////
+                }
+                break;
+
+            case "verifySignUp":
+                var_dump($_POST);
+                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"]) && isset($_POST["usePasswordCheck"])){
+
+                    //Send the informations to the controller
+                    $controller = new VerifySignUpController($_POST["useNickname"], $_POST["usePassword"], $_POST["usePasswordCheck"]);
+                    if ($controller->valid){
+                        $this->createNewSession($controller->user["idUser"]);
                     }
                     $controller->show();
                 }
@@ -125,7 +160,7 @@ class MainController{
                 break;
 
             case "userDetail":
-                if (isset($_GET["bookId"])){
+                if (isset($_GET["userId"])){
                     $controller = new UserDetailController($_GET["userId"]);
                     $controller->show();
                 }
@@ -178,11 +213,17 @@ class MainController{
      * Connect with the session id
      * @param $sessionId => id of the session leading to the user
      */
-    private function connectWithSessionId(int $sessionId) : void{
-        $_SESSION["user"] = User::getUserById(Session::getSessionById($sessionId)->id);
+    private function connectWithSessionId(int $userId) : void{
+
+        //Get the user by ID
+        $user = User::getUserById($userId);
+        
+        //Set the connected user
+        $connectedUser = array("id" => $user->id, "nickname" => $user->nickname, "entryDate" => $user->entryDate, "permLevel" => $user->permLevel);
+
+        $_SESSION["user"] = $connectedUser;
         $_SESSION["isConnected"] = true;
-        $_SESSION["userId"] = $_SESSION["user"]->id;
-        $_SESSION["permLevel"] = $_SESSION["user"]->permLevel;
+        $_SESSION["permLevel"] = $_SESSION["user"]["permLevel"];
     }
 
     /**
@@ -193,7 +234,7 @@ class MainController{
         $session = new Session(null, $userId);
         $session->insert();
         setcookie("sessionId", $session->id, time()+60*60*24*30);
-        $this->connectWithSessionId($session->id);
+        $this->connectWithSessionId($userId);
     }
 
     /**
@@ -204,9 +245,13 @@ class MainController{
         unset($_SESSION["user"]);
         unset($_SESSION["userId"]);
         $_SESSION["isConnected"] = false;
+        $_SESSION["permLevel"] = 0;
+
+        //Delete the session from the database
+        Session::delete($_COOKIE["sessionId"]);
 
         //delete cookie
-        setcookie("sessionId", 0, 0);
+        setcookie("sessionId", null, 0);
     }
 }
 

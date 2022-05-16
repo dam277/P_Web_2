@@ -1,14 +1,9 @@
 <?php
-$user = array(
-    "idUser" => "1",
-    "useNickName" => "Dyleinsh",
-    "useEntryDate" => "04.05.2022",
-    "usePermLevel" => "2",
-    "usePasswordHash" => "mot de passe",
-);
+session_start();
 
-$nbBook = 1000;
-$nbAppreciation = 0;
+// echo "<pre>";
+// var_dump($_SESSION);
+// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +28,13 @@ $nbAppreciation = 0;
     <!-- INFORMATION -->
     <div class="flex w-full mt-[50px] text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
         <ul class="grid w-[33%] mt-[15%] text-center">
-            <li class="font-bold">Détails : <?= $user["useNickName"] ?></li>
-            <li class="">Rôle : <?= $user["usePermLevel"] == 1 ? "Admin" : "Membre" ?></li>
+            <li class="font-bold">Détails : <?= $_SESSION["userInfos"]["nickname"] ?></li>
+            <li class="">Rôle : <?= $_SESSION["userInfos"]["permLevel"] == 1 ? "Membre" : "Admin" ?></li>
         </ul>
         <img src="../../../resources/userLogo.png" class="w-[33%]">
         <ul class="grid w-[33%] text-center mt-[15%]">
-            <li class="">Date d'inscription : <?= $user["useEntryDate"] ?></li>
-            <li class="">Nombre d'ouvrage<?= $nbBook <= 1 ? "" : "s" ?> posté<?= $nbBook <= 1 ? "" : "s" ?> : <?= $nbBook ?></li>
+            <li class="">Date d'inscription : <?= $_SESSION["userInfos"]["entryDate"] ?></li>
+            <li class="">Nombre d'ouvrage<?= $_SESSION["userInfos"]["books"] <= 1 ? "" : "s" ?> posté<?= $_SESSION["userInfos"]["books"] <= 1 ? "" : "s" ?> : <?= $_SESSION["userInfos"]["books"] ?></li>
         </ul>
     </div>
     <footer>

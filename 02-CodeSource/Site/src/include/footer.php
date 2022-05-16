@@ -109,7 +109,6 @@
     © 2022 ETML - P_Web_2 - DL TR AD NC
   </div>
 </footer>
-
 <!-- Utilisation de JavaScript -->
 <script>
 /* Fonction JS pour aller en haut de la page en cliquant sur le bouton flèche ^ */

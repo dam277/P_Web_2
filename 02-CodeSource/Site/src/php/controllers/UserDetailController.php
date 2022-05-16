@@ -24,7 +24,7 @@ class UserDetailController{
     public function __construct(int $userToShowId)
     {
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
+        if ($_SESSION["user"]["permLevel"] > 0){
             //get the user
             $this->user = User::getUserById($userToShowId);
 
@@ -37,8 +37,9 @@ class UserDetailController{
      */
     public function show(){
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
-
+        if ($_SESSION["user"]["permLevel"] > 0){
+            $_SESSION["userInfos"] = array("nickname" => $this->user->nickname, "entryDate" => $this->user->entryDate, "permLevel" => $this->user->permLevel, "books" => $this->nbBooks);
+            header("Location: ./02-CodeSource/Site/src/php/views/AccountInfos.php");
         }
     }
 }

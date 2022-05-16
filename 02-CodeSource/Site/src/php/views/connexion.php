@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,18 +30,18 @@
                 <div class="w-[50%] sm:w-[33%] border-b-[1px] border-black"></div>
                 <div class="w-[25%] sm:w-[33%]"></div>
             </div>
-            <form action="" method="POST" class="">
+            <form action="../../../../../index.php?action=verifyLogIn" method="POST">
                 <!-- pseudo -->
                 <div class="mt-[100px] flex">
                     <div class="sm:w-[15%] md:w-[20%] lg:w-[25%]"></div>
                     <img src="../../../resources/userimg.png" alt="icon user" class="border-b-[1px] border-black">
-                    <label for="useNickname" class="border-b-[1px] border-black">Nom :<input type="text" name="useNickname" class="bg-[transparent] ml-[10px]"></label>
+                    <label for="useNickname" class="border-b-[1px] border-black">Nom :<input type="text" id="useNickname" name="useNickname" class="bg-[transparent] ml-[10px]"></label>
                 </div>
                 <!-- password -->
                 <div class="mt-[100px] flex">
                     <div class="sm:w-[15%] md:w-[20%] lg:w-[25%]"></div>
                     <img src="../../../resources/lock.png" alt="icon user" class="border-b-[1px] border-black">
-                    <label for="useNickname" class="border-b-[1px] border-black">MDP :<input type="text" name="useNickname" class="bg-[transparent] ml-[10px]"></label>
+                    <label for="usePassword" class="border-b-[1px] border-black">MDP :<input type="text" id="usePassword" name="usePassword" class="bg-[transparent] ml-[10px]"></label>
                 </div>
                 <!-- submit -->
                 <div class="grid place-items-center mt-[100px]">
