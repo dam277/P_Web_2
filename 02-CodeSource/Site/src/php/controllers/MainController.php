@@ -114,8 +114,8 @@ class MainController{
                 break;
             
             case "bookList":
-                if (isset($_GET["categoryIds"])) {
-                    $controller = new BookListController($_GET["categoryIds"]);
+                if (isset($_POST)) {
+                    $controller = new BookListController($_POST["category"]);
                 }
                 else
                 {

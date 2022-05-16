@@ -1,6 +1,6 @@
 <?php
 $bookList = $_POST;
-var_dump($bookList);
+// var_dump($bookList);
 ?>
 
 <!DOCTYPE html>
