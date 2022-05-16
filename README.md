@@ -35,15 +35,15 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Display the 5 last added books
     - [ ] Back-end
     - [x] Front-end
-  - [ ] List of books
+  - [x] List of books
     - [x] To see
       - [x] Title
       - [x] Author
       - [x] Nickname of person who posted
     - [x] Display books
-    - [ ] Search books
-    - [ ] Per category
-    - [ ] Back-end
+    - [x] Search books  (By category only)
+    - [x] Per category
+    - [x] Back-end
     - [x] Front-end
     - [x] Button "details"
   - [ ] Add book
