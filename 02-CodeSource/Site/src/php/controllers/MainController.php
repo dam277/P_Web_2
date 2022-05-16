@@ -115,7 +115,6 @@ class MainController{
             
             case "bookList":
                 if (isset($_POST)) {
-                    var_dump($_POST);
                     $controller = new BookListController($_POST["category"]);
                 }
                 else

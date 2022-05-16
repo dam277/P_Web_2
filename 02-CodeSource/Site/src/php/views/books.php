@@ -17,7 +17,7 @@ $books = $_SESSION["books"];
 ?>
 
 <!-- <pre>
-    <?=var_dump($_SESSION["allCategories"])?>
+    <?=var_dump($_SESSION)?>
 </pre> -->
 
 <!DOCTYPE html>
@@ -57,48 +57,52 @@ $books = $_SESSION["books"];
                     <ul>
                         <!-- NOTE 1 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note1" id="note1">
+                            <input class="note ml-[10px]" type="checkbox" name="note1" id="note1">
                             <label for="note1">1</label>
                         </li>
                         <!-- NOTE 1.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note1-5" id="note1-5">
+                            <input class="note ml-[10px]" type="checkbox" name="note1-5" id="note1-5">
                             <label for="note1-5">1.5</label>
                         </li>
                         <!-- NOTE 2 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note2" id="note2">
+                            <input class="note ml-[10px]" type="checkbox" name="note2" id="note2">
                             <label for="note2">2</label>
                         </li>
                         <!-- NOTE 2.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note2-5" id="note2-5">
+                            <input class="note ml-[10px]" type="checkbox" name="note2-5" id="note2-5">
                             <label for="note2-5">2.5</label>
                         </li>
                         <!-- NOTE 3 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note3" id="note3">
+                            <input class="note ml-[10px]" type="checkbox" name="note3" id="note3">
                             <label for="note3">3</label>
                         </li>
                         <!-- NOTE 3.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note3-5" id="note3-5">
+                            <input class="note ml-[10px]" type="checkbox" name="note3-5" id="note3-5">
                             <label for="note3-5">3.5</label>
                         </li>
                         <!-- NOTE 4 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note4" id="note4">
+                            <input class="note ml-[10px]" type="checkbox" name="note4" id="note4">
                             <label for="note4">4</label>
                         </li>
                         <!-- NOTE 4.5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note4-5" id="note4-5">
+                            <input class="note ml-[10px]" type="checkbox" name="note4-5" id="note4-5">
                             <label for="note4-5">4.5</label>
                         </li>
                         <!-- NOTE 5 -->
                         <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-b-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="checkbox" name="note5" id="note5">
+                            <input class="note ml-[10px]" type="checkbox" name="note5" id="note5">
                             <label for="note5">5</label>
+                        </li>
+                        <!-- BOUTON POUR DECOCHER -->
+                        <li>
+                            <input onclick="deleteRdoButtons('note')" class="deleteButton hover:cursor-pointer hover:bg-[#e0e0e0] hover:dark:bg-slate-500 text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]" type="button" value="Décocher les notes">
                         </li>
                     </ul>
                 </div>
@@ -112,12 +116,16 @@ $books = $_SESSION["books"];
                         ?>
                             <!-- CATEGORIE -->
                             <li class="text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]">
-                            <input class="ml-[10px]" type="radio" value="<?=$actualCategory["idCategory"]?>" name="category[]" id="<?=$actualCategory["catName"]?>">
+                            <input class="ml-[10px] category" type="radio" value="<?=$actualCategory["idCategory"]?>" name="category[]" id="<?=$actualCategory["catName"]?>">
                             <label for="<?=$actualCategory["catName"]?>"><?=$actualCategory["catName"]?></label>
-                        </li>
+                            </li>
                         <?php
                         }
                         ?>
+                            <!-- BOUTON POUR DECOCHER -->
+                            <li>
+                            <input onclick="deleteRdoButtons('category')" class="deleteButton hover:cursor-pointer hover:bg-[#e0e0e0] hover:dark:bg-slate-500 text-[#008891] w-[100%] py-[5px] bg-[#eee] relative z-0 text-[18px] border-black border-t-[1px] border-solid dark:bg-slate-600 dark:text-gray-400 duration-[0.5s]" type="button" value="Décocher les catégories">
+                            </li>
                     </ul>
                 </div>
 
@@ -156,7 +164,6 @@ $books = $_SESSION["books"];
                     </div>
                     <p>Resultat de la recherche :</p>
                     <p><?= count($books) ?> ouvrages trouvés</p>
-                    <p>Filtres :</p>
                 </div>
 
                 <!-- LIVRES -->
@@ -304,7 +311,7 @@ $books = $_SESSION["books"];
                                 </a>
                                 <aside>Posté par : <?= $books[$i]["user"][1] ?></aside>
                             </div>
-<!-- #region Pages -->
+<!-- #region Pages -->  
                         </div>
                 <?php
                     }
@@ -320,7 +327,7 @@ $books = $_SESSION["books"];
                         {
                         ?>
                             <!-- Bouton de retour => ALler une page en arrière non actif -->
-                            <input style="background-image: url('../../../resources/left.jpg');" class="mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] opacity-50 cursor-not-allowed" type="button" value="Retour">
+                            <input style="background-image: url('../../../resources/left.jpg');" class="hidden sm:block md:block lg:block xl:block mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] opacity-50 cursor-not-allowed" type="button" value="Retour">
                         <?php
                         }
                         //Sinon, affiche un bouton cliquable
@@ -329,7 +336,7 @@ $books = $_SESSION["books"];
                         ?>
                             <!-- Bouton de retour => ALler une page en arrière actif -->
                             <a href="books.php?page=<?= $_GET["page"] - 1 ?>">
-                                <input style="background-image: url('../../../resources/left.jpg');" class="mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Retour">
+                                <input style="background-image: url('../../../resources/left.jpg');" class="hidden sm:block md:block lg:block xl:block mr-[20px] text-right bg-left bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pr-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Retour">
                             </a>
                         <?php
                         }
@@ -347,7 +354,7 @@ $books = $_SESSION["books"];
                         ?>
                             <!-- Bouton de page détérminée -->
                             <a href="books.php?page=<?= 1 ?>">
-                                <input class="mr-[1px] text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[45px] w-[45px]" type="button" value="<?= 1 ?>">
+                                <input class="h-[35px] w-[35px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px] lg:h-[45px] lg:w-[45px] xl:h-[45px] xl:w-[45px] mr-[1px] text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer" type="button" value="<?= 1 ?>">
                             </a>
                             <?php
                         }
@@ -375,7 +382,7 @@ $books = $_SESSION["books"];
                             ?>
                                     <!-- Bouton de page détérminée -->
                                     <a href="books.php?page=<?= $x ?>">
-                                        <input class="text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[45px] w-[45px]" type="button" value="<?= $x ?>">
+                                        <input class="text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[35px] w-[35px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px] lg:h-[45px] lg:w-[45px] xl:h-[45px] xl:w-[45px]" type="button" value="<?= $x ?>">
                                     </a>
                                 <?php
                                 }
@@ -385,7 +392,7 @@ $books = $_SESSION["books"];
                                 ?>
                                     <!-- Bouton de page active -->
                                     <a href="books.php?page=<?= $x ?>">
-                                        <input class="text-white bg-[#677ABA] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[45px] w-[45px]" type="button" value="<?= $x ?>">
+                                        <input class="text-white bg-[#677ABA] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[35px] w-[35px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px] lg:h-[45px] lg:w-[45px] xl:h-[45px] xl:w-[45px]" type="button" value="<?= $x ?>">
                                     </a>
                             <?php
                                 }
@@ -402,7 +409,7 @@ $books = $_SESSION["books"];
                             ?>
                             <!-- Bouton de dernière page détérminée -->
                             <a href="books.php?page=<?= $lastPage ?>">
-                                <input class="ml-[1px] text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[45px] w-[45px]" type="button" value="<?= $lastPage ?>">
+                                <input class="ml-[1px] text-white bg-[#4B5987] border-solid border-black border-[1px] hover:bg-[#3C466A] cursor-pointer h-[35px] w-[35px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px] lg:h-[45px] lg:w-[45px] xl:h-[45px] xl:w-[45px]" type="button" value="<?= $lastPage ?>">
                             </a>
                         <?php
                         }
@@ -413,7 +420,7 @@ $books = $_SESSION["books"];
                         ?>
                             <!-- Bouton de page suivante => ALler une page en avant actif-->
                             <a href="books.php?page=<?= $_GET["page"] + 1 ?>">
-                                <input style="background-image: url('../../../resources/right.jpg');" class="ml-[20px] text-left bg-right bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pl-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Suivant">
+                                <input style="background-image: url('../../../resources/right.jpg');" class="hidden sm:block md:block lg:block xl:block ml-[20px] text-left bg-right bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pl-[10px] border-2 rounded-[15px] w-[150px] h-[45px] hover:bg-[#3C466A] cursor-pointer" type="button" value="Suivant">
                             </a>
                         <?php
                         }
@@ -422,7 +429,7 @@ $books = $_SESSION["books"];
                         {
                         ?>
                             <!-- Bouton de page suivante => ALler une page en avant non actif -->
-                            <input style="background-image: url('../../../resources/right.jpg');" class="ml-[20px] text-left bg-right bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pl-[10px] border-2 rounded-[15px] w-[150px] h-[45px] opacity-50 cursor-not-allowed" type="button" value="Suivant">
+                            <input style="background-image: url('../../../resources/right.jpg');" class="hidden sm:block md:block lg:block xl:block ml-[20px] text-left bg-right bg-no-repeat text-white text-[25px] bg-[#4B5987] border-solid border-black pl-[10px] border-2 rounded-[15px] w-[150px] h-[45px] opacity-50 cursor-not-allowed" type="button" value="Suivant">
                         <?php
                         }
                         ?>
@@ -465,4 +472,24 @@ for (let i = 0; i < acc.length; i++)
         this.value = value;
     });
 }
+</script>
+
+<script>
+    /// ---- FUNCTION = deleteRdoButtons = ----
+    /// Removes the check on every radio button of
+    /// the list by click on the button "deleteButton" (onclick())
+    /// ---
+    /// filter => filter wanted to delete check
+    /// ---
+    function deleteRdoButtons(filter) 
+    {
+        // Get the radio buttons of the list
+        let rdoButton = document.getElementsByClassName(filter);
+
+        // Set the radio buttons to false
+        for (let i = 0; i < rdoButton.length; i++) 
+        {
+            rdoButton[i].checked = false;
+        }
+    }
 </script>
