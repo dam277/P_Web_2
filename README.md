@@ -56,12 +56,12 @@ All the users connected into with an account can add a new book and an appreciat
     - [x] Mention the creator of the app
     - [x] Contact creator
     - [x] Front-end
-  - [ ] User
-    - [ ] Nickname
-    - [ ] Entry date
-    - [ ] Number of book posted
-    - [ ] Number of appreciations did
-    - [ ] Back-end
+  - [x] User
+    - [x] Nickname
+    - [x] Entry date
+    - [x] Number of book posted
+    - [x] Number of appreciations did
+    - [x] Back-end
     - [x] Front-end
   - [ ] Book details
     - [ ] informations
@@ -69,6 +69,12 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Average
     - [ ] Back-end
     - [x] Front-end
+  - [x] Connexion
+    - [x] Front-end
+    - [x] Back-end
+  - [x] Inscription
+    - [x] Front-end
+    - [x] Back-end
 ### [ ] Facultative :
   - [ ] Search to get a book (Implemented in front-end)
   - [ ] Modification of book
