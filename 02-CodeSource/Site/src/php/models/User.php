@@ -42,48 +42,31 @@ class User{
     }
 
     /**
-     * Get the id of the user whose name corresponds with the one given
-     * @param $nickname => name to search
-     * @return ?int returns the id if found or null if not 
+     *  Get the user with the corresponding name from the database
+     *  @param $useNickname => nickname entered by the user
+     *  @param $password => password entered by the user
+     *  Check if the password is valid
+     * @return array returns the array of the user if the nickname and the password match
      */
-    public static function getUserIdByName(string $nickname) : ?int{
+    public static function GetUserByName($useNickname, $password) : ?array
+    {
         //select the users
         $assocUsers = Database::getDatabase()->queryPrepareExecute(
-            "SELECT * FROM t_user WHERE t_user.useNickname = :nickname", 
-            [["param"=>"nickname", "value"=>$nickname, "type" => PDO::PARAM_STR]]
+            "SELECT * FROM t_user WHERE t_user.useNickname = :useNickname", 
+            [["param"=>"useNickname", "value"=>$useNickname, "type" => PDO::PARAM_STR]]
         );
 
-        //declare the array of users
-        $users = [];
-
-        //add the users to a list
-        foreach ($assocUsers as $user){
-            $users[] = new User(
-                $user["idUser"], $user["useNickname"], $user["useEntryDate"], 
-                $user["usePermLevel"]
-            );
-        }
-
-        return $users[0];
-    }
-
-    /**
-     * Verify if the password is valid
-     * @param $userId => id of the user to verify
-     * @param $password => supposed password of the user
-     * @return bool returns true if this password is the right one
-     */
-    public static function verifyPassword(int $userId, string $password) : bool{
-        $passwordHashes = Database::getDatabase()->queryPrepareExecute(
-            "SELECT usePasswordHash FROM `t_user` WHERE idUser = :id",
-            [["param"=>"id", "value"=>$userId, "type" => PDO::PARAM_INT]]
-        );
-
-        if (count($passwordHashes) > 0){
-            return password_verify($password, $passwordHashes[0]["usePasswordHash"]);
-
-        }else{
-            return false;
+        //Return the user if the password is valid
+        foreach($assocUsers as $key => $value)
+        {
+            if(password_verify($password, $value["usePasswordHash"]))
+            {
+                return $assocUsers[$key];
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 

@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once(__DIR__."/../models/Book.php");
 $page;  //Page actuelle
 
 //Regarde quelle page on est

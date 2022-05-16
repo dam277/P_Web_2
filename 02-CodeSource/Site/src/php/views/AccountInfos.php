@@ -1,4 +1,5 @@
 <?php
+session_start();
 $user = array(
     "idUser" => "1",
     "useNickName" => "Dyleinsh",

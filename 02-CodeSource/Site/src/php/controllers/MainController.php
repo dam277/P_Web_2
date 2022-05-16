@@ -60,15 +60,23 @@ class MainController{
             $this->connectWithSessionId($_COOKIE["sessionId"]);
         }
 
+        //test if the session contains the list of books and if the redirection will not need them
+        if (isset($_SESSION["books"]) && ($this->action != "bookList" || $this->action != "bookDetail")) {
+            $_SESSION["books"] = null;
+        }
+
         //find what action to do
         switch($this->action){
             case "verifyLogIn":
-                if (isset($_POST["nickname"]) && isset($_POST["password"])){
+                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"])){
 
-                    $controller = new VerifyLogInController($_POST["nickname"], $_POST["password"]);
+                    $controller = new VerifyLogInController($_POST["useNickname"], $_POST["usePassword"]);
                     if ($controller->valid){
-                        $this->createNewSession($controller->user->id);
+                        $this->createNewSession($controller->user["idUser"]);
                     }
+                    echo "<pre>";
+                    
+                    echo "</pre>";
                     $controller->show();
                 }
                 else{
@@ -178,8 +186,8 @@ class MainController{
      * Connect with the session id
      * @param $sessionId => id of the session leading to the user
      */
-    private function connectWithSessionId(int $sessionId) : void{
-        $_SESSION["user"] = User::getUserById(Session::getSessionById($sessionId)->id);
+    private function connectWithSessionId(int $userId) : void{
+        $_SESSION["user"] = User::getUserById($userId);
         $_SESSION["isConnected"] = true;
         $_SESSION["userId"] = $_SESSION["user"]->id;
         $_SESSION["permLevel"] = $_SESSION["user"]->permLevel;
@@ -193,7 +201,7 @@ class MainController{
         $session = new Session(null, $userId);
         $session->insert();
         setcookie("sessionId", $session->id, time()+60*60*24*30);
-        $this->connectWithSessionId($session->id);
+        $this->connectWithSessionId($userId);
     }
 
     /**
@@ -204,9 +212,13 @@ class MainController{
         unset($_SESSION["user"]);
         unset($_SESSION["userId"]);
         $_SESSION["isConnected"] = false;
+        $_SESSION["permLevel"] = 0;
+
+        //Delete the session from the database
+        Session::delete($_COOKIE["sessionId"]);
 
         //delete cookie
-        setcookie("sessionId", 0, 0);
+        setcookie("sessionId", null, 0);
     }
 }
 

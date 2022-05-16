@@ -14,7 +14,7 @@ require_once(__DIR__ . "/../models/User.php");
 class VerifyLogInController{
 
     //declare variables
-    public User $user;
+    public ?array $user;
     public bool $valid;
 
     /**
@@ -28,21 +28,20 @@ class VerifyLogInController{
         $this->user = null;
         $this->valid = false;
 
-        //test if a user with the given nickname exists
-        $userId = User::getUserIdByName($nickname);
-        if ($userId != null){
-            if (User::verifyPassword($userId, $password)){
-                $this->valid = true;
-                $this->user = User::getUserById($userId);
-            }
+        $this->user = User::GetUserByName($nickname, $password);
+        if($this->user != null)
+        {
+            $this->valid = true;
         }
+        var_dump($this->user);
     }
 
     /**
      * Show the home page
      */
     public function show() : void{
-
+        //redirection to the home page
+        header("Location: ./02-CodeSource/Site/src/php/views/home.php");
     }
 }
 ?>

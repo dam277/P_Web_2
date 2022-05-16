@@ -1,4 +1,5 @@
 <?php
+session_start();
 $bookList = $_POST;
 var_dump($bookList);
 ?>
