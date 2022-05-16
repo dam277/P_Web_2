@@ -27,26 +27,18 @@ class BookListController{
         //get all books
         $books = Book::getAllBooks();
 
-        if($categoryIds != null){
-            foreach ($books as $book){
-                $categories = $book->getCategories();
-
-                $valid = false;
-
-                foreach ($categoryIds as $id){
-                    foreach ($categories as $category){
-                        if ($id == $category->id){
-                            $valid = true;
-                            break;
-                        }
-                    }
-                    if ($valid){
-                        break;
-                    }
-                }
-
-                $this->bookList[] = $book;
+        if($categoryIds != null)
+        {
+            // Get the books by the id of the categories
+            $books = array();
+            foreach ($categoryIds as $id) 
+            {
+                //Create category object to search the book by category
+                $category = new Category($id, Category::getCategoryById($id)->name);
+                $books = $category->getBooks();                
             }
+
+            $this->bookList = $books;
         }
         else
         {
@@ -60,6 +52,7 @@ class BookListController{
     public function show(){
         //Creating bookList
         $books = [];
+        $allCategories = [];
 
         //Set an array for one book
         foreach ($this->bookList as $book) {
@@ -78,11 +71,18 @@ class BookListController{
                 $user[] = $actualUser;
             }
 
+            //Set the list of books
             $books[] = array("id" => $book->id, "title" => $book->title, "pageNumber" => $book->pageNumber, "summary" => $book->summary, "authorName" => $book->authorName, "editorName" => $book->editorName, "editorYear" => $book->editorYear, "extract" => $book->extract, "averageEvalutation" => $book->getAverageEvaluation(), "bookCategory" => $bookCategory, "user" => $user);
+        }
+
+        foreach (Category::getAllCategories() as $actualCategory) 
+        {
+            $allCategories[] = array("idCategory" => $actualCategory->id, "catName" => $actualCategory->name);
         }
 
         //Set the session
         $_SESSION["books"] = $books;
+        $_SESSION["allCategories"] = $allCategories;
 
         //redirection to the books list page
         header("Location: ./02-CodeSource/Site/src/php/views/books.php");

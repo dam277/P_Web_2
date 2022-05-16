@@ -63,11 +63,9 @@ class User{
             {
                 return $assocUsers[$key];
             }
-            else
-            {
-                return null;
-            }
         }
+        $test = array();
+        return $test;
     }
 
     /**
@@ -104,7 +102,7 @@ class User{
             $books[] = new Book(
                 $book["idBook"], $book["booTitle"], $book["booPageNumber"], 
                 $book["booSummary"], $book["booAuthorName"], $book["booEditorName"], 
-                $book["booEditorYear"], $book["booExtract"], $book["idUser"]
+                $book["booEditionYear"], $book["booExtract"], $book["idUser"]
             );
         }
 

@@ -92,7 +92,7 @@ class Category{
             $books[] = new Book(
                 $book["idBook"], $book["booTitle"], $book["booPageNumber"], 
                 $book["booSummary"], $book["booAuthorName"], $book["booEditorName"], 
-                $book["booEditorYear"], $book["booExtract"], $book["idUser"]
+                $book["booEditionYear"], $book["booExtract"], $book["idUser"]
             );
         }
 

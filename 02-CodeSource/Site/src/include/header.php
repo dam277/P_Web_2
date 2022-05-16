@@ -22,9 +22,9 @@
 </script>
 
 <?php 
-echo "<pre>";
-var_dump($_SESSION["user"]);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($_SESSION);
+// echo "</pre>";
 
 ?>
 
@@ -65,7 +65,7 @@ echo "</pre>";
                     {
                     ?>
                     <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=logOut">Se déconnecter</a></li>
-                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=userDetail">Voir mon compte</a></li>
+                    <li class="mb-[1rem] text-[0.8rem]"><a class="dark:text-gray-400 text-black font-medium duration-[0.3s] hover:text-colorTrans" href="../../../../../index.php?action=userDetail&userId=<?=$_SESSION['user']['id']?>">Voir mon compte</a></li>
                     <?php
                     }
                     ?>
@@ -98,8 +98,9 @@ echo "</pre>";
             else
             {
             ?>
+            <li class="text-[20.8px] font-medium underline"><?=$_SESSION["user"]["nickname"]?></li>
             <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=logOut';">Se déconnecter</button></a></li>
-            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=userDetail';">Voir mon compte</button></a></li>
+            <li class="text-[20.8px] font-medium"><button onclick="window.location.href = '../../../../../index.php?action=userDetail&userId=<?=$_SESSION['user']['id']?>';">Voir mon compte</button></a></li>
             <?php
             }
             ?>

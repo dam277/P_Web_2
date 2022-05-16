@@ -29,19 +29,26 @@ class VerifyLogInController{
         $this->valid = false;
 
         $this->user = User::GetUserByName($nickname, $password);
-        if($this->user != null)
+        if(count($this->user) > 0)
         {
             $this->valid = true;
         }
-        var_dump($this->user);
     }
 
     /**
      * Show the home page
      */
     public function show() : void{
-        //redirection to the home page
-        header("Location: ./02-CodeSource/Site/src/php/views/home.php");
+        if ($this->valid == true) {
+            //redirection to the home page
+            header("Location: ./02-CodeSource/Site/src/php/views/home.php");
+        }
+        else
+        {
+            /////////////////////send to error page///////////////////////////
+            header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+        }
+        
     }
 }
 ?>

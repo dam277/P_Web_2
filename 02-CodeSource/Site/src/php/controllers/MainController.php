@@ -61,8 +61,20 @@ class MainController{
         }
 
         //test if the session contains the list of books and if the redirection will not need them
-        if (isset($_SESSION["books"]) && ($this->action != "bookList" || $this->action != "bookDetail")) {
+        if (isset($_SESSION["books"]) && ($this->action == "verifyLogIn" || $this->action == "goHome" || $this->action == "logOut" 
+        || $this->action == "logIn" || $this->action == "signUp" || $this->action == "contactUs" || $this->action == "userDetail" 
+        || $this->action == "addBook" || $this->action == "verifyBook" || $this->action == "verifyAppreciation")) {
             $_SESSION["books"] = null;
+        }
+
+        //test if the session contains the list of userInfos and if the redirection will not need them
+        if (isset($_SESSION["userInfos"]) && $this->action != "userDetail") {
+            $_SESSION["userInfos"] = null;
+        }
+
+        //test if the session contains the list of books and if the redirection will not need them
+        if (isset($_SESSION["allCategories"]) && ($this->action != "bookList" || $this->action != "addBook")) {
+            $_SESSION["allCategories"] = null;
         }
 
         //find what action to do
@@ -122,8 +134,8 @@ class MainController{
                 break;
             
             case "bookList":
-                if (isset($_GET["categoryIds"])) {
-                    $controller = new BookListController($_GET["categoryIds"]);
+                if (isset($_POST)) {
+                    $controller = new BookListController($_POST["category"]);
                 }
                 else
                 {
@@ -133,7 +145,7 @@ class MainController{
                 break;
 
             case "userDetail":
-                if (isset($_GET["bookId"])){
+                if (isset($_GET["userId"])){
                     $controller = new UserDetailController($_GET["userId"]);
                     $controller->show();
                 }
@@ -187,10 +199,16 @@ class MainController{
      * @param $sessionId => id of the session leading to the user
      */
     private function connectWithSessionId(int $userId) : void{
-        $_SESSION["user"] = User::getUserById($userId);
+
+        //Get the user by ID
+        $user = User::getUserById($userId);
+        
+        //Set the connected user
+        $connectedUser = array("id" => $user->id, "nickname" => $user->nickname, "entryDate" => $user->entryDate, "permLevel" => $user->permLevel);
+
+        $_SESSION["user"] = $connectedUser;
         $_SESSION["isConnected"] = true;
-        $_SESSION["userId"] = $_SESSION["user"]->id;
-        $_SESSION["permLevel"] = $_SESSION["user"]->permLevel;
+        $_SESSION["permLevel"] = $_SESSION["user"]["permLevel"];
     }
 
     /**
