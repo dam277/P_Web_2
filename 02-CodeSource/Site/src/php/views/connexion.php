@@ -41,7 +41,7 @@ session_start();
                 <div class="mt-[100px] flex">
                     <div class="sm:w-[15%] md:w-[20%] lg:w-[25%]"></div>
                     <img src="../../../resources/lock.png" alt="icon user" class="border-b-[1px] border-black">
-                    <label for="usePassword" class="border-b-[1px] border-black">MDP :<input type="text" id="usePassword" name="usePassword" class="bg-[transparent] ml-[10px]"></label>
+                    <label for="usePassword" class="border-b-[1px] border-black">MDP :<input type="password" id="usePassword" name="usePassword" class="bg-[transparent] ml-[10px]"></label>
                 </div>
                 <!-- submit -->
                 <div class="grid place-items-center mt-[100px]">
