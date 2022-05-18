@@ -87,8 +87,8 @@
                     <p class="sm:w-[100%] md:w-[50%] lg:w-[50%] xl:w-[50%] grid place-items-center">
                         <label class="text-[25px] sm:text-[25px] md:text-[23px] lg:text-[25px] mt-[20px] md:mb-[-20px] lg:mb-[-20px] xl:mb-[-20px]" for="edition">Année d'édition</label>
                         <br>
-                        <input class="text-black text-center bg-[#e6e6e6] border-solid border-2 border-black h-[45px] w-[100px] sm:text-[20px] sm:h-[50px] sm:w-[125px] sm:rounded-[5px] md:text-[18px] md:h-[40px] md:w-[100px] md:rounded-[10px] lg:text-[20px] lg:h-[50px] lg:w-[150px] lg:rounded-[15px] xl:text-[25px] xl:h-[50px] xl:w-[150px] xl:rounded-[20px]" type="number" id="edition" name="editionYear"<?= isset($_POST["editionYear"]) ? " value=" . $_POST["editionYear"] : " value=1900" ?>>
-                        <?= isset($_SESSION["errors"]) ? (isset($_SESSION["errors"]["editionYear"]) ? "<br><span>". $_SESSION["errors"]["editionYear"] ."</span>" : "<br><br>") : "<br><br>" ?>
+                        <input class="text-black text-center bg-[#e6e6e6] border-solid border-2 border-black h-[45px] w-[100px] sm:text-[20px] sm:h-[50px] sm:w-[125px] sm:rounded-[5px] md:text-[18px] md:h-[40px] md:w-[100px] md:rounded-[10px] lg:text-[20px] lg:h-[50px] lg:w-[150px] lg:rounded-[15px] xl:text-[25px] xl:h-[50px] xl:w-[150px] xl:rounded-[20px]" type="number" id="edition" name="editionYear"<?= isset($_POST["editorYear"]) ? " value=" . $_POST["editorYear"] : " value=1900" ?>>
+                        <?= isset($_SESSION["errors"]) ? (isset($_SESSION["errors"]["editorYear"]) ? "<br><span>". $_SESSION["errors"]["editionYear"] ."</span>" : "<br><br>") : "<br><br>" ?>
                     </p>
                 </div>
 
