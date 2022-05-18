@@ -46,11 +46,11 @@ All the users connected into with an account can add a new book and an appreciat
     - [x] Back-end
     - [x] Front-end
     - [x] Button "details"
-  - [ ] Add book
-    - [ ] Back-end
+  - [x] Add book
+    - [x] Back-end
     - [x] Front-end
-  - [ ] Add appreciation
-    - [ ] Back-end
+  - [x] Add appreciation
+    - [x] Back-end
     - [x] Front-end
   - [x] Footer
     - [x] Mention the creator of the app
@@ -63,11 +63,11 @@ All the users connected into with an account can add a new book and an appreciat
     - [x] Number of appreciations did
     - [x] Back-end
     - [x] Front-end
-  - [ ] Book details
-    - [ ] informations
-    - [ ] Number of apreciations got
-    - [ ] Average
-    - [ ] Back-end
+  - [x] Book details
+    - [x] informations
+    - [x] Number of apreciations got
+    - [x] Average
+    - [x] Back-end
     - [x] Front-end
   - [x] Connexion
     - [x] Front-end
