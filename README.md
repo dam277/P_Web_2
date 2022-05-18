@@ -35,13 +35,15 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Display the 5 last added books
     - [ ] Back-end
     - [x] Front-end
-  - [ ] List of books
+  - [x] List of books
     - [x] To see
       - [x] Title
       - [x] Author
       - [x] Nickname of person who posted
-    - [ ] Per category
-    - [ ] Back-end
+    - [x] Display books
+    - [x] Search books  (By category only)
+    - [x] Per category
+    - [x] Back-end
     - [x] Front-end
     - [x] Button "details"
   - [ ] Add book
@@ -50,16 +52,16 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] Add appreciation
     - [ ] Back-end
     - [x] Front-end
-  - [ ] Footer
-    - [ ] Mention the creator of the app
-    - [ ] Contact creator
-    - [ ] Back-end
-    - [ ] Front-end
-  - [ ] User
-    - [ ] Nickname
-    - [ ] Entry date
-    - [ ] Number of book posted
-    - [ ] Back-end
+  - [x] Footer
+    - [x] Mention the creator of the app
+    - [x] Contact creator
+    - [x] Front-end
+  - [x] User
+    - [x] Nickname
+    - [x] Entry date
+    - [x] Number of book posted
+    - [x] Number of appreciations did
+    - [x] Back-end
     - [x] Front-end
   - [ ] Book details
     - [ ] informations
@@ -67,13 +69,19 @@ All the users connected into with an account can add a new book and an appreciat
     - [ ] Average
     - [ ] Back-end
     - [x] Front-end
+  - [x] Connexion
+    - [x] Front-end
+    - [x] Back-end
+  - [x] Inscription
+    - [x] Front-end
+    - [x] Back-end
 ### [ ] Facultative :
   - [ ] Search to get a book (Implemented in front-end)
   - [ ] Modification of book
   - [ ] delete a book
-  - [ ] Add a person
+  - [x] Add a person
   - [ ] Add comment + apreciation for a book
-  - [ ] Smartphone view
+  - [x] Smartphone view
 
 ## Contributors
 - [Damien Loup](https://github.com/dam277)
