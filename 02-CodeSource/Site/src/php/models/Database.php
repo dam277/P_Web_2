@@ -103,7 +103,7 @@ class Database {
      * @param $categoryId => Id of the category to link
      */
     public function linkBookToCategory(int $bookId, int $categoryId){
-        queryPrepareExecute(
+        $this->queryPrepareExecute(
             "INSERT INTO `t_categorize` (`idBook`, `idCategory`) VALUES (:bookId, :categoryId);", 
             [
                 ["param" => "bookId", "value" => $bookId, "type" => PDO::PARAM_INT],
