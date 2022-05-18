@@ -16,6 +16,7 @@ class VerifySignUpController{
     //declare variables
     public ?array $user;
     public bool $valid;
+    public array $errors;
 
     /**
      * Contruct the instance of the connection verification controller
@@ -28,24 +29,31 @@ class VerifySignUpController{
         //set the default value of the variables
         $this->user = null;
         $this->valid = false;
+        $this->errors = [];
 
-        //Create the user if the passwords are true
-        if ($password == $checkPassword) 
-        {
-            //Create the new user
-            User::CreateUser($nickname, password_hash($password, PASSWORD_BCRYPT));
+        //test if the nickname of the user is valid
+        if ($nickname != null){
+            if (count($nickname) >= 3){
+                //Create the user if the passwords are true
+                if ($password == $checkPassword)
+                {
+                    //Create the new user
+                    User::CreateUser($nickname, password_hash($password, PASSWORD_BCRYPT));
 
-            //Get the user created to connect him instantly
-            $this->user = User::GetUserByName($nickname, $password);
-            if(count($this->user) > 0)
-            {
-                $this->valid = true;
+                    //Get the user created to connect him instantly
+                    $this->user = User::GetUserByName($nickname, $password);
+                    if(count($this->user) > 0)
+                    {
+                        $this->valid = true;
+                    }
+                }else{
+                    $errors[] = "usePasswordCheck" => "Les mot-de-passes ne sont pas égaux !";
+                }
+            }else{
+                $errors[] = "useNickname" => "Le nom d'utilisateur doit avoir au moin 3 charactères !";
             }
-        }
-        else
-        {
-            /////////////////////send to error page///////////////////////////
-            header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+        }else{
+            $errors[] = "useNickname" => "Le nom ne doit pas être null !";
         }
     }
 
@@ -59,8 +67,9 @@ class VerifySignUpController{
         }
         else
         {
+            header("location: /02-CodeSource/Site/src/php/views/views/inscription.php");
             /////////////////////send to error page///////////////////////////
-            header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+            //header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
         }
         
     }
