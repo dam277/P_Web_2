@@ -12,7 +12,6 @@ else
 {
     header("location: books.php?page=1");
 }
-
 $books = $_SESSION["books"];
 ?>
 

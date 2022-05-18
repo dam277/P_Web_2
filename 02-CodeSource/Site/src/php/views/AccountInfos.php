@@ -1,5 +1,9 @@
 <?php
 session_start();
+if($_SESSION["isConnected"] == false)
+{
+    header("location: errors/error403.php");
+}
 
 // echo "<pre>";
 // var_dump($_SESSION);

@@ -142,21 +142,12 @@ class MainController{
                     $controller = new BookListController(null);
                 }
                 $controller->show();
-
-                if (isset($_SESSION["books"]))
-                    $_SESSION["books"] = null;
-
-                if (isset($_SESSION["allCategories"]))
-                    $_SESSION["allCategories"] = null;
                 break;
 
             case "userDetail":
                 if (isset($_GET["userId"])){
                     $controller = new UserDetailController($_GET["userId"]);
                     $controller->show();
-
-                    if (isset($_SESSION["userInfos"]))
-                        $_SESSION["userInfos"] = null;
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
@@ -167,9 +158,6 @@ class MainController{
             case "addBook":
                 $controller = new AddBookController();
                 $controller->show();
-
-                if (isset($_SESSION["allCategories"]))
-                    $_SESSION["allCategories"] = null;
                 break;
 
             case "verifyBook":
@@ -193,12 +181,6 @@ class MainController{
                                 Database::getDatabase()->linkBookToCategory($bookToAdd->id, $categoryId);
                             }
                         }
-    
-                        if (isset($_SESSION["allCategories"]))
-                            $_SESSION["allCategories"] = null;
-    
-                        if (isset($_SESSION["errors"]))
-                            $_SESSION["errors"] = null;
                     }else{
                         /////////////////////send to error page///////////////////////////
                         header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");

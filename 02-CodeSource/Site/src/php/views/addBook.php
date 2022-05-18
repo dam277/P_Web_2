@@ -1,5 +1,9 @@
 <?php
-    session_start();
+session_start();
+if($_SESSION["isConnected"] == false)
+{
+    header("location: errors/error403.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +27,7 @@
         <!-- Div prenant toute la place de la page sauf le titre -->
         <div class="grid place-items-center">
             <!-- FORMULAIRE -->
-            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="#" method="POST">
+            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="../../../../../index.php?action=verifyBook" method="POST">
 
                 <div class="md:flex lg:flex xl:flex">
                     <!-- NOM DE L'OUVRAGE -->
@@ -46,24 +50,18 @@
                     <p class="sm:w-[100%] md:w-[50%] lg:w-[50%] xl:w-[50%] grid place-items-center">
                         <label class="text-[25px] sm:text-[25px] md:text-[23px] lg:text-[25px] mt-[20px] mb-[-20px]" for="category">Catégorie</label>
                         <br>
+
                         <select class="text-black bg-[#e6e6e6] border-solid border-2 border-black h-[50px] w-[300px] text-[15px] sm:text-[20px] sm:h-[60px] sm:w-[350px] sm:rounded-[5px] md:text-[20px] md:h-[40px] md:w-[270px] md:rounded-[10px] lg:text-[20px] lg:h-[60px] lg:w-[340px] lg:rounded-[15px] xl:text-[25px] xl:h-[80px] xl:w-[450px] xl:rounded-[20px]" name="categories[]" id="category" placeholder="Entrez la catégorie de l'ouvrage">
                             <?php
                             //display all categories
-                            foreach ($_SESSION["allCategories"] as $category){
-                                $isChecked = false;
-
-                                //test if the category is checked
-                                foreach ($_POST["categories"] as $id){
-                                    if ($id == $category[0]){
-                                        $isChecked = true;
-                                        break;
-                                    }
-                                }
-                                
-                                echo "<option value='".$category[0]."'". $isChecked ? " checked" : "" .">".$category[1]."</option>";
+                            foreach ($_SESSION["allCategories"] as $category)
+                            {
+                            ?>
+                                <option value="$category[0]"><?=$category[1]?></option>
+                            <?php
                             }
                             ?>
-                        </select>
+                        </select>                        
                     </p>
 
                     <!-- PAGES -->
@@ -126,7 +124,7 @@
 
                 <!-- bOUTON D'ENVOI -->
                 <div class="grid place-items-center my-[50px]">
-                    <input class="text-4xl text-white bg-[#3B4568] rounded-[20px] border-solid border-2 border-black px-[60px] py-[30px] cursor-pointer hover:bg-[#262C42]" type="button" value="Ajouter l'ouvrage">
+                    <input class="text-4xl text-white bg-[#3B4568] rounded-[20px] border-solid border-2 border-black px-[60px] py-[30px] cursor-pointer hover:bg-[#262C42]" type="submit" value="Ajouter l'ouvrage">
                 </div>
             </form>
         </div>
