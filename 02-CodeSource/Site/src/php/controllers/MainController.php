@@ -178,13 +178,13 @@ class MainController{
                 break;
 
             case "verifyBook":
-                if (isset($_GET["title"]) && isset($_GET["pageNumber"]) && isset($_GET["summary"])
-                && isset($_GET["authorName"]) && isset($_GET["editorName"]) && isset($_GET["editorYear"])
-                && isset($_GET["extract"]) && isset($_GET["userId"])){
+                if (isset($_POST["image"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
+                && isset($_POST["authorName"]) && isset($_POST["editorName"]) && isset($_POST["editorYear"])
+                && isset($_POST["extract"]) && isset($_POST["userId"])){
                     $controller = new VerifyBookAdditionController(
-                        new Book(null, $_GET["title"], $_GET["pageNumber"],
-                        $_GET["summary"],$_GET["authorName"],$_GET["editorName"],
-                        $_GET["editorYear"],$_GET["extract"],$_GET["userId"]));
+                        new Book(null, $_POST["title"], $_POST["pageNumber"],
+                        $_POST["summary"],$_POST["authorName"],$_POST["editorName"],
+                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]));
                     $controller->show();
                 }
                 else{

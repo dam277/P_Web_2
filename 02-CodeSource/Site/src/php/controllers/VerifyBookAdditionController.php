@@ -29,8 +29,9 @@ class VerifyBookAdditionController{
             $this->errors = $bookToAdd->checkForErrors();
 
             //test if the book can be added
-            if (count($this->errors) > 0){
+            if (count($this->errors) == 0){
                 $bookToAdd->insert();
+                move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/" . $bookToAdd->id . ".jpg")
             }
         }
     }
