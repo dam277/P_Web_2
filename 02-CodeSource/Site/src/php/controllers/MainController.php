@@ -163,9 +163,10 @@ class MainController{
                 break;
 
             case "verifyBook":
-                if (isset($_POST["image"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
+                if (isset($_FILES["file"]["tmp_name"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
                 && isset($_POST["authorName"]) && isset($_POST["editorName"]) && isset($_POST["editorYear"])
-                && isset($_POST["extract"]) && isset($_SESSION["user"]["id"]) && isset($_POST["categories"])){
+                && isset($_POST["extract"]) && isset($_SESSION["user"]["id"]) && isset($_POST["categories"]))
+                {
                     
                     // Create a book to insert him on the database
                     $bookToAdd = new Book(null, $_POST["title"], $_POST["pageNumber"],

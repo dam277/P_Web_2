@@ -31,10 +31,55 @@ class VerifyBookAdditionController{
             //test if the book can be added
             if (count($this->errors) == 0){
                 $bookToAdd->insert();
-                move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/");
-                //move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/" . $bookToAdd->id . ".jpg");
+                $this->uploadFile($bookToAdd);
             }
         }
+    }
+
+    private function uploadFile(Book $bookToAdd) : void
+    {
+        // The target directory of uploading is uploads
+        $target_dir =__DIR__ . "/../../../resources/tempImages/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        $uOk = true;
+
+        // Check if file already exists
+        if (file_exists($target_file)) 
+        {
+            echo "file already exists.<br>";
+            $uOk = false;
+        }
+        
+        // Check if $uOk is set to false 
+        if ($uOk == false) 
+        {
+            echo "Your file was not uploaded.<br>";
+        } 
+        
+        // if uOk=true then try to upload file
+        else 
+        {
+            // $_FILES["file"]["tmp_name"] implies storage path
+            // in tmp directory which is moved to uploads
+            // directory using move_uploaded_file() method
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) 
+            {
+                echo "The file ". basename($_FILES["file"]["name"]) . " has been uploaded.<br>";
+                
+                // Moving file to New directory 
+                if(rename($target_file, __DIR__ . "/../../../resources/bookImages/". basename("bookId_" . $bookToAdd->id . ".jpg"))) {
+                    echo "File moving operation success<br>";
+                }
+                else 
+                {
+                    echo "File moving operation failed..<br>";
+                }
+            }
+            else 
+            {
+                echo "Sorry, there was an error uploading your file.<br>";
+            }
+        }        
     }
 
     /**

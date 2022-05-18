@@ -27,7 +27,8 @@ if($_SESSION["isConnected"] == false)
         <!-- Div prenant toute la place de la page sauf le titre -->
         <div class="grid place-items-center">
             <!-- FORMULAIRE -->
-            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="../../../../../index.php?action=verifyBook" method="POST" enctype="multipart/form-data">
+            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="../../../../../index.php?action=verifyBook" method="post"
+                    enctype="multipart/form-data">
 
                 <div class="md:flex lg:flex xl:flex">
                     <!-- NOM DE L'OUVRAGE -->

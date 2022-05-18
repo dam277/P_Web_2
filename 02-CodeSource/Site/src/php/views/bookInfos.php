@@ -48,7 +48,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
         <div class="grid place-items-center">
             <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $_SESSION["bookToShow"]["title"] ?></h2>
             <!-- Image du livre -->
-            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="../../../resources/bookTitle.jpg" alt="Image de couverture du livre">
+            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="<?= "../../../resources/bookImages/bookId_" . $_SESSION["bookToShow"]["id"] . ".jpg" ?>" alt="Image de couverture du livre">
 
             <!-- informations -->
             <div class="flex w-full text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
