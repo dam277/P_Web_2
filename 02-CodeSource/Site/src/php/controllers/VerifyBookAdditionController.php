@@ -24,14 +24,15 @@ class VerifyBookAdditionController{
     public function __construct(Book $bookToAdd)
     {
         //verify the authority of the user
-        if ($_SESSION["permLevel"] >= 1){
+        if ($_SESSION["user"]["permLevel"] > 0){
             //check for errors
             $this->errors = $bookToAdd->checkForErrors();
 
             //test if the book can be added
             if (count($this->errors) == 0){
                 $bookToAdd->insert();
-                move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/" . $bookToAdd->id . ".jpg");
+                move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/");
+                //move_uploaded_file($_POST["image"], __DIR__ . "/../../../resources/bookImages/" . $bookToAdd->id . ".jpg");
             }
         }
     }
@@ -52,7 +53,6 @@ class VerifyBookAdditionController{
             }
             
             $_SESSION["errors"] = $this->errors;
-
             header("location: ./02-CodeSource/Site/src/php/views/addBook.php");
         }
         else

@@ -27,7 +27,7 @@ if($_SESSION["isConnected"] == false)
         <!-- Div prenant toute la place de la page sauf le titre -->
         <div class="grid place-items-center">
             <!-- FORMULAIRE -->
-            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="../../../../../index.php?action=verifyBook" method="POST">
+            <form class="bg-white w-[95%] sm:w-[95%] md:w-[85%] lg:w-[70%] xl:w-[70%] duration-[0.5s] dark:bg-gray-700 dark:text-gray-400" action="../../../../../index.php?action=verifyBook" method="POST" enctype="multipart/form-data">
 
                 <div class="md:flex lg:flex xl:flex">
                     <!-- NOM DE L'OUVRAGE -->
@@ -40,8 +40,8 @@ if($_SESSION["isConnected"] == false)
 
                     <!-- AJOUT D'UNE IMAGE -->
                     <p class="sm:w-[100%] md:w-[50%] lg:w-[50%] xl:w-[50%] grid place-items-center">
-                        <label class="mt-[20px] md:mb-[-20px] lg:mb-[-20px] xl:mb-[-20px] " for="image">Inserer une image de couverture</label>
-                        <input type="file" id="image" name="image">
+                        <label class="mt-[20px] md:mb-[-20px] lg:mb-[-20px] xl:mb-[-20px] " for="file">Inserer une image de couverture</label>
+                        <input type="file" id="file" name="file">
                     </p>
                 </div>
 
@@ -57,7 +57,7 @@ if($_SESSION["isConnected"] == false)
                             foreach ($_SESSION["allCategories"] as $category)
                             {
                             ?>
-                                <option value="$category[0]"><?=$category[1]?></option>
+                                <option value="<?=$category[0]?>"><?=$category[1]?></option>
                             <?php
                             }
                             ?>

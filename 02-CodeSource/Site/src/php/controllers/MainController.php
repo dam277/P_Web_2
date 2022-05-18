@@ -6,6 +6,8 @@
     Description :   Controls the application
 */
 
+use function PHPSTORM_META\type;
+
 require_once(__DIR__ . "/../models/User.php");
 require_once(__DIR__ . "/LogInController.php");
 require_once(__DIR__ . "/SignUpController.php");
@@ -163,27 +165,29 @@ class MainController{
             case "verifyBook":
                 if (isset($_POST["image"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
                 && isset($_POST["authorName"]) && isset($_POST["editorName"]) && isset($_POST["editorYear"])
-                && isset($_POST["extract"]) && isset($_POST["userId"]) && isset($_POST["categories"])){
+                && isset($_POST["extract"]) && isset($_SESSION["user"]["id"]) && isset($_POST["categories"])){
+                    
+                    // Create a book to insert him on the database
+                    $bookToAdd = new Book(null, $_POST["title"], $_POST["pageNumber"],
+                    $_POST["summary"],$_POST["authorName"],$_POST["editorName"],
+                    $_POST["editorYear"],$_POST["extract"],$_SESSION["user"]["id"]);
+                    
+                    // Verify the book and show the page
+                    $controller = new VerifyBookAdditionController($bookToAdd);
+                    $validity = count($controller->errors) == 0;
+                    $controller->show();
 
-                    if (count($_POST["categories"]) > 0){
-
-                        $bookToAdd = new Book(null, $_POST["title"], $_POST["pageNumber"],
-                        $_POST["summary"],$_POST["authorName"],$_POST["editorName"],
-                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]);
-
-                        $controller = new VerifyBookAdditionController($bookToAdd);
-                        $validity = count($controller->errors) == 0;
-                        $controller->show();
-    
-                        if ($validity){
-                            //add categories
-                            foreach ($_POST["categories"] as $categoryId){
-                                Database::getDatabase()->linkBookToCategory($bookToAdd->id, $categoryId);
+                    if ($validity){
+                        //add categories 
+                        foreach ($_POST["categories"] as $categoryId)
+                        {
+                            if (is_string($categoryId)) 
+                            {
+                                $categoryId = (int) $categoryId;
                             }
+                            // Link the book with the category
+                            Database::getDatabase()->linkBookToCategory($bookToAdd->id, $categoryId);
                         }
-                    }else{
-                        /////////////////////send to error page///////////////////////////
-                        header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                     }
                 }
                 else{
