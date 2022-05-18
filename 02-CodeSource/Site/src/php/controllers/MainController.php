@@ -64,7 +64,7 @@ class MainController{
         //test if the session contains the list of books and if the redirection will not need them
         if (isset($_SESSION["books"]) && ($this->action == "verifyLogIn" || $this->action == "goHome" || $this->action == "logOut" 
         || $this->action == "logIn" || $this->action == "signUp" || $this->action == "contactUs" || $this->action == "userDetail" 
-        || $this->action == "addBook" || $this->action == "verifyBook" || $this->action == "verifyAppreciation")) {
+        || $this->action == "addBook" || $this->action == "verifyBook" || $this->action == "bookDetail" || $this->action == "verifyAppreciation")) {
             $_SESSION["books"] = null;
         }
 
