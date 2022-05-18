@@ -79,7 +79,7 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] Search to get a book (Implemented in front-end)
   - [ ] Modification of book
   - [ ] delete a book
-  - [ ] Add a person
+  - [x] Add a person
   - [ ] Add comment + apreciation for a book
   - [x] Smartphone view
 
