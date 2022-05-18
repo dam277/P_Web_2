@@ -303,7 +303,9 @@ $books = $_SESSION["books"];
                                 <a class="grid place-items-center w-[60%] h-[75px] rounded-[20px] bg-[#3B4568] text-white lg:text-[20px] xl:text-[30px] hover:bg-[#262C42] cursor-pointer border-black border-solid border-2" href="../../../../../index.php?action=bookDetail&bookId=<?= $books[$i]['id']?>">
                                     <input class="cursor-pointer" type="button" value="Details">
                                 </a>
-                                <aside>Posté par : <?= $books[$i]["user"][1] ?></aside>
+                                <a href="../../../../../index.php?action=userDetail&userId=<?= $books[$i]["user"][0] ?>">
+                                    <aside class="hover:text-cyan-400">Posté par : <?= $books[$i]["user"][1] ?></aside>
+                                </a>
                             </div>
 <!-- #region Pages -->  
                         </div>

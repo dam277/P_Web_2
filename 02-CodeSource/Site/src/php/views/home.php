@@ -112,7 +112,8 @@ $bookList = $_SESSION["lastFiveBooks"];
                         Le but est de pouvour les visualiser, en ajouter ou même donner son avis avec des étoiles <br> <br>
                         Il est possible de se connecter et de s'inscrire <br>
                         Ainsi que de se déconnecter et de voir son compte <br> <br>
-                        Dans la liste des livres, uniquement la recherche par catégorie à été implémentée par faute de temps et de cahier des charges
+                        Dans la liste des livres, uniquement la recherche par catégorie à été implémentée par faute de temps et de cahier des charges <br> <br>
+                        Il est possible aussi de voir les compte des personnes qui ont posté un ouvrage dans la liste ou dans les détails du livre
                     </p>
                 </aside>
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">

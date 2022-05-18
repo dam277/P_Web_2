@@ -101,7 +101,9 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                 </ul>
             </div>
             <!-- Personne qui poste l'article -->
-            <p class="mt-[25px]">Posté par : <?=$_SESSION["bookToShow"]["postedName"]?></p>
+            <a href="../../../../../index.php?action=userDetail&userId=<?= $_SESSION["bookToShow"]["userId"] ?>">
+                <p class="hover:text-cyan-400">Posté par : <?=$_SESSION["bookToShow"]["postedName"]?></pack>
+            </a>
             <?php
             //Defini le nombre d'étoiles à afficher
             if ($_SESSION["bookToShow"]["average"] < 1.25) {
