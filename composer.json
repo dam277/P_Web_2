@@ -1,0 +1,6 @@
+{
+    "name": "thorey/p_web_2",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
