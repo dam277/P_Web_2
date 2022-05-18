@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 18 mai 2022 à 09:13
+-- Généré le : mer. 18 mai 2022 à 14:38
 -- Version du serveur :  5.7.11
 -- Version de PHP : 8.0.1
 
@@ -88,7 +88,8 @@ INSERT INTO `t_appreciation` (`idAppreciation`, `appEvaluation`, `idUser`, `idBo
 (47, 4, 2, 47),
 (48, 4, 2, 48),
 (49, 4, 2, 49),
-(50, 4, 2, 50);
+(50, 4, 2, 50),
+(51, 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -113,56 +114,56 @@ CREATE TABLE `t_book` (
 --
 
 INSERT INTO `t_book` (`idBook`, `booTitle`, `booPageNumber`, `booSummary`, `booAuthorName`, `booEditorName`, `booEditionYear`, `booExtract`, `idUser`) VALUES
-(1, 'Frankin aimait manger ses chaussures', 1222, 'Il aime manger ses chaussures et lasser ses parents', 'Moi', 'Toi', 2022, 'Il aime manger ses chaussures\r\n- Oh, c\'est trop bon, je peux en ravoir ? sinon je te lasse maman\r\n- Oui bien sur franklin\r\n- Merci, je vais quand même te lasser', 1),
-(2, 'toto', 7070, 'toto', 'toto', 'toto', 2000, 'toto', 3),
-(3, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(4, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(5, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(6, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(7, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(8, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(9, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(10, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(11, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(12, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(13, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(14, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(15, 'toto', 7070, 'toto', 'toto', 'toto', 2000, 'toto', 3),
-(16, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(17, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(18, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(19, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(20, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(21, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(22, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(23, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(24, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(25, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(26, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(27, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(28, 'toto', 7070, 'toto', 'toto', 'toto', 2000, 'toto', 3),
-(29, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(30, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(31, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(32, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(33, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(34, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(35, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(36, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(37, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(38, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(39, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(40, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(41, 'toto', 7070, 'toto', 'toto', 'toto', 2000, 'toto', 3),
-(42, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(43, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(44, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3),
-(45, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(46, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(47, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(48, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 1),
-(49, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 2),
-(50, 'tata', 1222, 'etetew', 'RHGHEH', 'ERHERH', 2134, 'HRHWRHA', 3);
+(1, 'Franklin aimait manger ses chaussures', 1222, 'Il aime manger ses chaussures et lasser ses parents', 'Jean Dupont', 'Maison thorey', 2022, 'Il aime manger ses chaussures\r\n- Oh, c\'est trop bon, je peux en ravoir ? sinon je te lasse maman\r\n- Oui bien sur franklin\r\n- Merci, je vais quand même te lasser', 1),
+(2, 'toto', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
+(3, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(4, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(5, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(6, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(7, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(8, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(9, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(10, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(11, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(12, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(13, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(14, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(15, 'toto', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
+(16, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(17, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(18, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(19, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(20, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(21, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(22, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(23, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(24, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(25, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(26, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(27, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(28, 'toto', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
+(29, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(30, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(31, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(32, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(33, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(34, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(35, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(36, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(37, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(38, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(39, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(40, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(41, 'toto', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
+(42, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(43, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(44, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(45, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(46, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(47, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(48, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(49, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(50, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3);
 
 -- --------------------------------------------------------
 
@@ -264,6 +265,13 @@ CREATE TABLE `t_session` (
   `idUser` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `t_session`
+--
+
+INSERT INTO `t_session` (`idSession`, `idUser`) VALUES
+(9, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -285,7 +293,8 @@ CREATE TABLE `t_user` (
 INSERT INTO `t_user` (`idUser`, `useNickname`, `useEntryDate`, `usePermLevel`, `usePasswordHash`) VALUES
 (1, 'Damien', '2022-05-18', 2, '$2y$10$8uzGFEUFVktqBJbwpbyCWu.5Y7YAbI1TT74sVe2hvin/DznqXtCo.'),
 (2, 'Thomas le train', '2022-05-18', 2, '$2y$10$eKth8g0sZcdJ0/NuDPxYiOB4YolfTTRWeKHFs/kJjMQu3gGmsDEb6'),
-(3, 'jean-mark', '2022-05-18', 1, '$2y$10$9ZfSmLNZkwqRSykQ/G68VuMHORo3/iFkotebUeQSzERdS.IqnNtfO');
+(3, 'jean-mark', '2022-05-18', 1, '$2y$10$9ZfSmLNZkwqRSykQ/G68VuMHORo3/iFkotebUeQSzERdS.IqnNtfO'),
+(4, 'Mathis', '2022-05-18', 2, '$2y$10$Y06XBBfDueeCAGHFr6Zbj.cywPnTaCG3X5FK6e0bB5SlyhFrTLEOK');
 
 --
 -- Index pour les tables déchargées
@@ -347,7 +356,7 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT pour la table `t_appreciation`
 --
 ALTER TABLE `t_appreciation`
-  MODIFY `idAppreciation` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `idAppreciation` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pour la table `t_book`
@@ -365,13 +374,13 @@ ALTER TABLE `t_category`
 -- AUTO_INCREMENT pour la table `t_session`
 --
 ALTER TABLE `t_session`
-  MODIFY `idSession` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idSession` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `t_user`
 --
 ALTER TABLE `t_user`
-  MODIFY `idUser` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUser` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
