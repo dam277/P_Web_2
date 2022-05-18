@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 18 mai 2022 à 14:38
+-- Généré le : mer. 18 mai 2022 à 22:43
 -- Version du serveur :  5.7.11
 -- Version de PHP : 8.0.1
 
@@ -89,7 +89,12 @@ INSERT INTO `t_appreciation` (`idAppreciation`, `appEvaluation`, `idUser`, `idBo
 (48, 4, 2, 48),
 (49, 4, 2, 49),
 (50, 4, 2, 50),
-(51, 5, 1, 1);
+(51, 5, 1, 1),
+(52, 1, 1, 3),
+(53, 1, 1, 3),
+(54, 1, 1, 3),
+(55, 5, 1, 3),
+(56, 5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -115,12 +120,12 @@ CREATE TABLE `t_book` (
 
 INSERT INTO `t_book` (`idBook`, `booTitle`, `booPageNumber`, `booSummary`, `booAuthorName`, `booEditorName`, `booEditionYear`, `booExtract`, `idUser`) VALUES
 (1, 'Franklin aimait manger ses chaussures', 1222, 'Il aime manger ses chaussures et lasser ses parents', 'Jean Dupont', 'Maison thorey', 2022, 'Il aime manger ses chaussures\r\n- Oh, c\'est trop bon, je peux en ravoir ? sinon je te lasse maman\r\n- Oui bien sur franklin\r\n- Merci, je vais quand même te lasser', 1),
-(2, 'toto', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
-(3, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
-(4, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
-(5, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(2, 'One shot', 7070, 'toto', 'toto tata', 'toto', 2000, 'toto', 3),
+(3, 'stylé', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
+(4, 'Xray-Tuto', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(5, 'Demon slayer', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
 (6, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
-(7, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
+(7, 'Skyrim', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
 (8, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
 (9, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
 (10, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
@@ -163,7 +168,14 @@ INSERT INTO `t_book` (`idBook`, `booTitle`, `booPageNumber`, `booSummary`, `booA
 (47, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
 (48, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 1),
 (49, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 2),
-(50, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3);
+(50, 'tata', 1222, 'etetew', 'toto tata', 'ERHERH', 2134, 'HRHWRHA', 3),
+(109, 'Mon livre', 12, 'tetst', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'test', 1),
+(115, 'Mon livre', 1212, 'test', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'test', 1),
+(116, 'One shot', 111, 'ONE SHOOOT', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'ONEE SHOOOT', 1),
+(117, 'Skyrim -le manga-', 120, 'test', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'test', 1),
+(118, 'Demon slayer', 223, 'qwegweg', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'wegqewgqeg', 1),
+(120, 'Mon livre', 12, 'test', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'test', 1),
+(121, 'Mon livre', 133, 'test', 'Jean-mark Dupont', 'Jean-Jacques', 1900, 'ttest', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +243,14 @@ INSERT INTO `t_categorize` (`idBook`, `idCategory`) VALUES
 (47, 3),
 (48, 3),
 (49, 3),
-(50, 3);
+(50, 3),
+(109, 1),
+(115, 1),
+(116, 2),
+(117, 1),
+(118, 1),
+(120, 1),
+(121, 1);
 
 -- --------------------------------------------------------
 
@@ -264,13 +283,6 @@ CREATE TABLE `t_session` (
   `idSession` bigint(20) NOT NULL,
   `idUser` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `t_session`
---
-
-INSERT INTO `t_session` (`idSession`, `idUser`) VALUES
-(9, 1);
 
 -- --------------------------------------------------------
 
@@ -356,25 +368,25 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT pour la table `t_appreciation`
 --
 ALTER TABLE `t_appreciation`
-  MODIFY `idAppreciation` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idAppreciation` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT pour la table `t_book`
 --
 ALTER TABLE `t_book`
-  MODIFY `idBook` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `idBook` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT pour la table `t_category`
 --
 ALTER TABLE `t_category`
-  MODIFY `idCategory` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idCategory` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `t_session`
 --
 ALTER TABLE `t_session`
-  MODIFY `idSession` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idSession` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `t_user`
