@@ -27,7 +27,14 @@ class HomeController{
      * Show the home page
      */
     public function show(){
-        $_POST["books"] = $this->books;
+
+        $lastFiveBooks = array();
+        foreach ($this->books as $book) 
+        {
+            $lastFiveBooks[] = array("id" => $book->id, "title" => $book->title, "authorName" => $book->authorName);
+        }
+
+        $_SESSION["lastFiveBooks"] = $lastFiveBooks;
         header("Location: ./02-CodeSource/Site/src/php/views/home.php");
     }
 }

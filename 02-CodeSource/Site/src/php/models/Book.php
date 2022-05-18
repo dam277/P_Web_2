@@ -156,7 +156,7 @@ class Book{
         //test the author's name
         if (!$this->authorName){
             $errors[] = ["authorName" => "Le nom de l'auteur du livre est obligatoire !"];
-        } else if (!preg_match("/^[A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ][a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]*([\s'-]([a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]')?([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ])[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž∂ð]*)+$/", $this->authorName)){
+        } else if (!preg_match("/^[A-z]+(( ||-)[A-z])+$/", $this->authorName)){
             $errors[] = ["authorName" => "Le nom de l'auteur du livre est invalide !"];
         }
 
@@ -176,7 +176,7 @@ class Book{
         }
 
         //test for the user id's validity
-        if ($this->userId != $_SESSION["userId"]){
+        if ($this->userId != $_SESSION["user"]["id"]){
             $errors[] = ["userId" => "L'id de l'utilisateur ajoutant le livre ne correspond pas à celui de l'utilisateur !"];
         }
 
@@ -202,9 +202,8 @@ class Book{
                 ["param"=>"userId", "value"=>$this->userId, "type" => PDO::PARAM_INT]
             ]
         );
-
         $this->id = (int)(Database::getDatabase()->querySimpleExecute("SELECT idBook FROM t_book ORDER BY idBook DESC LIMIT 1")[0]["idBook"]);
-
+        
         return $toReturn;
     }
 

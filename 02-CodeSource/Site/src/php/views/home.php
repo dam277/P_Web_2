@@ -1,7 +1,6 @@
 <?php
 session_start();
-$bookList = $_POST;
-// var_dump($bookList);
+$bookList = $_SESSION["lastFiveBooks"];
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +12,8 @@ $bookList = $_POST;
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<!-- A ajouter dans la balise <body> : onload="onLoad('<?=$bookList['book1']?>', '<?=$bookList['book2']?>', '<?=$bookList['book3']?>', '<?=$bookList['book4']?>', '<?=$bookList['book5']?>')"-->
-<body class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
+<!-- A ajouter dans la balise <body> : -->
+<body onload="onLoad('<?=$bookList[0]?>', '<?=$bookList[1]?>', '<?=$bookList[2]?>', '<?=$bookList[3]?>', '<?=$bookList[4]?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
     <header>
         <?php
             include("../../include/header.php");
@@ -52,7 +51,7 @@ $bookList = $_POST;
                 <!-- LIVRE 1-->
                 <div class="relative bg-[#C4C4C4] w-[33%]">
                     <!-- IMAGE DU LIVRE -->
-                    <img id="book1" class="max-h-[490px] w-full h-full" src="<?= $bookList['book1'] ?>" alt="livre 1">
+                    <img id="book1" class="max-h-[490px] w-full h-full" src="<?= "../../../resources/bookImages/bookId_" . $bookList[0]["id"] . ".jpg" ?>" alt="livre 1">
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="absolute inset-0">
@@ -64,16 +63,16 @@ $bookList = $_POST;
                 <!-- DETAILS DU LIVRE 2-->
                 <div class="relative bg-[#C4C4C4] w-[33%]">
                     <!-- IMAGE DU LIVRE -->
-                    <img id="book2" class="absolute max-h-[490px] w-full h-full inset-0 bg-cover bg-center z-0" src="<?= $bookList['book2'] ?>"  alt="livre 2" >
+                    <img id="book2" class="absolute max-h-[490px] w-full h-full inset-0 bg-cover bg-center z-0" src="<?= "../../../resources/bookImages/bookId_" . $bookList[1]["id"] . ".jpg" ?>"  alt="livre 2" >
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex flex-col justify-center items-center text-black font-semibold text-[11px] sm:text-[15px] md:text-[18px] lg:text-[25px]">
                         <ul class="z-20">
-                            <li>Nom : $artName</li>
-                            <li>Auteur : $author</li>
+                            <li>Nom : <?= $bookList[0]["title"] ?></li>
+                            <li>Auteur : <?= $bookList[0]["authorName"] ?></li>
                         </ul>
                         <div class="absolute h-full w-full bg-[#C4C4C4] opacity-70 z-10"></div>
-                        <a href="">
+                        <a href="../../../../../index.php?action=bookDetail&bookId=<?= $bookList[1]["id"] ?>">
                             <input type="button" class="mt-[55%] cursor-pointer hover:bg-opacity-[100%] rounded-full relative z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
                         </a>
                     </div>
@@ -83,7 +82,7 @@ $bookList = $_POST;
                 <!-- LIVRE 3-->
                 <div class="relative bg-[#C4C4C4] w-[33%] text-right">
                     <!-- IMAGE DU LIVRE -->
-                    <img id="book3" class="w-full max-h-[490px] h-full" src="<?= $bookList['book3'] ?>" alt="livre 3">
+                    <img id="book3" class="w-full max-h-[490px] h-full" src="<?= "../../../resources/bookImages/bookId_" . $bookList[2]["id"] . ".jpg" ?>" alt="livre 3">
                     
                     <!-- INFORMATIONS QUI S'AFFICHENT LORS DU PASSAGE DE LA SOURIS -->
                     <div class="absolute inset-0">
@@ -109,7 +108,11 @@ $bookList = $_POST;
             <div class="flex">
                 <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                        Le site conciste à avoir une base de donnée contenant des ouvrages. <br>
+                        Le but est de pouvour les visualiser, en ajouter ou même donner son avis avec des étoiles <br> <br>
+                        Il est possible de se connecter et de s'inscrire <br>
+                        Ainsi que de se déconnecter et de voir son compte <br> <br>
+                        Dans la liste des livres, uniquement la recherche par catégorie à été implémentée par faute de temps et de cahier des charges
                     </p>
                 </aside>
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
@@ -118,14 +121,16 @@ $bookList = $_POST;
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
                 <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                    A propos du projet : <br>
+                    Projet ETML - Suisse <br>
+                    Créer un site web dynamique ayant pour but de stocker des ouvrages dans une base de données et gérer le site avec les différents droits admis.
                     </p>
                 </aside>
             </div>
             <div class="flex">
                 <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                        Vous pouvez nous contacter à l'aide des nom dans le bas de page, ainsi qu'avec le bouton "Nous contacter" <br>
                     </p>
                 </aside>
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
@@ -142,4 +147,80 @@ $bookList = $_POST;
 </body>
 </html>
 
-<script src="../../js/imageScrolling.js"></script>
+<script>
+let _books = [];     // Global array of all the 5 last books
+
+// Books
+let books1 = <?= json_encode($bookList[0]) ?>;
+let books2 = <?= json_encode($bookList[1]) ?>;
+let books3 = <?= json_encode($bookList[2]) ?>;
+let books4 = <?= json_encode($bookList[3]) ?>;
+let books5 = <?= json_encode($bookList[4]) ?>;
+_books.push(books1);
+_books.push(books2);
+_books.push(books3);
+_books.push(books4);
+_books.push(books5);
+
+// Set the position of the images into 3 variables
+let book1 = document.getElementById("book1");
+let book2 = document.getElementById("book2");
+let book3 = document.getElementById("book3");
+
+/// ---- FUNCTION = moveLeft = ----
+/// rotates by 1 to the left the list of books
+/// to exchange their place, in order to display
+/// them in this new position on the homepage
+function moveLeft()
+{
+   // Set a variable to have the book which will move to the other side of the array
+   let lastBook = _books[0];  
+
+   // Exchange the places of the table by 1 to the left
+   for (let i = 0; i < _books.length; i++) 
+   {
+       if(i < _books.length - 1)
+       {
+           _books[i] = _books[i + 1];
+       }
+       else
+       {
+           _books[i] = lastBook;
+       }
+   }
+
+   // Change the image on the page
+   book1.src="../../../resources/bookImages/bookId_" + book1[0] + ".jpg"; 
+   book2.src="../../../resources/bookImages/bookId_" + book2[0] + ".jpg"; 
+   book3.src="../../../resources/bookImages/bookId_" + book3[0] + ".jpg"; 
+}
+
+/// ---- FUNCTION = moveRight = ----
+/// rotates by 1 to the right the list of books
+/// to exchange their place, in order to display
+/// them in this new position on the homepage
+function moveRight()
+{
+   // Set a variable to have the book which will move to the other side of the array
+   let lastBook = _books[_books.length - 1];
+
+   // Exchange the places of the table by 1 to the right
+   for (let i = _books.length - 1; i >= 0; i--) 
+   {
+       if (i > 0) 
+       {
+           _books[i] = _books[i - 1];
+       }
+       else
+       {
+           _books[i] = lastBook;
+       }
+   }
+
+   // Change the image on the page
+   // Change the image on the page
+   book1.src="../../../resources/bookImages/bookId_" + book1[0] + ".jpg"; 
+   book2.src="../../../resources/bookImages/bookId_" + book2[0] + ".jpg"; 
+   book3.src="../../../resources/bookImages/bookId_" + book3[0] + ".jpg"; 
+}
+</script>

@@ -12,13 +12,8 @@ else
 {
     header("location: books.php?page=1");
 }
-
 $books = $_SESSION["books"];
 ?>
-
-<!-- <pre>
-    <?=var_dump($_SESSION)?>
-</pre> -->
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -194,8 +189,7 @@ $books = $_SESSION["books"];
                                     Auteur : <?= $books[$i]["authorName"] ?>
                                     <hr class="mb-[5px] block md:hidden lg:hidden xl:hidden">
                                 </p>
-                                <!-- <img src="<?= $books[$i]["image"] ?>" alt=""> -->
-                                Ajouter l'image !! 
+                                <img class="w-full" src="<?= "../../../resources/bookImages/bookId_" . $books[$i]["id"] . ".jpg" ?>" alt="image de couverture">
                             </div>
 <!-- #region Infos -->
                             <!-- INFORMATIONS SUR L'OUVRAGE -->
