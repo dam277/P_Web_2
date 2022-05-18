@@ -1,25 +1,5 @@
 <?php
 session_start();
-$bookToShow = $GLOBALS["bookToShow"];
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
-
-
-
-$book = array(
-    "id" => "../../../resources/bookTitle.jpg",
-    "title" => "Titre du livre",
-    "pageNumber" => "678",
-    "summary" => "résumé",
-    "authorName" => "truc bidule",
-    "editorName" => "jean-marc dupont",
-    "editionYear" => "2012",
-    "userId" => "user",
-    "categories" => ["Manga", "Romance"],
-    "average" => 4.3,
-    "nbAverage" => ["2", "1"]
-);
 
 $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
 ?>
@@ -65,7 +45,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
         <div class="grid place-items-center">
             <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $_SESSION["bookToShow"]["title"] ?></h2>
             <!-- Image du livre -->
-            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="<?= $book["id"] ?>" alt="">
+            <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="../../../resources/bookTitle.jpg" alt="Image de couverture du livre">
 
             <!-- informations -->
             <div class="flex w-full text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">
@@ -104,7 +84,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                             } 
                         ?>
                     <li class="font-bold">Appréciations</li>
-                    <li>Cet ouvrage à reçu <?= count($book["nbAverage"]) ?> appréciations</li>
+                    <li>Cet ouvrage à reçu <?= $_SESSION["bookToShow"]["nbAppreciation"] ?> appréciations</li>
                 </ul>
                 <!-- Editeur -->
                 <ul class="w-[33%]">
@@ -114,37 +94,37 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                 </ul>
             </div>
             <!-- Personne qui poste l'article -->
-            <p class="mt-[25px]">Posté par : Personne</p>
+            <p class="mt-[25px]">Posté par : <?=$_SESSION["bookToShow"]["postedName"]?></p>
             <?php
             //Defini le nombre d'étoiles à afficher
-            if ($book["average"] < 1.25) {
+            if ($_SESSION["bookToShow"]["average"] < 1.25) {
                 $goldStars = 1;
             } 
-            elseif ($book["average"] < 1.75) 
+            elseif ($_SESSION["bookToShow"]["average"] < 1.75) 
             {
                 $goldStars = 1.5;
             } 
-            elseif ($book["average"] < 2.25) 
+            elseif ($_SESSION["bookToShow"]["average"] < 2.25) 
             {
                 $goldStars = 2;
             } 
-            elseif ($book["average"] < 2.75) 
+            elseif ($_SESSION["bookToShow"]["average"] < 2.75) 
             {
                 $goldStars = 2.5;
             } 
-            elseif ($book["average"] < 3.25) 
+            elseif ($_SESSION["bookToShow"]["average"] < 3.25) 
             {
                 $goldStars = 3;
             } 
-            elseif ($book["average"] < 3.75) 
+            elseif ($_SESSION["bookToShow"]["average"] < 3.75) 
             {
                 $goldStars = 3.5;
             } 
-            elseif ($book["average"] < 4.25) 
+            elseif ($_SESSION["bookToShow"]["average"] < 4.25) 
             {
                 $goldStars = 4;
             } 
-            elseif ($book["average"] < 4.75) 
+            elseif ($_SESSION["bookToShow"]["average"] < 4.75) 
             {
                 $goldStars = 4.5;
             } 
@@ -193,7 +173,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
             <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Résumé</h2>
                 <p class="text-[12px] md:text-[20px] h-full">
-                    Texte
+                    <?=$_SESSION["bookToShow"]["summary"]?>
                 </p>
             </aside>
             <!-- Image de livre -->
@@ -207,7 +187,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
             <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Extrait</h2>
                 <p class="text-[12px] md:text-[20px] h-full">
-                    Texte
+                    <?=$_SESSION["bookToShow"]["extract"]?>
                 </p>
             </aside>
         </div>
@@ -218,7 +198,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
             <form method="POST" action="checkNote.php">
                 <div class="flex rotate-180">
                     <?php
-                    const MARGINLEFT = 10;                //Variable Créant la marge automatique entre les étoiles
+                    const MARGINLEFT = 1;                //Variable Créant la marge automatique entre les étoiles
                     //Affichage des étoiles
                     for ($i = 5; $i > 0; $i -= 0.5) 
                     {
@@ -247,7 +227,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                         {
                         ?>
                             <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
-                            <label onclick="" class="bg-[url('../../../resources/rateStarNotCheckedRight.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedRight.jpg')] hover:bg-[url('../../../resources/rateStarCheckedRight.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
+                            <label onclick="" class="bg-[url('../../../resources/rateStarNotCheckedRight.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedRight.jpg')] hover:bg-[url('../../../resources/rateStarCheckedRight.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i - $i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
                     }

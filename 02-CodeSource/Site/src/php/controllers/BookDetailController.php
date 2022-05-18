@@ -49,26 +49,20 @@ class BookDetailController{
             }
 
             // Set the user who posted that book
+            $userName = User::getUserById($this->bookToShow->userId)->nickname;
 
-            echo "<pre>";
-            var_dump($categories);
-            echo "</pre>";
+            // Set the average of the book
+            $average = $this->bookToShow->getAverageEvaluation();
 
-            
-
-            //$appreciations = $_SESSION["user"]->getAppreciations();
-    
-            // $yourEval = null;
-            // foreach ($appreciations as $appreciation){
-            //     if ($appreciation->bookId == $bookToShowId){
-            //         $this->yourEval = $appreciation;
-            //         break;
-            //     }
-            // }
+            // Get the number of appreciation did to this book
+            $nbAppreciation = count($this->bookToShow->getAppreciations());
     
             $this->nbEval = count($this->bookToShow->getAppreciations());
             $_SESSION["bookToShow"] = $book;
             $_SESSION["bookToShow"] += $categories;
+            $_SESSION["bookToShow"]["postedName"] = $userName;
+            $_SESSION["bookToShow"]["average"] = $average;
+            $_SESSION["bookToShow"]["nbAppreciation"] = $nbAppreciation;
         }
     }
 
@@ -78,7 +72,7 @@ class BookDetailController{
     public function show() : void{
         //verify if authorized
         if ($_SESSION["user"]["permLevel"] > 0){
-            header("location: /02-CodeSource/Site/src/php/views/bookInfos.php?bookId=".$_GET["bookId"]);
+            header("location: /02-CodeSource/Site/src/php/views/bookInfos.php");
         }
         else
         {
