@@ -175,18 +175,34 @@ class MainController{
             case "verifyBook":
                 if (isset($_POST["image"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
                 && isset($_POST["authorName"]) && isset($_POST["editorName"]) && isset($_POST["editorYear"])
-                && isset($_POST["extract"]) && isset($_POST["userId"])){
-                    $controller = new VerifyBookAdditionController(
-                        new Book(null, $_POST["title"], $_POST["pageNumber"],
+                && isset($_POST["extract"]) && isset($_POST["userId"]) && isset($_POST["categories"])){
+
+                    if (count($_POST["categories"]) > 0){
+
+                        $bookToAdd = new Book(null, $_POST["title"], $_POST["pageNumber"],
                         $_POST["summary"],$_POST["authorName"],$_POST["editorName"],
-                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]));
-                    $controller->show();
+                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]);
 
-                    if (isset($_SESSION["allCategories"]))
-                        $_SESSION["allCategories"] = null;
-
-                    if (isset($_SESSION["errors"]))
-                        $_SESSION["errors"] = null;
+                        $controller = new VerifyBookAdditionController($bookToAdd);
+                        $validity = count($controller->errors) == 0;
+                        $controller->show();
+    
+                        if ($validity){
+                            //add categories
+                            foreach ($_POST["categories"] as $categoryId){
+                                Database::getDatabase()->linkBookToCategory($bookToAdd->id, $categoryId);
+                            }
+                        }
+    
+                        if (isset($_SESSION["allCategories"]))
+                            $_SESSION["allCategories"] = null;
+    
+                        if (isset($_SESSION["errors"]))
+                            $_SESSION["errors"] = null;
+                    }else{
+                        /////////////////////send to error page///////////////////////////
+                        header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
+                    }
                 }
                 else{
                     /////////////////////send to error page///////////////////////////

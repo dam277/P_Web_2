@@ -27,19 +27,48 @@ class BookDetailController{
     public function __construct(int $bookToShowId)
     {
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
-            $this->bookToShow = Book::getBookById($bookToShowId);
-            $appreciations = $_SESSION["user"]->getAppreciations();
-    
-            $yourEval = null;
-            foreach ($appreciations as $appreciation){
-                if ($appreciation->bookId == $bookToShowId){
-                    $this->yourEval = $appreciation;
-                    break;
+        if ($_SESSION["user"]["permLevel"] > 0){
+            // Get the book
+            $this->bookToShow = Book::getBookById($bookToShowId);            
+
+            // Set the book into an array
+            $book = array();
+            foreach ($this->bookToShow as $key => $value) 
+            {
+                $book[$key] = $value;
+            }
+
+            // Set the categories into an array
+            $categories = array();
+            foreach ($this->bookToShow->getCategories() as $category) 
+            {
+                foreach ($category as $key => $value) 
+                {
+                    $categories[$key][] = $value;
                 }
             }
+
+            // Set the user who posted that book
+
+            echo "<pre>";
+            var_dump($categories);
+            echo "</pre>";
+
+            
+
+            //$appreciations = $_SESSION["user"]->getAppreciations();
+    
+            // $yourEval = null;
+            // foreach ($appreciations as $appreciation){
+            //     if ($appreciation->bookId == $bookToShowId){
+            //         $this->yourEval = $appreciation;
+            //         break;
+            //     }
+            // }
     
             $this->nbEval = count($this->bookToShow->getAppreciations());
+            $_SESSION["bookToShow"] = $book;
+            $_SESSION["bookToShow"] += $categories;
         }
     }
 
@@ -48,7 +77,7 @@ class BookDetailController{
      */
     public function show() : void{
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
+        if ($_SESSION["user"]["permLevel"] > 0){
             header("location: /02-CodeSource/Site/src/php/views/bookInfos.php?bookId=".$_GET["bookId"]);
         }
         else

@@ -142,7 +142,7 @@ class User{
     public function getAppreciations() : array{
         //select the appreciations
         $assocAppreciations = Database::getDatabase()->queryPrepareExecute(
-            "SELECT * FROM t_appreciation WHERE t_appreciation.idUser = :id", 
+            "SELECT * FROM t_appreciation WHERE t_appreciation.idUser = :id",
             [["param"=>"id", "value"=>$this->id, "type" => PDO::PARAM_INT]]
         );
 

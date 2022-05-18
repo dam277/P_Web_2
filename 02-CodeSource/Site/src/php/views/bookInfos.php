@@ -1,6 +1,10 @@
 <?php
 session_start();
 $bookToShow = $GLOBALS["bookToShow"];
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
+
 
 
 $book = array(
@@ -17,7 +21,7 @@ $book = array(
     "nbAverage" => ["2", "1"]
 );
 
-$author = explode(" ", $book["authorName"]);
+$author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +63,7 @@ $author = explode(" ", $book["authorName"]);
 
         <!-- Details du livre -->
         <div class="grid place-items-center">
-            <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $book["title"] ?></h2>
+            <h2 class="text-[20px] lg:text-[20px] md:text-[25px] lg:text-[30px] xl:text-[30px] font-bold my-[15px]">Détails : <?= $_SESSION["bookToShow"]["title"] ?></h2>
             <!-- Image du livre -->
             <img class="h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]" src="<?= $book["id"] ?>" alt="">
 
@@ -73,17 +77,40 @@ $author = explode(" ", $book["authorName"]);
                 </ul>
                 <!-- Pages + Catégories + Appréciations -->
                 <ul class="grid place-items-center w-[33%] ml-[10px]">
-                    <li>Pages : <?= $book["pageNumber"] ?></li>
+                    <li>Pages : <?= $_SESSION["bookToShow"]["pageNumber"] ?></li>
                     <li class="mt-[100px] font-bold">Catégories</li>
-                    <li><?= $book["categories"][0] . ", " . $book["categories"][1] ?></li>
+                    <li>
+                        <?php
+                            // Affiche la/les catégorie/s de l'ouvrage actuel
+                            if(count($_SESSION["bookToShow"]["name"]) == 1)
+                            {
+                                // Affiche la seule catégorie
+                                echo "Catégorie : "; 
+                                echo $_SESSION["bookToShow"]["name"][0];
+                            }
+                            else
+                            {
+                                // Affiche les différentes catégories
+                                echo "Catégories : "; 
+                                foreach ($_SESSION["bookToShow"]["name"] as $category) 
+                                {
+                                    echo $category;
+                                    // Affiche une virgule, si la catégorie affichée n'est pas la dernière
+                                    if($category != $_SESSION["bookToShow"]["name"][count($_SESSION["bookToShow"]["name"]) - 1])
+                                    {
+                                        echo ", ";
+                                    }
+                                }
+                            } 
+                        ?>
                     <li class="font-bold">Appréciations</li>
                     <li>Cet ouvrage à reçu <?= count($book["nbAverage"]) ?> appréciations</li>
                 </ul>
                 <!-- Editeur -->
                 <ul class="w-[33%]">
                     <li class="font-bold">Edition</li>
-                    <li>Editeur : <?= $book["editorName"] ?></li>
-                    <li>Année d'édition : <?= $book["editionYear"] ?></li>
+                    <li>Editeur : <?= $_SESSION["bookToShow"]["editorName"] ?></li>
+                    <li>Année d'édition : <?= $_SESSION["bookToShow"]["editorYear"] ?></li>
                 </ul>
             </div>
             <!-- Personne qui poste l'article -->
@@ -165,7 +192,7 @@ $author = explode(" ", $book["authorName"]);
             <!-- Texte -->
             <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Résumé</h2>
-                <p class="text-[12px] md:text-[20px]">
+                <p class="text-[12px] md:text-[20px] h-full">
                     Texte
                 </p>
             </aside>
@@ -179,7 +206,7 @@ $author = explode(" ", $book["authorName"]);
             <!-- Texte -->
             <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                 <h2 class="underline md:text-2xl lg:text-4xl xl:text-6xl text-center font-bold">Extrait</h2>
-                <p>
+                <p class="text-[12px] md:text-[20px] h-full">
                     Texte
                 </p>
             </aside>
