@@ -21,11 +21,11 @@
         <ul class="list-none mt-3 mb-3 space-y-2 ">
           <!-- Premier contributeur -->
           <li>
-            <p>Damien Loup</p>
+            <p class="hover:text-cyan-400"><a href="mailto:damien.loup@eduvaud.ch">Damien Loup</a></p>
           </li>
           <!-- Deuxième contributeur -->
           <li>
-            <p>Thomas Rey</p>
+          <p class="hover:text-cyan-400"><a href="mailto:thomas.rey@eduvaud.ch">Thomas Rey</a></p>
           </li>
           <li>
           <!-- Bouton pour revenir en haut de la page -->
@@ -37,11 +37,11 @@
               </svg>
            </div>
             <!-- Troisième contributeur -->
-            <p>Aurélien Dévaud</p>
+            <p class="hover:text-cyan-400"><a href="mailto:aurelien.devaud@eduvaud.ch">Aurélien Dévaud</a></p>
           </li>
           <!-- Quatrième contributeur -->
           <li>
-            <p>Noa Chouriberry</p>
+          <p class="hover:text-cyan-400"><a href="mailto:noa.chouriberry@eduvaud.ch">Noa Chouriberry</a></p>
           </li>
         </ul>
       </div>
