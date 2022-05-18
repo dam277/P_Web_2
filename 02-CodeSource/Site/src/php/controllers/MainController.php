@@ -61,23 +61,6 @@ class MainController{
             $this->connectWithSessionId($_COOKIE["sessionId"]);
         }
 
-        //test if the session contains the list of books and if the redirection will not need them
-        if (isset($_SESSION["books"]) && ($this->action == "verifyLogIn" || $this->action == "goHome" || $this->action == "logOut" 
-        || $this->action == "logIn" || $this->action == "signUp" || $this->action == "contactUs" || $this->action == "userDetail" 
-        || $this->action == "addBook" || $this->action == "verifyBook" || $this->action == "bookDetail" || $this->action == "verifyAppreciation")) {
-            $_SESSION["books"] = null;
-        }
-
-        //test if the session contains the list of userInfos and if the redirection will not need them
-        if (isset($_SESSION["userInfos"]) && $this->action != "userDetail") {
-            $_SESSION["userInfos"] = null;
-        }
-
-        //test if the session contains the list of books and if the redirection will not need them
-        if (isset($_SESSION["allCategories"]) && ($this->action != "bookList" || $this->action != "addBook")) {
-            $_SESSION["allCategories"] = null;
-        }
-
         //find what action to do
         switch($this->action){
             case "verifyLogIn":
@@ -159,12 +142,21 @@ class MainController{
                     $controller = new BookListController(null);
                 }
                 $controller->show();
+
+                if (isset($_SESSION["books"]))
+                    $_SESSION["books"] = null;
+
+                if (isset($_SESSION["allCategories"]))
+                    $_SESSION["allCategories"] = null;
                 break;
 
             case "userDetail":
                 if (isset($_GET["userId"])){
                     $controller = new UserDetailController($_GET["userId"]);
                     $controller->show();
+
+                    if (isset($_SESSION["userInfos"]))
+                        $_SESSION["userInfos"] = null;
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
@@ -175,17 +167,42 @@ class MainController{
             case "addBook":
                 $controller = new AddBookController();
                 $controller->show();
+
+                if (isset($_SESSION["allCategories"]))
+                    $_SESSION["allCategories"] = null;
                 break;
 
             case "verifyBook":
                 if (isset($_POST["image"]) && isset($_POST["title"]) && isset($_POST["pageNumber"]) && isset($_POST["summary"])
                 && isset($_POST["authorName"]) && isset($_POST["editorName"]) && isset($_POST["editorYear"])
-                && isset($_POST["extract"]) && isset($_POST["userId"])){
-                    $controller = new VerifyBookAdditionController(
-                        new Book(null, $_POST["title"], $_POST["pageNumber"],
+                && isset($_POST["extract"]) && isset($_POST["userId"]) && isset($_POST["categories"])){
+
+                    if (count($_POST["categories"]) > 0){
+
+                        $bookToAdd = new Book(null, $_POST["title"], $_POST["pageNumber"],
                         $_POST["summary"],$_POST["authorName"],$_POST["editorName"],
-                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]));
-                    $controller->show();
+                        $_POST["editorYear"],$_POST["extract"],$_POST["userId"]);
+
+                        $controller = new VerifyBookAdditionController($bookToAdd);
+                        $validity = count($controller->errors) == 0;
+                        $controller->show();
+    
+                        if ($validity){
+                            //add categories
+                            foreach ($_POST["categories"] as $categoryId){
+                                Database::getDatabase()->linkBookToCategory($bookToAdd->id, $categoryId);
+                            }
+                        }
+    
+                        if (isset($_SESSION["allCategories"]))
+                            $_SESSION["allCategories"] = null;
+    
+                        if (isset($_SESSION["errors"]))
+                            $_SESSION["errors"] = null;
+                    }else{
+                        /////////////////////send to error page///////////////////////////
+                        header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
+                    }
                 }
                 else{
                     /////////////////////send to error page///////////////////////////

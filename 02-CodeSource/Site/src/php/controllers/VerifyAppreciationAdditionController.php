@@ -46,7 +46,11 @@ class VerifyAppreciationAdditionController{
     public function show(){
         //verify if valid
         if ($this->valid){
-
+            header("location: ./02-CodeSource/Site/src/php/views/bookInfos?bookId=".$this->bookToEvaluate->id.".php");
+        }
+        else{
+            /////////////////////send to error page///////////////////////////
+            header("location: ./02-CodeSource/Site/src/php/views/errors/error403.php");
         }
     }
 }

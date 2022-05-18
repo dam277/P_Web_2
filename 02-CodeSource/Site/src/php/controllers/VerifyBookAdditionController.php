@@ -41,8 +41,24 @@ class VerifyBookAdditionController{
      */
     public function show(){
         //verify if authorized
-        if ($_SESSION["permLevel"] > 0){
+        if ($_SESSION["user"]["permLevel"] > 0)
+        {
+            $_SESSION["allCategories"] = [];
 
+            $allCategories = Category::GetAllCategories();
+
+            foreach ($allCategories as $category){
+                $_SESSION["allCategories"][] = [$category->id, $category->name];
+            }
+            
+            $_SESSION["errors"] = $this->errors;
+
+            header("location: ./02-CodeSource/Site/src/php/views/addBook.php");
+        }
+        else
+        {
+            /////////////////////send to error page///////////////////////////
+            header("location: ./02-CodeSource/Site/src/php/views/errors/error403.php");
         }
     }
 }
