@@ -31,7 +31,7 @@ All the users connected into with an account can add a new book and an appreciat
 ## Elements to do
 ### [ ] Obligatory :
   - [ ] Main page :
-    - [ ] Explanations of the utility of the site
+    - [x] Explanations of the utility of the site
     - [ ] Display the 5 last added books
     - [ ] Back-end
     - [x] Front-end
