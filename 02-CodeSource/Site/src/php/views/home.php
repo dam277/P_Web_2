@@ -1,9 +1,6 @@
 <?php
 session_start();
 $bookList = $_SESSION["lastFiveBooks"];
-echo "<pre>";
-var_dump($bookList);
-echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +13,7 @@ echo "</pre>";
     <title>Accueil</title>
 </head>
 <!-- A ajouter dans la balise <body> : -->
-<body onload="onLoad('<?=$bookList?>', '<?=$bookList[1]?>', '<?=$bookList[2]?>', '<?=$bookList[3]?>', '<?=$bookList[4]?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
+<body onload="onLoad('<?=$bookList[0]?>', '<?=$bookList[1]?>', '<?=$bookList[2]?>', '<?=$bookList[3]?>', '<?=$bookList[4]?>')" class="duration-[0.5s] dark:text-gray-400 dark:bg-gray-700">
     <header>
         <?php
             include("../../include/header.php");
@@ -75,7 +72,7 @@ echo "</pre>";
                             <li>Auteur : <?= $bookList[0]["authorName"] ?></li>
                         </ul>
                         <div class="absolute h-full w-full bg-[#C4C4C4] opacity-70 z-10"></div>
-                        <a href="">
+                        <a href="../../../../../index.php?action=bookDetail&bookId=<?= $bookList[1]["id"] ?>">
                             <input type="button" class="mt-[55%] cursor-pointer hover:bg-opacity-[100%] rounded-full relative z-30 bg-[#656565] bg-opacity-[35%] border-solid border-2 border-black text-[10px] h-[25px] w-[50px] sm:text-[10px] sm:h-[25px] sm:w-[50px] md:text-[20px] md:h-[50px] md:w-[100px] lg:text-[30px] lg:h-[75px] lg:w-[150px]" value="DETAILS">
                         </a>
                     </div>
@@ -111,7 +108,11 @@ echo "</pre>";
             <div class="flex">
                 <aside class="bg-slate-300 w-[50%] dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                        Le site conciste à avoir une base de donnée contenant des ouvrages. <br>
+                        Le but est de pouvour les visualiser, en ajouter ou même donner son avis avec des étoiles <br> <br>
+                        Il est possible de se connecter et de s'inscrire <br>
+                        Ainsi que de se déconnecter et de voir son compte <br> <br>
+                        Dans la liste des livres, uniquement la recherche par catégorie à été implémentée par faute de temps et de cahier des charges
                     </p>
                 </aside>
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
@@ -120,14 +121,16 @@ echo "</pre>";
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
                 <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                    A propos du projet : <br>
+                    Projet ETML - Suisse <br>
+                    Créer un site web dynamique ayant pour but de stocker des ouvrages dans une base de données et gérer le site avec les différents droits admis.
                     </p>
                 </aside>
             </div>
             <div class="flex">
                 <aside class="w-[50%] bg-slate-300 dark:bg-slate-600 duration-[0.5s]">
                     <p>
-                        Texte
+                        Vous pouvez nous contacter à l'aide des nom dans le bas de page, ainsi qu'avec le bouton "Nous contacter" <br>
                     </p>
                 </aside>
                 <img class="w-[50%]" src="../../../resources/livre.jpg" alt="Image livre">
