@@ -26,12 +26,12 @@ class AddBookController{
         //verify if authorized
         if ($_SESSION["user"]["permLevel"] > 0)
         {
-            header("location: /02-CodeSource/Site/src/php/views/addBook.php");
+            header("location: ./02-CodeSource/Site/src/php/views/addBook.php");
         }
         else
         {
             /////////////////////send to error page///////////////////////////
-            header("location: /02-CodeSource/Site/src/php/views/errors/error403.php");
+            header("location: ./02-CodeSource/Site/src/php/views/errors/error403.php");
         }
     }
 }

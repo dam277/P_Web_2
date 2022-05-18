@@ -81,7 +81,7 @@ class MainController{
         //find what action to do
         switch($this->action){
             case "verifyLogIn":
-                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"])){
+                if (!empty($_POST["useNickname"]) && !empty($_POST["usePassword"])){
 
                     //Send the informations to the controller
                     $controller = new VerifyLogInController($_POST["useNickname"], $_POST["usePassword"]);
@@ -92,12 +92,13 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
             case "verifySignUp":
                 var_dump($_POST);
-                if (isset($_POST["useNickname"]) && isset($_POST["usePassword"]) && isset($_POST["usePasswordCheck"])){
+                if (!empty($_POST["useNickname"]) && !empty($_POST["usePassword"]) && !empty($_POST["usePasswordCheck"])){
 
                     //Send the informations to the controller
                     $controller = new VerifySignUpController($_POST["useNickname"], $_POST["usePassword"], $_POST["usePasswordCheck"]);
@@ -108,6 +109,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -144,7 +146,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
-                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
             
@@ -166,7 +168,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
-                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -187,7 +189,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
-                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
@@ -198,7 +200,7 @@ class MainController{
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
-                    header("location: /02-CodeSource/Site/src/php/views/errors/error404.php");
+                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 
