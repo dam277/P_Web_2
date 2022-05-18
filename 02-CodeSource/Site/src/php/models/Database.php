@@ -96,5 +96,20 @@ class Database {
 
         $req->closeCursor();
     }
+
+    /**
+     * Link a book and a category
+     * @param $bookId => Id of the book to link
+     * @param $categoryId => Id of the category to link
+     */
+    public function linkBookToCategory(int $bookId, int $categoryId){
+        queryPrepareExecute(
+            "INSERT INTO `t_categorize` (`idBook`, `idCategory`) VALUES (:bookId, :categoryId);", 
+            [
+                ["param" => "bookId", "value" => $bookId, "type" => PDO::PARAM_INT],
+                ["param" => "categoryId", "value" => $categoryId, "type" => PDO::PARAM_INT]
+            ]
+        );
+    }
 }
 ?>

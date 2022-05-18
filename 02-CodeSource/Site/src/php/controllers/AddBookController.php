@@ -6,6 +6,9 @@
     Description :   Controls the addition of a book
 */
 
+require_once(__DIR__ . "/../models/Book.php");
+require_once(__DIR__ . "/../models/Category.php");
+
 /**
  * Controls the addition of a book
  */
@@ -26,6 +29,14 @@ class AddBookController{
         //verify if authorized
         if ($_SESSION["user"]["permLevel"] > 0)
         {
+            $_SESSION["allCategories"] = [];
+
+            $allCategories = Category::GetAllCategories();
+
+            foreach ($allCategories as $category){
+                $_SESSION["allCategories"][] = [$category->id, $category->name];
+            }
+            
             header("location: ./02-CodeSource/Site/src/php/views/addBook.php");
         }
         else
