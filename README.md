@@ -81,7 +81,7 @@ All the users connected into with an account can add a new book and an appreciat
   - [ ] delete a book
   - [ ] Add a person
   - [ ] Add comment + apreciation for a book
-  - [ ] Smartphone view
+  - [x] Smartphone view
 
 ## Contributors
 - [Damien Loup](https://github.com/dam277)
