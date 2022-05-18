@@ -33,7 +33,7 @@ class VerifySignUpController{
 
         //test if the nickname of the user is valid
         if ($nickname != null){
-            if (count($nickname) >= 3){
+            if (strlen($nickname) >= 3){
                 //Create the user if the passwords are true
                 if ($password == $checkPassword)
                 {
@@ -47,13 +47,13 @@ class VerifySignUpController{
                         $this->valid = true;
                     }
                 }else{
-                    $errors[] = "usePasswordCheck" => "Les mot-de-passes ne sont pas égaux !";
+                    $this->errors["usePasswordCheck"] = "Les mot-de-passes ne sont pas égaux !";
                 }
             }else{
-                $errors[] = "useNickname" => "Le nom d'utilisateur doit avoir au moin 3 charactères !";
+                $this->errors["useNickname"] = "Le nom d'utilisateur doit avoir au moin 3 charactères !";
             }
         }else{
-            $errors[] = "useNickname" => "Le nom ne doit pas être null !";
+            $this->errors["useNickname"] = "Le nom ne doit pas être null !";
         }
     }
 
