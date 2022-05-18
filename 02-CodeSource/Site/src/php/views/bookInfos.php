@@ -5,6 +5,10 @@ if($_SESSION["isConnected"] == false)
     header("location: errors/error403.php");
 }
 $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
+
+// echo "<pre>";
+// var_dump($_SESSION);
+// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -198,7 +202,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
         <div class="grid place-items-center mt-[20px]">
             <p class="font-bold text-[15px] lg:text-[20px] md:text-[25px] lg:text-[28px] xl:text-[28px]">Donnez une note à cet ouvrage</p>
             <!-- FORMULAIRE D'AVIS SUR UN ARTICLE -->
-            <form method="POST" action="checkNote.php">
+            <form method="POST" action="../../../../../index.php?action=verifyAppreciation&bookId=<?= $_SESSION["bookToShow"]["id"] ?>">
                 <div class="flex rotate-180">
                     <?php
                     const MARGINLEFT = 1;                //Variable Créant la marge automatique entre les étoiles
@@ -213,7 +217,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                         else if($i == 1)
                         {
                         ?>
-                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
+                            <input class="peer invisible"  type="radio" id="star<?=$i?>" name="rate" value="<?=$i?>">
                             <label onclick="" class="mr-[-13px] bg-[url('../../../resources/rateStarNotChecked.jpg')] peer-checked:bg-[url('../../../resources/rateStarChecked.jpg')] hover:bg-[url('../../../resources/rateStarChecked.jpg')] w-[50px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
@@ -221,7 +225,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                         else if(!strpos($i, "."))
                         {
                         ?>
-                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
+                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="<?=$i?>">
                             <label onclick="" class="mr-[-13px] bg-[url('../../../resources/rateStarNotCheckedLeft.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedLeft.jpg')] hover:bg-[url('../../../resources/rateStarCheckedLeft.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i?>]" for="star<?=$i?>"></label>
                         <?php
                         }
@@ -229,7 +233,7 @@ $author = explode(" ", $_SESSION["bookToShow"]["authorName"]);
                         else
                         {
                         ?>
-                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="star<?=$i?>">
+                            <input class="peer invisible" type="radio" id="star<?=$i?>" name="rate" value="<?=$i?>">
                             <label onclick="" class="bg-[url('../../../resources/rateStarNotCheckedRight.jpg')] peer-checked:bg-[url('../../../resources/rateStarCheckedRight.jpg')] hover:bg-[url('../../../resources/rateStarCheckedRight.jpg')] w-[25px] h-[50px] cursor-pointer ml-[<?=MARGINLEFT*$i - $i?>]" for="star<?=$i?>"></label>
                         <?php
                         }

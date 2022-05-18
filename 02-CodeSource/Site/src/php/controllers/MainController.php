@@ -198,13 +198,13 @@ class MainController{
                 break;
 
             case "verifyAppreciation":
-                if (isset($_GET["evaluation"]) && isset($_GET["bookId"])){
-                    $controller = new VerifyAppreciationAdditionController($_GET["bookId"], $_GET["evaluation"]);
+                if (isset($_POST["rate"]) && isset($_GET["bookId"])){
+                    $controller = new VerifyAppreciationAdditionController($_GET["bookId"], $_POST["rate"]);
                     $controller->show();
                 }
                 else{
                     /////////////////////send to error page///////////////////////////
-                    header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
+                    //header("location: ./02-CodeSource/Site/src/php/views/errors/error404.php");
                 }
                 break;
 

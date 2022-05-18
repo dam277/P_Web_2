@@ -29,9 +29,9 @@ class VerifyAppreciationAdditionController{
 
         if (($evaluation == 1 || $evaluation == 1.5 || $evaluation == 2 
             || $evaluation == 2.5 || $evaluation == 3 || $evaluation == 3.5 
-            || $evaluation == 4 || $evaluation == 4.5 || $evaluation == 5) && $this->bookToEvaluate && $_SESSION["permLevel"] > 0){
+            || $evaluation == 4 || $evaluation == 4.5 || $evaluation == 5) && $this->bookToEvaluate && $_SESSION["user"]["permLevel"] > 0){
             $this->valid = true;
-            $newAppreciation = new Appreciation(null, $evaluation, $_SESSION["userId"], $bookId);
+            $newAppreciation = new Appreciation(null, $evaluation, $_SESSION["user"]["id"], $bookId);
             $newAppreciation->insert();
         } else{
             $this->valid = false;
@@ -46,7 +46,7 @@ class VerifyAppreciationAdditionController{
     public function show(){
         //verify if valid
         if ($this->valid){
-            header("location: ./02-CodeSource/Site/src/php/views/bookInfos?bookId=".$this->bookToEvaluate->id.".php");
+            header("location: ./02-CodeSource/Site/src/php/views/bookInfos.php?bookId=".$this->bookToEvaluate->id);
         }
         else{
             /////////////////////send to error page///////////////////////////
