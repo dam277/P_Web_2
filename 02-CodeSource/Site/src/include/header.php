@@ -106,7 +106,7 @@
             ?>
         </ul>
     </div>
-    <h1 class="order-1 text-[36.8px] mb-[8px] mr-[20px] float-right">RS</h1>
+    <h1 class="order-1 text-[36.8px] mb-[8px] mr-[20px] float-right">PL</h1>
 </nav>
 
 <script>
